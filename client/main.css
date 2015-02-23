@@ -7,8 +7,16 @@ html {
   src: url('LIGHTWEIGHT-SERIF.ttf');
 }
 
-h1, h2, h3, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
+h1, h2, h3, h4, h5, h6, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
 
+h1, h2 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3 {
+	color: white;
+}
 *{
 	box-sizing: border-box;
 }
@@ -25,6 +33,22 @@ h1, h2, h3, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
 	margin: auto;
 }
 
+.large-6 large-centered columns {
+	margin: 275px; 
+}
+
+.banner {
+	padding: 0px;
+	margin-bottom: 0px;
+/*	height: 50%;
+	width: 50%;*/
+	float: left;
+}
+
+.top-bar-section ul li {
+	background: white;
+}
+
 
 
 .main-header       { background-color: #fff; border-width:3px; border-style:solid; }
@@ -35,7 +59,7 @@ h1, h2, h3, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
 
 
 .main-wrapper{
-	height:100%;
+	height:auto;
 	margin: auto;
 }
 
@@ -68,3 +92,4 @@ h1, h2, h3, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
 	padding: 5px 15px;
 	border-radius: 5px;
 }
+

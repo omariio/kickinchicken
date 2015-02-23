@@ -1,0 +1,23 @@
+<template name="new">
+  {{#if isInRole 'admin'}}
+
+    <div> Item Name </div>
+    <input type="text" id="new-item-name"/>
+    <div> Item Description </div>
+    <textarea id="new-item-description"></textarea>
+    <div> Price per unit (numbers and a single decimal only, no dollar sign) </div>
+    <div> Ex: "5.25", "3.00". Don't use quotation marks </div>
+    <input type="text" id="new-item-price"/>
+    <div> Picture </div>
+    <input type="file" id="new-item-pic"/>
+    <div> Group </div>
+    <select id="new-item-group">
+      <option value="all"> all </option>
+    </select>
+    <div>
+      <input id="new-item-submit" type="button" value="submit"/>
+    </div>
+  {{else}}
+    You lost, punk?
+  {{/if}}
+</template>

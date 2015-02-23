@@ -1,6 +1,11 @@
 <template name="menu">
-  <div> Menu goes here </div>
-  {{#if isAdmin}}
-    Add item
+  <div> Items: </div>
+  {{#each items}}
+    <div>
+      {{name}}
+    </div>
+  {{/each}}
+  {{#if isInRole 'admin'}}
+    <a href="/new"> New Item </a>
   {{/if}}
 </template>

@@ -17,6 +17,11 @@ h1, h2 {
 h3 {
 	color: white;
 }
+
+#fix {
+	padding-right: 293px;
+}
+
 *{
 	box-sizing: border-box;
 }
@@ -64,7 +69,9 @@ h3 {
 }
 
 .main-header {
-	margin: 15px;
+	margin: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
 	min-height: 75px;
 }
 

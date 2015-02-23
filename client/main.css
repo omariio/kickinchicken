@@ -22,6 +22,10 @@ h3 {
 	padding-right: 293px;
 }
 
+.column, .columns {
+	float: right;
+}
+
 *{
 	box-sizing: border-box;
 }
@@ -42,12 +46,20 @@ h3 {
 	margin: 275px; 
 }
 
-.banner {
+.banner-left {
 	padding: 0px;
 	margin-bottom: 0px;
 /*	height: 50%;
 	width: 50%;*/
 	float: left;
+}
+
+.banner-right {
+	padding: 0px;
+	margin-bottom: 0px;
+/*	height: 50%;
+	width: 50%;*/
+	float: right;
 }
 
 .top-bar-section ul li {

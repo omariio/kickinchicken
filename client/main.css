@@ -1,1 +1,40 @@
 /* CSS declarations go here */
+
+.main-header       { background-color: #fff; }
+.main-logo         { background-color: #8d8d8d; }
+.main-nav li       { background-color: #3f8abf; }
+
+.main-wrapper{
+	height:100%;
+	margin: auto;
+}
+
+.main-header {
+	padding: 15px;
+	min-height: 75px;
+}
+
+.main-nav li: hover{
+	background: #8d8d8d;
+}
+
+.main-logo,
+.main-nav,	
+.main-nav li {
+	display: inline-block;
+}
+
+.main-nav{
+	float:right;
+
+}
+
+.main-logo a, 
+.main-nav a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 15px;
+	border-radius: 5px;
+}

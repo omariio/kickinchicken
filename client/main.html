@@ -3,15 +3,20 @@
 </head>
 
 <template name="layout">
-  <div>
-    {{> loginButtons}}
-  </div>
-  <div>
-    <a href="/"> Curious? </a>
-  </div>
-  <div>
-    <a href="/menu"> Hungry? </a>
-  </div>
+  <div class="main-wrapper">
+    <header class="main-header">
+      <div class="main-logo"><img src="logo_KC_webbannerC.svg" id="banner" width='100%'></div>
+        <ul class="main-nav">
+          <li><a href="/"> Curious? </a></li>
+          <li><a href="/menu"> Hungry? </a></li>
+          <li>{{> loginButtons}}</li>
+        </ul>
+    </header>
 
-	{{> yield}}
+      <div>
+       <!--  {{> loginButtons}} -->
+      </div>
+
+  	{{> yield}}
+  </div>
 </template>

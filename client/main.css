@@ -26,6 +26,12 @@ h3 {
 	float: right;
 }
 
+.large-4 .small-12 .columns {
+	background-color: #fff; border-width:3px; border-style:solid;	
+	border-radius: 5px;
+}
+
+
 *{
 	box-sizing: border-box;
 }

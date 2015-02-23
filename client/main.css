@@ -1,8 +1,15 @@
 /* CSS declarations go here */
 
-.main-header       { background-color: #fff; }
-.main-logo         { background-color: #8d8d8d; }
+*{
+	box-sizing: border-box;
+}
+
+.main-header       { background-color: #fff; border-width:3px; border-style:solid; }
+.main-logo         { background-color: #fff; }
 .main-nav li       { background-color: #3f8abf; }
+
+
+
 
 .main-wrapper{
 	height:100%;

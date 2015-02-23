@@ -1,11 +1,34 @@
-/* CSS declarations go here */
+html {
+	font-family: LIGHTWEIGHT-SERIF.ttf;
+}
+
+@font-face {
+  font-family: 'LIGHTWEIGHT-SERIF';
+  src: url('LIGHTWEIGHT-SERIF.ttf');
+}
+
+h1, h2, h3, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
 
 *{
 	box-sizing: border-box;
 }
 
+.top-bar-section {
+	background-color: #fff; border-width:3px; border-style:solid;	
+	display: block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 15px;
+	border-radius: 5px;
+	/*height:100%;*/
+	margin: auto;
+}
+
+
+
 .main-header       { background-color: #fff; border-width:3px; border-style:solid; }
-.main-logo         { background-color: #fff; }
+.main-logo         { background-color: #fff; float: left; }
 .main-nav li       { background-color: #3f8abf; }
 
 

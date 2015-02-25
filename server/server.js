@@ -20,7 +20,14 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
     Items.insert(item);
+  },
+  editItem: function(item, _id){
+    var user = Meteor.user();
+    if (!user || !user.roles) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+    Items.remove({_id: _id});
+    Items.insert(item);
   }
-
 });
 

@@ -7,5 +7,6 @@ Template.new.events({
       group: document.getElementById("new-item-group").value
     }
     Meteor.call("newItem", item);
+    Router.go("/menu");
   }
 })

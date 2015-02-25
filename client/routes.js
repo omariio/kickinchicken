@@ -10,6 +10,10 @@ Router.route("/new", function () {
   this.render("new");
 });
 
+Router.route("/edit/:_id", function () {
+  this.render("edit");
+})
+
 Router.configure({
   layoutTemplate: 'layout'
 });

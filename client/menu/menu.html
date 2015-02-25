@@ -14,6 +14,21 @@
   {{#if isInRole 'admin'}}
     <a href="/new"> New Item </a>
   {{/if}}
+
+  <!-- The auto-updating cart -->
+  <div>
+    {{#each cartItems}}
+      <div>
+        {{cartQuantity}} x {{name}}
+      </div>
+    {{/each}}
+    <div>
+      Total: ${{total}}
+    </div>
+    <div>
+      With Tax: ${{totalWithTax}}
+    </div>
+  </div>
 </template>
 
 <!--

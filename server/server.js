@@ -11,7 +11,7 @@ Accounts.onCreateUser(function(options, user) {
 
 Meteor.publish(null, function (){ 
   return Meteor.roles.find({});
-})
+});
 
 Meteor.publish("items", function () {
   return Items.find();

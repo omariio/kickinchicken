@@ -10,12 +10,25 @@ Template.menu.helpers({
       return q;
     else
       return 0;
+  },
+  cartItems: function(){
+    var cart = Session.get("cart");
+    // _.forEach(Session.get("cart"), function(item){
+    //   //var id = item.id.replace("item-", "");
+    //   console.log(item);
+
+    // })
+    for (var key in cart) {
+      var id = key.replace("item-", "");
+      console.log(id);
+    }
+
+    return [];
   }
 });
 
 Template.menu.events({
   'click .up': function(event){
-    //var id = event.target.id.replace("item-", "");
     var id = event.target.id;
     var cart = Session.get("cart");
     if(!cart[id]){

@@ -14,6 +14,13 @@
   {{#if isInRole 'admin'}}
     <a href="/new"> New Item </a>
   {{/if}}
+
+  <!-- The auto-updating cart -->
+  <div>
+    {{#each cartItems}}
+
+    {{/each}}
+  </div>
 </template>
 
 <!--

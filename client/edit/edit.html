@@ -1,0 +1,22 @@
+<template name="edit">
+  {{#if isInRole 'admin'}}
+    <div> Item Name</div>
+    <input type="text" value="{{item.name}}" id="edit-item-name"/>
+    <div> Item Description </div>
+    <textarea id="edit-item-description"> {{item.description}} </textarea>
+    <div> Price per unit (numbers and a single decimal only, no dollar sign) </div>
+    <div> Ex: "5.25", "3.00". Don't use quotation marks </div>
+    <input type="text" value="{{item.price}}" id="edit-item-price"/>
+    <div> Picture </div>
+    <input type="file" id="edit-item-pic"/>
+    <div> Group </div>
+    <select value="{{item.group}}" id="edit-item-group">
+      <option value="all"> all </option>
+    </select>
+    <div>
+      <input id="edit-item-submit" type="button" value="submit"/>
+    </div>
+  {{else}}
+    You lost, punk?
+  {{/if}}
+</template>

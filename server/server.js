@@ -2,8 +2,12 @@ Meteor.startup(function () {
     // code to run on server at startup
 });
 
-// The first admin account must be hard-coded.
-Roles.addUsersToRoles("E4XwwALmQyycdN5u7" , ['admin']);
+Accounts.onCreateUser(function(options, user) {
+  if(Meteor.users.find().fetch().length == 0){
+    user.roles = ['admin'];
+  }
+  return user;
+});
 
 Meteor.publish(null, function (){ 
   return Meteor.roles.find({});

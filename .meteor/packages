@@ -6,8 +6,9 @@
 
 meteor-platform
 iron:router
-accounts-ui
 accounts-password
 alanning:roles
 stevezhu:lodash
 ewall:foundation
+accounts-ui-unstyled
+insecure

@@ -5,18 +5,21 @@
 <template name="layout">
   <div class="main-wrapper">
     <header class="main-header">
-      <div class="main-logo"><img src="logo_KC_webbannerC.svg" id="banner" width='100%' type="image/svg+xml"></div>
-        <ul class="main-nav">
-          <li><a href="/"> Curious? </a></li>
-          <li><a href="/menu"> Hungry? </a></li>
-          <li>{{> loginButtons}}</li>
-        </ul>
+      <section class="top-bar-section">
+        <div class="row">
+          <div class="main-logo"><img src="logo_KC_banner.png" id="banner-left" width="50%" height="50%"></div>
+          <h1 id="fix">Kickin Chicken</h1>
+          <h2 id="fix">W - F 9PM - 2AM DELIVERY ONLY</h2>
+          <div class="large-5 large-centered columns">
+            <ul class="button-group even-3">
+              <li><a href="#" class="button"><h3>Home</h3></a></li>
+              <li><a href="#" class="button"><h3>Hungry?</h3></a></li>
+              <li><a href="#" class="button"><h3>Contact</h3></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </header>
-
-      <div>
-       <!--  {{> loginButtons}} -->
-      </div>
-
-  	{{> yield}}
+    {{> yield}}
   </div>
 </template>

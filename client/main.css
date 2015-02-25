@@ -1,20 +1,92 @@
-/* CSS declarations go here */
+html {
+	font-family: LIGHTWEIGHT-SERIF.ttf;
+}
+
+@font-face {
+  font-family: 'LIGHTWEIGHT-SERIF';
+  src: url('LIGHTWEIGHT-SERIF.ttf');
+}
+
+h1, h2, h3, h4, h5, h6, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
+
+h1, h2 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3 {
+	color: white;
+}
+
+#fix {
+	padding-right: 293px;
+}
+
+.column, .columns {
+	float: right;
+}
+
+.large-4 .small-12 .columns {
+	background-color: #fff; border-width:3px; border-style:solid;	
+	border-radius: 5px;
+}
+
 
 *{
 	box-sizing: border-box;
 }
 
+.top-bar-section {
+	background-color: #fff; border-width:3px; border-style:solid;	
+	display: block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 15px;
+	border-radius: 5px;
+	/*height:100%;*/
+	margin: auto;
+}
+
+.large-6 large-centered columns {
+	margin: 275px; 
+}
+
+.banner-left {
+	padding: 0px;
+	margin-bottom: 0px;
+/*	height: 50%;
+	width: 50%;*/
+	float: left;
+}
+
+.banner-right {
+	padding: 0px;
+	margin-bottom: 0px;
+/*	height: 50%;
+	width: 50%;*/
+	float: right;
+}
+
+.top-bar-section ul li {
+	background: white;
+}
+
+
+
 .main-header       { background-color: #fff; border-width:3px; border-style:solid; }
-.main-logo         { background-color: #fff; }
+.main-logo         { background-color: #fff; float: left;}
 .main-nav li       { background-color: #3f8abf; }
 
 .main-wrapper{
-	height:100%;
+	height:auto;
 	margin: auto;
 }
 
 .main-header {
-	padding: 15px;
+	margin: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
 	min-height: 75px;
 }
 
@@ -42,3 +114,4 @@
 	padding: 5px 15px;
 	border-radius: 5px;
 }
+

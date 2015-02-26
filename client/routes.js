@@ -16,6 +16,10 @@ Router.route("/edit/:_id", function () {
 
 Router.route("/admin", function () {
   this.render("admin");
+});
+
+Router.route("/contact", function () {
+  this.render("contact");
 })
 
 Router.configure({

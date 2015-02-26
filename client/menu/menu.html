@@ -1,37 +1,4 @@
 <template name="menu">
-  <div> Items: </div>
-  {{#each items}}
-    {{#if isInRole 'admin'}}
-      <a href="/edit/{{_id}}"> Edit Item </a>
-    {{/if}}
-    <div>
-      <div id="item-{{_id}}" class="up" style="float:left;"></div>
-      <div> {{quantity _id}} </div>
-      <div id="item-{{_id}}" class="down" style="float:left;"></div>
-      {{name}}
-    </div>
-  {{/each}}
-  {{#if isInRole 'admin'}}
-    <a href="/new"> New Item </a>
-  {{/if}}
-
-  <!-- The auto-updating cart -->
-  <div>
-    {{#each cartItems}}
-      <div>
-        {{cartQuantity}} x {{name}}
-      </div>
-    {{/each}}
-    <div>
-      Total: ${{total}}
-    </div>
-    <div>
-      With Tax: ${{totalWithTax}}
-    </div>
-  </div>
-</template>
-
-<!--
   <div class="row">
         <div class="large-12 columns">
           <div class="row">
@@ -43,7 +10,20 @@
      
               <a href="#">
               <div class="panel callout radius">
-                <h6>04  items in your cart</h6>
+                  <!-- The auto-updating cart -->
+              <div>
+                {{#each cartItems}}
+                  <div>
+                    {{cartQuantity}} x {{name}}
+                  </div>
+                {{/each}}
+                <div>
+                  Total: ${{total}}
+                </div>
+                <div>
+                  With Tax: ${{totalWithTax}}
+                </div>
+              </div>
               </div>
               </a>
                 </div>
@@ -52,14 +32,30 @@
             <div class="large-8 columns">
               <div class="row">
      
-                <div class="large-4 small-6 columns">
+<!--                     <h5>Item Nasdasame</h5>
+                    <div> Iteaasdms: </div> -->
+                    {{#each items}}
+                      {{#if isInRole 'admin'}}
+                        <a href="/edit/{{_id}}"> Edit Item </a>
+                      {{/if}}
+                      <!-- <div> -->
+                                      <div class="large-4 small-6 columns">
                   <img src="lateNightMeal.png">
      
                   <div class="panel">
-                    <h5>Item Name</h5>
-                    <h6 class="subheader">$000.00</h6>
+
+                        <div id="item-{{_id}}" class="up"></div>
+                        <div><h4>{{quantity _id}} </h4></div>
+                        <div id="item-{{_id}}" class="down"></div>
+                        <div class="itemName"><h3>{{name}}</h3></div>
+
                   </div>
                 </div>
+                      <!-- </div> -->
+                    {{/each}}
+                    {{#if isInRole 'admin'}}
+                      <a href="/new"> New Item </a>
+                    {{/if}}
      
                 <div class="large-4 small-6 columns">
                   <img src="chicken.jpg">
@@ -132,4 +128,4 @@
           </footer> 
         </div>
       </div>
--->
+</template>

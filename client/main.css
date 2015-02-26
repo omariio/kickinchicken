@@ -1,13 +1,18 @@
-html {
+/*html {
 	font-family: LIGHTWEIGHT-SERIF.ttf;
-}
+}*/
 
 @font-face {
   font-family: 'LIGHTWEIGHT-SERIF';
   src: url('LIGHTWEIGHT-SERIF.ttf');
 }
 
-h1, h2, h3, h4, h5, h6, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
+html, h1, h2, h3, h4, h5, h6, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif; }
+
+.itemName {
+	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;	
+	float: center;
+}
 
 h1, h2 {
 	margin-left: auto;
@@ -25,6 +30,7 @@ h3 {
 	border-right: 15px solid transparent;
 	
 	border-bottom: 15px solid black;
+	float:right;
 }
 
 .down {
@@ -34,6 +40,7 @@ h3 {
 	border-right: 15px solid transparent;
 	
 	border-top: 15px solid #f00;
+	float:right;
 }
 
 #fix {

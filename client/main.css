@@ -23,6 +23,13 @@ h3 {
 	color: white;
 }
 
+.plusplus {
+	float: right;
+	cursor: pointer;
+
+}
+
+
 .up {
 	width: 0; 
 	height: 0; 

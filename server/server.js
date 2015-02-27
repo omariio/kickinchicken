@@ -11,6 +11,7 @@ Accounts.onCreateUser(function(options, user) {
 
 process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:@smtp.gmail.com:465/"; 
 
+
 Meteor.publish(null, function (){ 
   return Meteor.roles.find({});
 });
@@ -39,8 +40,8 @@ Meteor.methods({
     Email.send({
       from: "omariiobleepbloop@gmail.com",
       to: "jamesshedel@gmail.com",
-      subject: "Meteor Can Send Emails via Gmail",
-      text: order,
+      subject: "New Order",
+      text: JSON.stringify(order),
     });
   },
 });

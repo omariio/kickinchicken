@@ -1,0 +1,91 @@
+<head>
+<style>
+	
+
+	span { display: block; margin: 0 0 3px; font-size: 1.2em; font-weight: bold; }
+	input { width: 200px; border: 1px solid #000; padding: 5px; }
+	
+	/* This is the normal block input  */
+	label { width: 200px; float: left; margin: 0 20px 0 0; }
+	/* This is for the big block input */
+	label.large {
+		width: 420px; 
+		float: center; 
+		margin: 0 20px 0 0;
+	}
+
+	label.city {
+		width: 200px; 
+		float: left; 
+		margin: 0 20px 0 0;
+	}
+
+	label.zip {
+		width: 60px; 
+		float: left; 
+		margin: 0 20px 0 0;
+	}
+
+	label.phone {
+		width: 120px; 
+		float: left; 
+		margin: 0 20px 0 0;
+	}
+
+	div.padded {
+	  /* padding-top: 10px;  */
+      padding-right: 0px;  
+      /* padding-bottom: 0.25in;  */
+      padding-left: 5em;
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;  
+	}
+
+</style>
+</head>
+
+<template name="checkout">
+ 
+	<h1 align="center"> Tell us where to go. </h1>
+	<form id="submit-order">
+		<div class="padded"> 
+			<label for="firstname">
+				<input type="text" id="firstname" placeholder="First Name" />
+			</label>
+			<label for="lastname">
+				<input type="text" id="lastname" placeholder="Last Name" />
+			</label>
+		</div>
+
+		<div class="padded">
+			<label class="large" for="address">
+				<input type="text" id="address" placeholder="1234 Main Street" />
+			</label>
+		</div>
+
+		<div class="padded">
+			<label class="city" for="city">
+				<input type="text" id="city" placeholder="Santa Cruz" />
+			</label>
+			<label class="zip" for="zip">
+				<input type="text" id="zip" placeholder="95060" />
+			</label>
+			<label class="phone" for="phone">
+				<input type="tel" id="phone" placeholder="(222)-222-2222" />
+			</label>
+		</div>
+
+		<div class="padded">
+			<label class="large" for="instr">
+				<input type="text" id="instr" placeholder="Special instructions?" />
+			</label>
+		</div>
+
+		<div class="padded">
+			<label align="center" class="large" for="sub">
+				<input type="submit" id="sub" value="Submit Order"/>
+			</label>
+		</div>
+	</form>
+</template>

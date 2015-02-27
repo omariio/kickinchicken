@@ -20,7 +20,11 @@ Router.route("/admin", function () {
 
 Router.route("/contact", function () {
   this.render("contact");
-})
+});
+
+Router.route("/checkout", function() {
+	this.render("checkout");
+});
 
 Router.configure({
   layoutTemplate: 'layout'

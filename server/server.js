@@ -32,6 +32,9 @@ Meteor.methods({
     }
     Items.remove({_id: _id});
     Items.insert(item);
-  }
+  },
+  submitOrder: function(order) {
+
+  },
 });
 

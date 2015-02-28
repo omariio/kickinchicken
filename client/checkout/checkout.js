@@ -17,7 +17,11 @@ Template.checkout.helpers({
   totalWithTax: function() {
     var total = Template.menu.__helpers[" total"]()
     return (total * 1.075).toFixed(2);
-  }
+  },
+
+  totalItem: function(quantity, price) {
+  	return (quantity * price);
+  },
 });
 
 Template.checkout.events({
@@ -33,6 +37,7 @@ Template.checkout.events({
 			instr:document.getElementById("instr").value,
 			phone:document.getElementById("phone").value,	
 		};
+		Session.set("cart",[]);
 		Meteor.call("submitOrder", order);
 	}
 });

@@ -37,11 +37,18 @@ Meteor.methods({
     Items.insert(item);
   },
   submitOrder: function(order) {
+    var text = "Name: " + order.firstname + " " + order.lastname + "\n" + "Location: " +
+     order.address + " " + order.city + ", " + order.zip + "\n" + "Phone: " + order.phone + 
+     "\n" + "Instructions: " + order.instr + "\nOrder: \n";
+    var cartcontents = "";
+    for (var i = 0; i < order.cart.length; i++ ) {
+      cartcontents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
+    }
     Email.send({
       from: "omariiobleepbloop@gmail.com",
-      to: "jamesshedel@gmail.com",
+      to: "omariiobleepbloop@gmail.com",
       subject: "New Order",
-      text: JSON.stringify(order),
+      text: text + cartcontents
     });
   },
 });

@@ -21,13 +21,13 @@
 
 		<div class="checkout-padded">
 			<label class="city" for="city">
-				<input type="text" id="city" placeholder="Santa Cruz" required/>
+				<input type="text" id="city" placeholder="City" required/>
 			</label>
 			<label class="zip" for="zip">
-				<input type="text" id="zip" placeholder="95060" required pattern="[0-9]{5}"/>
+				<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
 			</label>
 			<label class="phone" for="phone">
-				<input type="tel" id="phone" placeholder="(222)-222-2222" required/>
+				<input type="tel" id="phone" placeholder="Phone Number" required/>
 			</label>
 		</div>
 
@@ -38,11 +38,15 @@
 		</div>
 
 		<div class="checkout-padded">
-			{{#each cartItems}}
-					<p style="margin:0px"> {{cartQuantity}} x {{name}} </p>
-			{{/each}}
-     			 <p> Sub total: ${{total}} </p>
-   				<h4> Total: ${{totalWithTax}} </h4>
+				{{#each cartItems}}
+					<div style="width: 420px">
+						<p style="float: left; margin-bottom: 0px"> {{cartQuantity}} x {{name}} </p>
+						<p style="float: right; margin-bottom: 0px"> {{totalItem cartQuantity price}} </p>
+					</div>
+					<div style="clear: both;"></div>
+				{{/each}}
+     		<p style="margin-bottom: 0px"> Sub total: ${{total}} </p>
+   			<h4> Total: ${{totalWithTax}} </h4>
 		</div>
 
 		<br>

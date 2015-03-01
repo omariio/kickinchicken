@@ -41,9 +41,11 @@
                   <!-- The auto-updating cart -->
               <div>
                 {{#each cartItems}}
+                  {{#if cartQuantity}}
                   <div>
                     <h4>{{cartQuantity}} x {{name}}</h4>
                   </div>
+                  {{/if}}
                 {{/each}}
                 <div>
                   <h3>Total: ${{total}}</h3>

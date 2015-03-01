@@ -3,7 +3,7 @@
 <template name="checkout">
  
 	<h1 align="center"> Tell us where to go. </h1>
-	<form data-abide id="submit-order">
+	<form data-abide id="submit-order" action="/submitted">
 		<div class="checkout-padded"> 
 			<label class="checkout" for="firstname">
 				<input type="text" id="firstname" placeholder="First Name" required/>
@@ -39,13 +39,16 @@
 
 		<div class="checkout-padded">
 				{{#each cartItems}}
+					{{#if cartQuantity}}
 					<div style="width: 420px">
 						<p style="float: left; margin-bottom: 0px"> {{cartQuantity}} x {{name}} </p>
 						<p style="float: right; margin-bottom: 0px"> {{totalItem cartQuantity price}} </p>
 					</div>
+					{{/if}}
 					<div style="clear: both;"></div>
 				{{/each}}
      		<p style="margin-bottom: 0px"> Sub total: ${{total}} </p>
+     		<p style="margin-bottom: 0px"> Tax: ${{tax}} </p>
    			<h4> Total: ${{totalWithTax}} </h4>
 		</div>
 

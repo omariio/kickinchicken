@@ -26,6 +26,10 @@ Router.route("/checkout", function() {
 	this.render("checkout");
 });
 
+Router.route("/submitted", function() {
+	this.render("submitted");
+});
+
 Router.configure({
   layoutTemplate: 'layout'
 });

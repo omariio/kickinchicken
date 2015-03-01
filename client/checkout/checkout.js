@@ -19,6 +19,12 @@ Template.checkout.helpers({
     return (total * 1.075).toFixed(2);
   },
 
+  tax: function() {
+  	var total = Template.menu.__helpers[" total"]()
+  	var totalTax = Template.menu.__helpers[" totalWithTax"]()
+  	return (totalTax - total).toFixed(2);
+  },
+
   totalItem: function(quantity, price) {
   	return (quantity * price);
   },
@@ -38,6 +44,12 @@ Template.checkout.events({
 			phone:document.getElementById("phone").value,	
 		};
 		Session.set("cart",[]);
-		Meteor.call("submitOrder", order);
+		Meteor.call("submitOrder", order, function (error, result) {
+			if (error) {
+        Session.set("success", "false");
+			} else {
+				Session.set("success", "true");
+			}
+		});
 	}
 });

@@ -12,12 +12,14 @@ html, h1, h2, h3, h4, h5, h6, p { font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', s
 .itemName {
 	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;	
 	float: center;
+    text-align: center;
 }
 
 h1, h2 {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 
 h3 {
 	color: white;
@@ -29,25 +31,24 @@ h3 {
 
 }
 
-
 .up {
-	width: 0; 
-	height: 0; 
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	
-	border-bottom: 15px solid black;
-	float:right;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 70px;
+    height: 61px;
+    background: url(1.svg);
+    background-size: 70px 61px;
+    float: right;
 }
 
 .down {
-	width: 0; 
-	height: 0; 
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	
-	border-top: 15px solid #f00;
-	float:right;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 70px;
+    height: 61px;
+    background: url(2.svg);
+    background-size: 70px 61px;
+    float:left;
 }
 
 #fix {
@@ -64,8 +65,9 @@ h3 {
 }
 
 .panel {
-	background-color: #fff; border-width:3px; border-style:solid;	
+	background-color: #fff; border-width:2px; border-style:solid;	
 	border-radius: 5px;
+    margin: 5px;
 }
 
 
@@ -92,8 +94,6 @@ h3 {
 .banner-left {
 	padding: 0px;
 	margin-bottom: 0px;
-/*	height: 50%;
-	width: 50%;*/
 	float: left;
 }
 
@@ -152,3 +152,33 @@ h3 {
 	border-radius: 5px;
 }
 
+.fbwrapper{
+	margin: auto;
+	border-width: 3px;
+	display: inline-block;
+	padding: 5 15px;
+	border-radius: 5px;
+}
+
+.about{
+	float:right;
+	margin: 150px;
+	margin-left:14%;
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+}
+
+.between{
+	text-align: center;
+	float:left;
+
+	/*figure out better solution*/
+	padding-left:25px; 
+}
+#navbtn{
+	display: inline-block;
+}
+.row, h1{
+	margin-bottom: 0rem;
+}

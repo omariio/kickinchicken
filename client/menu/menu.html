@@ -33,10 +33,9 @@
         <div class="large-12 columns">
           <div class="row">
             <div class="large-4 small-12 columns">
-              <img src="shopCart.jpg">
               <div class="hide-for-small panel">
                 <h3>Cart:</h3>
-              <a href="#">
+              
               <div class="panel callout radius">
                   <!-- The auto-updating cart -->
               <div>
@@ -60,7 +59,7 @@
                   </a>
                 </div>
               </div>
-              </a>
+             
                 </div>
             </div>
      
@@ -70,13 +69,17 @@
                       {{#if isInRole 'admin'}}
                         <a href="/edit/{{_id}}"> Edit Item </a>
                       {{/if}}
-                          <div class="large-4 small-6 columns">
-                  <img src="chicken.jpg">
-                  <div class="panel">
-                        <div id="item-{{_id}}" class="up"></div>
-                        <div><p>{{quantity _id}} </p></div>
+                          <div class="large-4 small-6 columns panel">
+                  <img src="drumstick.svg">
+                  <div class="active">
                         <div id="item-{{_id}}" class="down"></div>
-                        <div class="itemName"><h6>{{name}}</h6></div>
+                        <div id="item-{{_id}}" class="up"></div>
+                        <div><h5>{{quantity _id}} </h5></div>
+                      
+                        <div class="itemName" id="show">
+                            <h2>{{name}}</h2>
+                            <div id="hidden"><p>{{description}}</p></div>
+                        </div>  
                   </div>
                 </div>
                     {{/each}}

@@ -112,7 +112,7 @@ h3 {
 
 
 .main-header       { background-color: #fff; border-width:3px; border-style:solid; }
-.main-logo         { background-color: #fff; float: left;}
+.main-logo         { float: left;}
 .main-nav li       { background-color: #3f8abf; }
 
 .main-wrapper{

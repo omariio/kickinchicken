@@ -1,26 +1,26 @@
 <template name="splash">
   <!-- This is what you see during open hours -->
-  <div class="main-wrapper">
-    <div class="main-header">
-      <div class="about">
-          {{#if openNow}}
-            <div class="large-5 large-centered columns">
-              <ul class="button-group even-3">
-                <li><a href="/" class="button"><h3>Home</h3></a></li>
-                <li><a href="/menu" class="button"><h3>Hungry?</h3></a></li>
-                <li><a href="/contact" class="button"><h3>Contact</h3></a></li>
-              </ul>
-            </div>
-          {{else}}
-            <div class="fbwrapper">
-              <h1>We aren't open right now!!!!</h1>
-              <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FkicknchickenSC&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="overflow:hidden; width:500px; height:430px; background: white;" allowtransparency="true">
-              </iframe>
-            </div>
-          {{/if}}
+  <div>
+    {{#if openNow}}
+      <div><h1 class="hungry">Are you in the 95060 area and hungry?</h1></div>
+      <div class="large-5 large-centered columns">
+        <ul class="button-group even-3">
+          <!-- <li><a href="/" class="button"><h3>Home</h3></a></li> --><li></li>
+          <!-- CHANGE THE COLOR OF THE BUTTON - THE LindSAY WHAT? -->
+          <li><a href="/menu" class="button"><h3>Hungry?</h3></a></li>
+          <!-- <li><a href="/contact" class="button"><h3>Contact</h3></a></li> --><li></li>
+        </ul>
       </div>
-    </div>
+    {{else}}
+      <div class="fbwrapper">
+        <h1>We aren't open right now!!!!</h1>
+        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FkicknchickenSC&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="overflow:hidden; width:500px; height:430px; background: white;" allowtransparency="true"></iframe>
+      </div>
+    {{/if}}
   </div>
+</template>
+
+      
  <!--  OLD BLOCK OF TEXT?
   <div class="row">
     <div class="large-12 columns">
@@ -49,4 +49,3 @@
 </div>
  -->
 <!-- </nav> -->
-</template>

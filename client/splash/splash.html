@@ -1,49 +1,51 @@
 <template name="splash">
-<!-- 	<nav class="top-bar" data-topbar role="navigation"> -->
-<!--   <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">My Site</a></h1>
-    </li>
-     Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul> -->
-  
-  <div class="main-wrapper">
-    <div class="main-header">
+  <!-- This is what you see during open hours -->
+  <div>
+    {{#if openNow}}
+      <div><h1 class="hungry">Are you in the 95060 area and hungry?</h1></div>
+      <div class="large-5 large-centered columns">
+        <ul class="button-group even-3">
+          <!-- <li><a href="/" class="button"><h3>Home</h3></a></li> --><li></li>
+          <!-- CHANGE THE COLOR OF THE BUTTON - THE LindSAY WHAT? -->
+          <li><a href="/menu" class="button"><h3>Hungry?</h3></a></li>
+          <!-- <li><a href="/contact" class="button"><h3>Contact</h3></a></li> --><li></li>
+        </ul>
+      </div>
+    {{else}}
       <div class="fbwrapper">
-          <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FkicknchickenSC&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="overflow:hidden; width:500px; height:430px; background: white;" allowtransparency="true">
-          </iframe>
+        <h1>We aren't open right now!!!!</h1>
+        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FkicknchickenSC&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="overflow:hidden; width:500px; height:430px; background: white;" allowtransparency="true"></iframe>
       </div>
-      <div class="about">
-          <h1>Hey.</h1>
-          <h5>We make the best chicken ever. </h5>
-      </div>
-      
-    </div>
+    {{/if}}
   </div>
+</template>
 
+      
+ <!--  OLD BLOCK OF TEXT?
   <div class="row">
     <div class="large-12 columns">
       <h1>Fried chicken and waffles delivered to your door, late night only.</h1>
     </div>
   </div>
-  <div class="main-wrapper">
-    <header class="main-header">
-  <section class="top-bar-section">
-	<div class="row">
-		<h1> check out our kickin kicthen!</h1>
-      <h6>Both of Christmas' accused assailants were booked into Orleans Parish Prison last week, days before his family buried him Saturday (Sept. 27) in his hometown of Maringouin, west of Baton Rouge.
 
-      Christmas' first unlucky encounter this year came while he was at Harrah's on Feb. 21. On his way to the bathroom, he bumped the shoulder of a man. Police say that man and his friend followed Christmas into the bathroom. The two struck him in the head with a glass beer bottle and robbed him of $600 cash and his cell phone, police said in an arrest warrant.
 
-      Christmas was hospitalized with minor injuries.
-      </h6>
-	  </div>
+-->
 
-  </section>
+<!-- OLD COPY
+<div class="main-wrapper">
+  <header class="main-header">
+    <section class="top-bar-section">
+      <div class="row">
+        <h1> check out our kickin kicthen!</h1>
+        <h6>Both of Christmas' accused assailants were booked into Orleans Parish Prison last week, days before his family buried him Saturday (Sept. 27) in his hometown of Maringouin, west of Baton Rouge.
+
+        Christmas' first unlucky encounter this year came while he was at Harrah's on Feb. 21. On his way to the bathroom, he bumped the shoulder of a man. Police say that man and his friend followed Christmas into the bathroom. The two struck him in the head with a glass beer bottle and robbed him of $600 cash and his cell phone, police said in an arrest warrant.
+
+        Christmas was hospitalized with minor injuries.
+        </h6>
+      </div>
+    </section>
   </header>
-  </div>
-  
-
+</div>
+ -->
 <!-- </nav> -->
-</template>

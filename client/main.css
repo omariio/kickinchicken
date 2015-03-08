@@ -51,10 +51,6 @@ h3 {
     float:left;
 }
 
-#fix {
-	padding-right: 293px;
-}
-
 .column, .columns {
 	float: right;
 }
@@ -88,13 +84,15 @@ h3 {
 }
 
 .large-6 large-centered columns {
-	margin: 275px; 
+	margin: 275px;
 }
 
 .banner-left {
 	padding: 0px;
 	margin-bottom: 0px;
 	float: left;
+	width:50%;
+	height:50%;
 }
 
 .banner-right {
@@ -181,4 +179,15 @@ h3 {
 }
 .row, h1{
 	margin-bottom: 0rem;
+}
+
+@media screen and (max-width: 550px) {
+
+  .main-header {
+
+  	width: 100%;
+  	margin: 0 0 0 0;
+
+  }
+
 }

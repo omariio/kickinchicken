@@ -35,34 +35,32 @@
             <div class="large-4 small-12 columns">
               <div class="hide-for-small panel">
                 <h3>Cart:</h3>
-              
-              <div class="panel callout radius">
-                  <!-- The auto-updating cart -->
-              <div>
-                {{#each cartItems}}
-                  {{#if cartQuantity}}
+                <div class="panel callout radius">
+                    <!-- The auto-updating cart -->
                   <div>
-                    <h4>{{cartQuantity}} x {{name}}</h4>
+                    {{#each cartItems}}
+                      {{#if cartQuantity}}
+                      <div>
+                        <h4>{{cartQuantity}} x {{name}}</h4>
+                      </div>
+                      {{/if}}
+                    {{/each}}
+                    <div>
+                      <h3>Total: ${{total}}</h3>
+                    </div>
+                    <div>
+                      <h3>With Tax: ${{totalWithTax}}</h3>
+                    </div>
                   </div>
-                  {{/if}}
-                {{/each}}
-                <div>
-                  <h3>Total: ${{total}}</h3>
+
+                  <div>
+                    <a href="/checkout">
+                      <button type="submit"> Checkout </button>
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h3>With Tax: ${{totalWithTax}}</h3>
-                </div>
-              </div>
-                <div>
-                  <a href="/checkout">
-                    <button type="submit"> Checkout </button>
-                  </a>
-                </div>
-              </div>
-             
                 </div>
             </div>
-     
             <div class="large-8 columns">
               <div class="row">
                     {{#each items}}
@@ -75,11 +73,11 @@
                         <div id="item-{{_id}}" class="down"></div>
                         <div id="item-{{_id}}" class="up"></div>
                         <div><h5>{{quantity _id}} </h5></div>
-                      
+
                         <div class="itemName" id="show">
                             <h2>{{name}}</h2>
                             <div id="hidden"><p>{{description}}</p></div>
-                        </div>  
+                        </div>
                   </div>
                 </div>
                     {{/each}}
@@ -88,7 +86,7 @@
                     {{/if}}
               </div>
             </div>
-          </div>       
+          </div>
 
         </div>
       </div>

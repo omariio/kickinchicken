@@ -1,9 +1,23 @@
-.hungry {
-  text-align: center;
-  margin-bottom: 20px;
+.splash-wrapper {
+  .hungry {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .order-button {
+    width: 45%;
+    height: auto;
+    background-color: black;
+    color: white !important;
+    border-radius: 5px;
+    margin: 40px 0;
+    font-size: 10vw;
+    font-family: 'LIGHTWEIGHT-SERIF';
+  }
 }
 
-.element-animation{
+
+
+/*.element-animation{
   animation: animationFrames ease-in-out 2s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -111,4 +125,4 @@
   100% {
     -ms-transform: rotate(38deg) ;
   }
-}
+}*/

@@ -1,0 +1,51 @@
+
+span { display: block; margin: 0 0 3px; font-size: 1.2em; font-weight: bold; }
+input { width: 200px; border: 1px solid #000; padding: 5px; }
+
+/* This is the normal block input  */
+.checkout {
+	width: 200px;
+	float: left;
+	margin: 0 20px 0 0;
+}
+/* This is for the form */
+	label {
+		&.large {
+			width: 420px;
+			float: center;
+			margin: 0 20px 0 0;
+		}
+
+		&.city {
+			width: 200px;
+			float: left;
+			margin: 0 20px 0 0;
+		}
+
+		&.zip {
+			width: 60px;
+			float: left;
+			margin: 0 20px 0 0;
+		}
+
+		&.phone {
+			width: 120px;
+			float: left;
+			margin: 0 20px 0 0;
+		}
+	}
+
+.checkout-padded {
+  /* padding-top: 10px;  */
+  padding-right: 0px;
+  /* padding-bottom: 0.25in;  */
+  padding-left: 5em;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-bottom {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

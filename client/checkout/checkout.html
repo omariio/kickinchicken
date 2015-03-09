@@ -1,64 +1,65 @@
 
 
 <template name="checkout">
- 
-	<h1 align="center"> Tell us where to go. </h1>
-	<form data-abide id="submit-order" action="/submitted">
-		<div class="checkout-padded"> 
-			<label class="checkout" for="firstname">
-				<input type="text" id="firstname" placeholder="First Name" required/>
-			</label>
-			<label class="checkout" for="lastname">
-				<input type="text" id="lastname" placeholder="Last Name" required/>
-			</label>
-		</div>
+	<div class="bignig">
+		<h1 align="center"> Tell us where to go. </h1>
+		<form data-abide id="submit-order" action="/submitted">
+			<div class="checkout-padded"> 
+				<label class="checkout" for="firstname">
+					<input type="text" id="firstname" placeholder="First Name" required/>
+				</label>
+				<label class="checkout" for="lastname">
+					<input type="text" id="lastname" placeholder="Last Name" required/>
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-			<label class="large" for="address">
-				<input type="text" id="address" placeholder="123 Main Street" required/>
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="large" for="address">
+					<input type="text" id="address" placeholder="123 Main Street" required/>
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-			<label class="city" for="city">
-				<input type="text" id="city" placeholder="City" required/>
-			</label>
-			<label class="zip" for="zip">
-				<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
-			</label>
-			<label class="phone" for="phone">
-				<input type="tel" id="phone" placeholder="Phone Number" required/>
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="city" for="city">
+					<input type="text" id="city" placeholder="City" required/>
+				</label>
+				<label class="zip" for="zip">
+					<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
+				</label>
+				<label class="phone" for="phone">
+					<input type="tel" id="phone" placeholder="Phone Number" required/>
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-			<label class="large" for="instr">
-				<input type="text" id="instr" placeholder="Special instructions?" />
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="large" for="instr">
+					<input type="text" id="instr" placeholder="Special instructions?" />
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-				{{#each cartItems}}
-					{{#if cartQuantity}}
-					<div style="width: 420px">
-						<p style="float: left; margin-bottom: 0px"> {{cartQuantity}} x {{name}} </p>
-						<p style="float: right; margin-bottom: 0px"> {{totalItem cartQuantity price}} </p>
-					</div>
-					{{/if}}
-					<div style="clear: both;"></div>
-				{{/each}}
-     		<p style="margin-bottom: 0px"> Sub total: ${{total}} </p>
-     		<p style="margin-bottom: 0px"> Tax: ${{tax}} </p>
-   			<h4> Total: ${{totalWithTax}} </h4>
-		</div>
+			<div class="checkout-padded">
+					{{#each cartItems}}
+						{{#if cartQuantity}}
+						<div style="width: 420px">
+							<p style="float: left; margin-bottom: 0px"> {{cartQuantity}} x {{name}} </p>
+							<p style="float: right; margin-bottom: 0px"> {{totalItem cartQuantity price}} </p>
+						</div>
+						{{/if}}
+						<div style="clear: both;"></div>
+					{{/each}}
+	     		<p style="margin-bottom: 0px"> Sub total: ${{total}} </p>
+	     		<p style="margin-bottom: 0px"> Tax: ${{tax}} </p>
+	   			<h4> Total: ${{totalWithTax}} </h4>
+			</div>
 
-		<br>
+			<br>
 
-		<div class="checkout-padded">
-			<label align="center" class="large" for="sub">
-				<input type="submit" id="sub" value="Submit Order"/>
-			</label>
-		</div>
-	</form>
-	<p> <br></p>
+			<div class="checkout-padded">
+				<label align="center" class="large" for="sub">
+					<input type="submit" id="sub" value="Submit Order"/>
+				</label>
+			</div>
+		</form>
+		<p> <br></p>
+	</div>
 </template>

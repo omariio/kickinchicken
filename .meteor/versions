@@ -15,6 +15,7 @@ check@1.0.4
 ddp@1.0.14
 deps@1.0.6
 ejson@1.0.5
+eluck:aws-sdk@2.0.23_1
 email@1.0.5
 ewall:foundation@5.5.1
 fastclick@1.0.2

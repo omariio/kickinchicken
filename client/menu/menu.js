@@ -35,7 +35,7 @@ Template.menu.helpers({
 });
 
 Template.menu.events({
-  'click .up': function(event){
+  'click .menu-item-up': function(event){
     var id = event.target.id.replace("item-", "");
     var cart = Session.get("cart");
     var item = _.find(cart, function(i){
@@ -57,7 +57,7 @@ Template.menu.events({
 
     Session.set("cart", cart);
   },
-  'click .down': function(event){
+  'click .menu-item-down': function(event){
     var id = event.target.id.replace("item-", "");
     var cart = Session.get("cart");
     var item = _.find(cart, function(i){

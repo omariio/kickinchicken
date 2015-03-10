@@ -9,7 +9,7 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
-process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:asdfasdf666@smtp.gmail.com:465/"; 
+process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:@smtp.gmail.com:465/"; 
 
 
 Meteor.publish(null, function (){ 

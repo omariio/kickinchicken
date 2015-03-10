@@ -42,6 +42,7 @@ Template.checkout.events({
 			zip:document.getElementById("zip").value,
 			instr:document.getElementById("instr").value,
 			phone:document.getElementById("phone").value,	
+      payment:document.getElementById("paytype").value,
 		};
 		Session.set("cart",[]);
 		Meteor.call("submitOrder", order, function (error, result) {

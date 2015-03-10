@@ -9,7 +9,7 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
-process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:@smtp.gmail.com:465/"; 
+process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:asdfasdf666@smtp.gmail.com:465/"; 
 
 
 Meteor.publish(null, function (){ 
@@ -39,17 +39,19 @@ Meteor.methods({
   submitOrder: function(order) {
     var text = "Name: " + order.firstname + " " + order.lastname + "\n" + "Location: " +
      order.address + " " + order.city + ", " + order.zip + "\n" + "Phone: " + order.phone + 
-     "\n" + "Instructions: " + order.instr + "\nOrder: \n";
+     "\n" + "Instructions: " + order.instr + "\nPayment Type: " + order.payment + "\nOrder: \n";
     var cartcontents = "";
     for (var i = 0; i < order.cart.length; i++ ) {
       cartcontents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
     }
-    Email.send({
+
+    console.log(text + cartcontents);
+    /* Email.send({
       from: "omariiobleepbloop@gmail.com",
       to: "omariiobleepbloop@gmail.com",
       subject: "New Order",
       text: text + cartcontents
-    });
+    }); */
   },
 });
 

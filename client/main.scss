@@ -31,8 +31,12 @@ $media-break-wide: 750px;
  * GLOBAL STYLES
  * ------------------------------------------------------*/
 
-html, body, div, button, h1, h2, h3, h4, h5, h6, p, a {
+button, h1, h2, h3, h4, h5, h6, p, a {
 	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;
+}
+
+form, input {
+	font-family: sans-serif;
 }
 
 h1, h2 {
@@ -54,6 +58,7 @@ li {
 
 .logo-bar {
 	.header-title {
+		font-family: $chicken-font;
 		font-size: 10vw;
 	}
 	.main-logo {
@@ -127,7 +132,7 @@ li {
 .main-nav {
 	li {
 		&:hover {
-			background-color:$light-grey;
+			background-color: $light-grey;
 		}
 	}
 }

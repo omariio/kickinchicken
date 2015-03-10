@@ -1,7 +1,6 @@
 
 
 <template name="checkout">
- 
 	<h1 align="center"> Tell us where to go. </h1>
 	<br>
 	<form data-abide id="submit-order" action="/submitted">
@@ -14,29 +13,30 @@
 			</label>
 		</div>
 
-		<div class="checkout-padded">
-			<label class="large" for="address">
-				<input type="text" id="address" placeholder="123 Main Street" required/>
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="large" for="address">
+					<input type="text" id="address" placeholder="123 Main Street" required/>
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-			<label class="city" for="city">
-				<input type="text" id="city" placeholder="City" required/>
-			</label>
-			<label class="zip" for="zip">
-				<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
-			</label>
-			<label class="phone" for="phone">
-				<input type="tel" id="phone" placeholder="Phone Number" required/>
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="city" for="city">
+					<input type="text" id="city" placeholder="City" required/>
+				</label>
+				<label class="zip" for="zip">
+					<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
+				</label>
+				<label class="phone" for="phone">
+					<input type="tel" id="phone" placeholder="Phone Number" required/>
+				</label>
+			</div>
 
-		<div class="checkout-padded">
-			<label class="large" for="instr">
-				<input type="text" id="instr" placeholder="Special instructions?" />
-			</label>
-		</div>
+			<div class="checkout-padded">
+				<label class="large" for="instr">
+					<input type="text" id="instr" placeholder="Special instructions?" />
+				</label>
+			</div>
+
 
 		<div class="checkout-padded">
 			<label class="large" for="payment">
@@ -63,13 +63,13 @@
    			<p style="font-size: 125%">Please have cash or card ready when the delivery arives.</p>
 		</div>
 
-		<br>
+			<br>
 
-		<div class="checkout-padded">
-			<label align="center" class="large" for="sub">
-				<input type="submit" id="sub" value="Submit Order"/>
-			</label>
-		</div>
-	</form>
-	<p> <br></p>
+			<div class="checkout-padded">
+				<label align="center" class="large" for="sub">
+					<input type="submit" id="sub" value="Submit Order"/>
+				</label>
+			</div>
+		</form>
+		<p> <br></p>
 </template>

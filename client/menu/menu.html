@@ -2,7 +2,7 @@
   <div class="row">
       <div class="small-12 medium-9 columns">
       <h5>Menu:</h5>
-        {{#each cartItems}}
+        {{#each items}}
           {{#if isInRole 'admin'}}
             <a href="/edit/{{_id}}"> Edit Item </a>
           {{/if}}

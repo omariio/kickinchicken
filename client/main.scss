@@ -1,0 +1,185 @@
+/*This contains global styles and styles in the main template*/
+
+/*  GLOBAL VARIABLES */
+
+
+/* -----------------------------------------------------
+ * FONTS
+ * ------------------------------------------------------*/
+
+$chicken-font: 'LIGHTWEIGHT-SERIF';
+
+@font-face {
+  font-family: $chicken-font;
+  src: url('LIGHTWEIGHT-SERIF.ttf');
+}
+
+/* -----------------------------------------------------
+ * MEDIA QUERY BREAKPOINTS
+ * ------------------------------------------------------*/
+
+$media-break-medium: 500px;
+$media-break-wide: 750px;
+
+/* -----------------------------------------------------
+ * COLORS
+ * ------------------------------------------------------*/
+
+ $light-grey: #888;
+
+/* -----------------------------------------------------
+ * GLOBAL STYLES
+ * ------------------------------------------------------*/
+
+html, body, div, button, h1, h2, h3, h4, h5, h6, p, a {
+	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;
+}
+
+h1, h2 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3 {
+	color: white;
+}
+
+li {
+	list-style: none;
+}
+
+/* -----------------------------------------------------
+ * MAIN STYLES (don't put template styles here, plz! <3)
+ * ------------------------------------------------------*/
+
+.logo-bar {
+	.header-title {
+		font-size: 10vw;
+	}
+	.main-logo {
+		width: 10vw;
+		height: auto;
+	}
+}
+
+/* -----------------------------------------------------
+ * DON'T KNOW WHAT THIS DOES,BUT DON'T WANT TO BREAK THINGS
+ * ------------------------------------------------------*/
+
+
+
+/* Probably also menu? */
+.plusplus {
+	float: right;
+	cursor: pointer;
+
+}
+
+.panel {
+	background-color: #fff; border-width:2px; border-style:solid;
+	border-radius: 5px;
+    margin: 5px;
+}
+
+
+*{
+	box-sizing: border-box;
+}
+
+.banner-left {
+	padding: 0px;
+	margin-bottom: 0px;
+	float: left;
+	width:50%;
+	height:50%;
+}
+
+.banner-right {
+	padding: 0px;
+	margin-bottom: 0px;
+/*	height: 50%;
+	width: 50%;*/
+	float: right;
+}
+
+
+.main-header {
+	background-color: #fff;
+	margin: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
+	min-height: 75px;
+}
+
+.main-logo {
+	text-align: center;
+}
+.main-nav li {
+	background-color: #fff;
+}
+
+.main-wrapper{
+	height:auto;
+	margin: auto;
+}
+
+
+.main-nav {
+	li {
+		&:hover {
+			background-color:$light-grey;
+		}
+	}
+}
+
+.main-logo,
+.main-nav,
+.main-nav li {
+	display: inline-block;
+}
+
+
+.main-logo a,
+.main-nav a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: $media-break-wide) {
+
+	.fbwrapper{
+		position: relative;
+		margin: 0;
+		border-width: 3px;
+		display: inline-block;
+		padding: 5 15px;
+		border-radius: 5px;
+	}
+
+}
+
+@media only screen and (max-width: $media-break-medium) {
+
+  .main-header {
+  	width: 100%;
+  	margin: 30px 0;
+  }
+
+  // .logo-bar {
+  // 	.header-title {
+  // 		border: red 1;
+  // 		margin: 10% 0;
+  // 		font-size: 400%;
+  // 		width: 33%;
+  // 	}
+  // 	.main-logo {
+  // 		border: blue;
+  // 		width: 60%;
+  // 		height: auto;
+  // 	}
+  // }
+}

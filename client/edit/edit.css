@@ -1,16 +1,12 @@
 
 /* This is the normal block input  */
-label.edit { 
+.edit { 
   width: 300px; 
   float: center; 
   margin: 0 20px 0 0; 
 }
 
-div.edit-padded {
-  /* padding-top: 10px;  */
-  padding-right: 0px;  
-  /* padding-bottom: 0.25in;  */
-  padding-left: 0em;
+.edit-padded {
   width: 600px;
   margin-left: auto;
   margin-right: auto;  

@@ -1,7 +1,7 @@
 <template name="menu">
   <div class="row">
       <div class="small-12 medium-9 columns">
-      <h5>Menu:</h5>
+        <h5>Menu:</h5>
         {{#each items}}
           {{#if isInRole 'admin'}}
             <a href="/edit/{{_id}}"> Edit Item </a>
@@ -27,9 +27,8 @@
         {{/each}}
       </div>
 
-
-      <h5>Cart:</h5>
       <div id="cart-wrapper" class="small-12 medium-3 columns">
+        <h5>Cart:</h5>
         <div>
           {{#each cartItems}}
               <h4>

@@ -1,7 +1,10 @@
 <template name="menu">
   <div class="row">
-      <div class="small-12 medium-9 columns">
-        <h5>Menu:</h5>
+    <div id="cart-notification" class="small-12 columns center">
+      <h4>Your cart's at the bottom!</h4>
+    </div>
+      <div class="small-12 medium-8 large-9 columns">
+        <h2>Menu:</h2>
         {{#each items}}
           {{#if isInRole 'admin'}}
             <a href="/edit/{{_id}}"> Edit Item </a>
@@ -21,10 +24,15 @@
               <div class="itemName" id="show">
                 <h2>{{name}}</h2>
                 <div><p>{{description}}</p></div>
+                <div><h5>{{price}}</h5></div>
               </div>
             </div>
           </div>
         {{/each}}
+      </div>
+
+      <!-- this is a fix for the overlapping cart panel on the menu -->
+      <div id="cart-spacer-hack" class="small-12 medium-3 columns">
       </div>
 
       <div id="cart-wrapper" class="small-12 medium-3 columns">
@@ -35,12 +43,12 @@
                 {{cartQuantity}} x {{name}}
               </h4>
           {{/each}}
-          <h3>
+          <h4>
             Total: ${{total}}
-          </h3>
-          <h3>
+          </h4>
+          <h4>
             With Tax: ${{totalWithTax}}
-          </h3>
+          </h4>
           <a href="/checkout">
             <button type="submit"> Checkout </button>
           </a>

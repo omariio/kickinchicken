@@ -39,6 +39,11 @@
   z-index: 1000;
 }
 
+#cart-notification {
+  display: none;
+  text-align: center;
+}
+
 #menu-item{
   padding: 10px;
 }
@@ -76,9 +81,18 @@
 	vertical-align: middle
 }
 
-@media only screen and (min-width: 500) {
-	.menu-item-quantity {
-		font-size: 4vw;
-	}
+@media only screen and (max-width: 650px) {
+
+  .menu-item-quantity {
+    font-size: 5vw;
+  }
+
+  #cart-wrapper {
+    position: relative;
+    left:0;
+  }
+  #cart-notification {
+    display: inline-block;
+  }
 }
 

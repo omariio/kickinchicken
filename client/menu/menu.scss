@@ -33,35 +33,43 @@
 	-webkit-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
 	-moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
 	box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
+  background: #fff;
+  position: fixed;
+  left: 70.5%;
+  z-index: 1000;
+}
+
+#menu-item{
+  padding: 10px;
 }
 
 .menu-item-up {
     display: inline-block;
     width: 70px;
     height: 61px;
-    background: url(1.svg);
+    background: url(arrow.svg);
     background-size: 70px 61px;
-    float: left;
     margin: auto;
 }
 
 .menu-item-quantity {
 	display: inline-block;
-	float: left;
-	margin: 0 20%;
-	margin-left: 45%;
 	font-size: 3vw;
 }
 
 .menu-item-down {
     display: inline-block;
-    text-indent: -9999px;
+    //text-indent: -9999px;
     width: 70px;
     height: 61px;
-    background: url(2.svg);
+    background: url(arrow.svg);
     background-size: 70px 61px;
-    float:left;
     margin: auto;
+     -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg);
 }
 
 .menu-up-down {

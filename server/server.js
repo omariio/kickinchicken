@@ -36,6 +36,13 @@ Meteor.methods({
     Items.remove({_id: _id});
     Items.insert(item);
   },
+  destroyItem: function(_id) {
+    var user = Meteor.user();
+    if (!user || !user.roles) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+    Items.remove({_id:_id});
+  },
   submitOrder: function(order) {
     var text = "Name: " + order.firstname + " " + order.lastname + "\n" + "Location: " +
      order.address + " " + order.city + ", " + order.zip + "\n" + "Phone: " + order.phone + 

@@ -33,11 +33,14 @@ Template.menu.helpers({
     return (total * 1.075).toFixed(2);
   },
   disableButton: function() {
-    var cart = Session.get("cart")[0]
+    var cart = Session.get("cart");
     var empty = false;
-    if (cart.cartQuantity === 0) {
-        empty = true;
-    }
+    _.filter(cart, function(i) {
+      if (!!i.cartQuantity) {
+       empty = !!i.cartQuantity;
+      }
+    })
+    console.log("disableButton ran and returned "+ empty)
     return empty;
   }
 });
@@ -88,5 +91,16 @@ Template.menu.events({
     }
 
     Session.set("cart", cart);
+  },
+
+  'click #current_cart': function (event) {
+    event.preventDefault();
+    $('html, body').animate({
+      scrollTop: $("#cart-wrapper").offset().top
+    }, 600);
+  },
+
+  'click .delete':function(event) {
+    Meteor.call('destroyItem', this._id); // is there a safer way to do this?
   }
 });

@@ -1,14 +1,21 @@
 <template name="menu">
   <div class="row">
     <div id="cart-notification" class="small-12 columns center">
-      <h4>Your cart's at the bottom!</h4>
+      <a href="" id="current_cart"><h4>Your cart's at the bottom!</h4></a>
     </div>
       <div class="small-12 medium-8 large-9 columns">
+
+        {{ #if isInRole 'admin'}}
+          <a href="/new"> <button> Add item to menu </button> </a>
+          <a href="/admin"> <button> Back to admin panel </button></a>
+        {{ /if }}
+
         <h2>Menu:</h2>
-        {{#each items}}
-          {{#if isInRole 'admin'}}
+        {{ #each items }}
+          {{ #if isInRole 'admin' }}
             <a href="/edit/{{_id}}"> Edit Item </a>
-          {{/if}}
+            <a href="#" class="delete"> Delete Item </a>
+          {{ /if }}
           <div class="menu-item-wrapper row bordered">
             <div class="small-2 column text-center menu-up-down">
 
@@ -22,9 +29,8 @@
             </div>
             <div class="small-6 medium-7 column">
               <div class="itemName" id="show">
-                <h2>{{name}}</h2>
+                <h2>{{name}}:  {{price}}</h2>
                 <div><p>{{description}}</p></div>
-                <div><h5>{{price}}</h5></div>
               </div>
             </div>
           </div>
@@ -39,9 +45,9 @@
         <h5>Cart:</h5>
         <div>
           {{#each cartItems}}
-            <h4>
-              {{cartQuantity}} x {{name}}
-            </h4>
+            {{ #if cartQuantity }}
+              <h4>{{cartQuantity}} x {{name}}</h4>
+            {{ /if }}
           {{/each}}
           <h4>
             Total: ${{total}}
@@ -50,7 +56,7 @@
             With Tax: ${{totalWithTax}}
           </h4>
           {{ #if disableButton}}
-            <a href="/checkout">
+            <a href="#">
               <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
             </a>
           {{ else }}
@@ -62,4 +68,3 @@
       </div>
     </div>
 </template>
- 

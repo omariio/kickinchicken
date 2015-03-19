@@ -1,5 +1,13 @@
 <template name="admin">
-  <div style="margin:25px">
-    {{>loginButtons}}
-  </div>
+	<div class="row">
+		<div class="small-12 columns center">
+		  <div class="panel">
+		    {{>loginButtons}}
+		  </div>
+		  {{#if isInRole 'admin'}}
+		    <a href="/menu"> <button>Change Menu </button> </a>
+		    <a href="#"> <button> Close the Store! </button></a>
+		  {{/if}}
+		</div>
+	</div>
 </template>

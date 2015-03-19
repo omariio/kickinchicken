@@ -31,6 +31,14 @@ Template.menu.helpers({
   totalWithTax: function() {
     var total = Template.menu.__helpers[" total"]()
     return (total * 1.075).toFixed(2);
+  },
+  disableButton: function() {
+    var cart = Session.get("cart")[0]
+    var empty = false;
+    if (cart.cartQuantity === 0) {
+        empty = true;
+    }
+    return empty;
   }
 });
 
@@ -80,6 +88,5 @@ Template.menu.events({
     }
 
     Session.set("cart", cart);
-
   }
-})
+});

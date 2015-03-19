@@ -34,13 +34,13 @@ Template.menu.helpers({
   },
   disableButton: function() {
     var cart = Session.get("cart");
-    var empty = false;
-    _.filter(cart, function(i) {
-      if (!!i.cartQuantity) {
-       empty = !!i.cartQuantity;
+    var empty = _.every(cart, function(i) {
+      console.log(i.cartQuantity)
+      if (i.cartQuantity == 0) {
+        return true
       }
-    })
-    console.log("disableButton ran and returned "+ empty)
+    });
+    console.log("disableButton ran and returned "+ empty);
     return empty;
   }
 });

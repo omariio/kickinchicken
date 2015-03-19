@@ -4,6 +4,17 @@
 	<h1 align="center"> Tell us where to go. </h1>
 	<br>
 	<form data-abide id="submit-order" action="/submitted">
+
+	  {{ #if openNow }}
+	  	<input type="hidden" id="time" form="submit-order" name="time" value="{{currentTime}}">
+	  {{ else }}
+			<div class="checkout-padded">
+				<label class="large" for="time"> Pre-order time:
+					<input type="time" id="time" name="time"> (put 9:00 PM if you want it delivered as soon as we open!)
+				</label>
+			</div>
+		{{ /if }}
+
 		<div class="checkout-padded"> 
 			<label class="checkout" for="firstname">
 				<input type="text" id="firstname" placeholder="First Name" required/>

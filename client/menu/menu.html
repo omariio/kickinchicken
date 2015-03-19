@@ -55,15 +55,21 @@
           <h4>
             With Tax: ${{totalWithTax}}
           </h4>
-          {{ #if disableButton}}
-            <a href="#">
-              <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
-            </a>
-          {{ else }}
-            <a href="/checkout">
-              <button id="checkout" type="submit"> Checkout </button>
-            </a>
-          {{ /if}}
+            {{ #if disableButton}}
+              <a href="#">
+                <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+              </a>
+            {{ else }}
+              {{ #if openNow}}
+                <a href="/checkout">
+                  <button id="checkout" type="submit"> Checkout </button>
+                </a>
+              {{ else }}
+                <a href="/checkout">
+                  <button id="checkout" type="submit"> Pre-Order! </button>
+                </a>
+              {{ /if}}
+            {{ /if}}
         </div>
       </div>
     </div>

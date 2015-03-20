@@ -1,11 +1,21 @@
 <template name="menu">
   <div class="row">
-      <div class="small-12 medium-9 columns">
-      <h5>Menu:</h5>
-        {{#each items}}
-          {{#if isInRole 'admin'}}
+    <div id="cart-notification" class="small-12 columns center">
+      <a href="" id="current_cart"><h4>Your cart's at the bottom!</h4></a>
+    </div>
+      <div class="small-12 medium-8 large-9 columns">
+
+        {{ #if isInRole 'admin'}}
+          <a href="/new"> <button> Add item to menu </button> </a>
+          <a href="/admin"> <button> Back to admin panel </button></a>
+        {{ /if }}
+
+        <h2>Menu:</h2>
+        {{ #each items }}
+          {{ #if isInRole 'admin' }}
             <a href="/edit/{{_id}}"> Edit Item </a>
-          {{/if}}
+            <a href="#" class="delete"> Delete Item </a>
+          {{ /if }}
           <div class="menu-item-wrapper row bordered">
             <div class="small-2 column text-center menu-up-down">
 
@@ -19,7 +29,7 @@
             </div>
             <div class="small-6 medium-7 column">
               <div class="itemName" id="show">
-                <h2>{{name}}</h2>
+                <h2>{{name}}:  {{price}}</h2>
                 <div><p>{{description}}</p></div>
               </div>
             </div>
@@ -27,118 +37,40 @@
         {{/each}}
       </div>
 
+      <!-- this is a fix for the overlapping cart panel on the menu -->
+      <div id="cart-spacer-hack" class="small-12 medium-3 columns">
+      </div>
 
-      <h5>Cart:</h5>
       <div id="cart-wrapper" class="small-12 medium-3 columns">
+        <h5>Cart:</h5>
         <div>
           {{#each cartItems}}
-              <h4>
-                {{cartQuantity}} x {{name}}
-              </h4>
+            {{ #if cartQuantity }}
+              <h4>{{cartQuantity}} x {{name}}</h4>
+            {{ /if }}
           {{/each}}
-          <h3>
+          <h4>
             Total: ${{total}}
-          </h3>
-          <h3>
+          </h4>
+          <h4>
             With Tax: ${{totalWithTax}}
-          </h3>
-          <a href="/checkout">
-            <button type="submit"> Checkout </button>
-          </a>
+          </h4>
+            {{ #if disableButton}}
+              <a href="#">
+                <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+              </a>
+            {{ else }}
+              {{ #if openNow}}
+                <a href="/checkout">
+                  <button id="checkout" type="submit"> Checkout </button>
+                </a>
+              {{ else }}
+                <a href="/checkout">
+                  <button id="checkout" type="submit"> Pre-Order! </button>
+                </a>
+              {{ /if}}
+            {{ /if}}
         </div>
       </div>
     </div>
 </template>
-
-
-<!-- <div class="row">
-  <div class="large-12 columns">
-    <div class="row">
-      <div class="large-4 small-12 columns">
-        <div class="hide-for-small panel">
-          <h3>Cart:</h3>
-          <div class="panel callout radius">
-            <div>
-              {{#each cartItems}}
-                {{#if cartQuantity}}
-                <div>
-                  <h4>{{cartQuantity}} x {{name}}</h4>
-                </div>
-                {{/if}}
-              {{/each}}
-              <div>
-                <h3>Total: ${{total}}</h3>
-              </div>
-              <div>
-                <h3>With Tax: ${{totalWithTax}}</h3>
-              </div>
-            </div>
-
-            <div>
-              <a href="/checkout">
-                <button type="submit"> Checkout </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="large-8 columns">
-        <div class="row">
-          {{#each items}}
-            {{#if isInRole 'admin'}}
-              <a href="/edit/{{_id}}"> Edit Item </a>
-            {{/if}}
-            <div class="large-4 small-6 columns panel">
-              <img src="drumstick.svg"/>
-              <div class="active">
-                <div id="item-{{_id}}" class="down"></div>
-                <div id="item-{{_id}}" class="up"></div>
-                <div><h5>{{quantity _id}} </h5></div>
-                <div class="itemName" id="show">
-                  <h2>{{name}}</h2>
-                  <div id="hidden"><p>{{description}}</p></div>
-                </div>
-              </div>
-            </div>
-          {{/each}}
-
-          {{#if isInRole 'admin'}}
-            <a href="/new"> New Item </a>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- OLD -->
-  <!-- <div> Items: </div> -->
-<!--   {{#each items}}
-    {{#if isInRole 'admin'}}
-      <a href="/edit/{{_id}}"> Edit Item </a>
-    {{/if}}
-    <div>
-      <div id="item-{{_id}}" class="up" style="float:left;">[+]</div>
-      <div> {{quantity _id}} </div>
-      <div id="item-{{_id}}" class="down" style="float:left;">[-]</div>
-      {{name}}
-    </div>
-  {{/each}}
-  {{#if isInRole 'admin'}}
-    <a href="/new"> New Item </a>
-  {{/if}} -->
-
-  <!-- The auto-updating cart -->
-  <!-- <div>
-    {{#each cartItems}}
-      <div>
-        {{cartQuantity}} x {{name}}
-      </div>
-    {{/each}}
-    <div>
-      Total: ${{total}}
-    </div>
-    <div>
-      With Tax: ${{totalWithTax}}
-    </div>
-  </div> -->

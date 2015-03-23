@@ -11,7 +11,7 @@
 }
 
 #price{
-  font-size: 2em; 
+  font-size: 2em;
   margin: auto;
   text-align: center;
 }
@@ -33,14 +33,14 @@
 .menu-item-wrapper {
   margin: 10px 0 !important;
   -webkit-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
-  box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
+     -moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
+          box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
 }
 
 #cart-wrapper {
 	-webkit-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
-	-moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
-	box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
+	   -moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
+	        box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.75);
   background: #fff;
   position: fixed;
   left: 70.5%;
@@ -63,59 +63,16 @@
 }
 
 .menu-up-down {
-	vertical-align: middle
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.mar-gin{
-  margin: 0 auto;
-}
-
+// This is the class for the fa arrows
 .arrow{
-  position: relative;
-  background-color: black;
-  text-align: left;
+  width: 100%;
+  text-shadow: 1px 1px 1px #ccc; // Needs some tinkerin!
 }
-
-.arrow:before,
-.arrow:after{
-  content: '';
-  position: absolute;
-  background-color: inherit;
-}
-
-.arrow,
-.arrow:before,
-.arrow:after{
-  width: 2em;
-  height: 2em;
-  border-top-right-radius: 30%;
-}
-
-.arrow {
-  transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
-}
-.arrow:before {
-  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
-}
-.arrow:after {
-  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
-}
-
-.down-arrow{
-  @extend .arrow;
-  transform: rotate(0deg) skewX(-30deg) scale(1,.866);
-}
-
-.down-arrow:before{
-  @extend .arrow;
-  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
-}
-.down-arrow:after{
-  @extend .arrow;
-  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
-}
-
-
 
 @media only screen and (max-width: 650px) {
 
@@ -177,15 +134,9 @@
 
 @-webkit-keyframes fade {
   0% {
-    opacity: 0; 
+    opacity: 0;
   }
   100% {
     opacity: 1;
   }
 }
-
-
-
-
-
-

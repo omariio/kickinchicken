@@ -17,20 +17,29 @@
             <a href="#" class="delete"> Delete Item </a>
           {{ /if }}
           <div class="menu-item-wrapper row bordered">
-            <div class="small-2 column text-center menu-up-down">
+            <div class="small-2 columns text-center menu-up-down">
 
-              <div id="item-{{_id}}" class="text-center menu-item-up"></div>
+              <div id="item-{{_id}}" class="arrow mar-gin" style="margin-top:7px"></div>
               <div class="text-center menu-item-quantity">{{quantity _id}}</div>
-              <div id="item-{{_id}}" class="text-center menu-item-down"></div>
+              <div id="item-{{_id}}" class="down-arrow mar-gin"></div>
 
             </div>
-            <div class="small-4 medium-3 column" id="menu-item">
+            <div class="small-4 medium-3 columns" id="menu-item">
               <img src="lateNightMeal.png"/>
             </div>
-            <div class="small-6 medium-7 column">
+            <div class="small-6 medium-7 columns">
               <div class="itemName" id="show">
-                <h2>{{name}}:  {{price}}</h2>
-                <div><p>{{description}}</p></div>
+                <h2>{{name}}</h2>
+                <div class="row">
+                  <div class="small-6 row" id="price">
+                    <p>{{description}}</p>
+                  </div>
+                  <div class="small-6 row">
+                    <p id="price">
+                    ${{price}}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

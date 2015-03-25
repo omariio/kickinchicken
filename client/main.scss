@@ -193,3 +193,56 @@ li {
 
 }
 
+/* -----------------------------------------------------
+ * Animations
+ * ------------------------------------------------------*/
+
+
+.fade{
+  -webkit-animation: fade 3s normal;
+
+}
+
+#textLeft{
+  -webkit-animation: movingLeft 3s normal;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
+
+}
+
+#textRight{
+  -webkit-animation: movingRight 3s normal;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
+
+}
+
+ @-webkit-keyframes movingLeft {
+  0% {
+    -webkit-transform: translate(-1em,0);
+  }
+  100% {
+    -webkit-transform: translate(0.2em,0);
+  }
+}
+
+@-webkit-keyframes movingRight {
+  0% {
+    -webkit-transform: translate(1em,0);
+  }
+  100% {
+    -webkit-transform: translate(-0.2em,0);
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+

@@ -30,6 +30,10 @@ Router.route("/submitted", function() {
 	this.render("submitted");
 });
 
+Router.route("/calendar", function() {
+	this.render("calendar");
+});
+
 Router.configure({
   layoutTemplate: 'layout'
 });

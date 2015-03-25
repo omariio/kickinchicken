@@ -48,6 +48,7 @@ Template.menu.helpers({
 Template.menu.events({
   'click .menu-item-up': function(event){
     var id = event.target.id.replace("item-", "");
+    console.log(id);
     var cart = Session.get("cart");
     var item = _.find(cart, function(i){
       return i._id == id;
@@ -65,6 +66,8 @@ Template.menu.events({
       item.cartQuantity = 0;
     }
     item.cartQuantity++;
+
+
 
     Session.set("cart", cart);
   },

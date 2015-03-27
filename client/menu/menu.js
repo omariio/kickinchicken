@@ -67,8 +67,6 @@ Template.menu.events({
     }
     item.cartQuantity++;
 
-
-
     Session.set("cart", cart);
   },
   'click .menu-item-down': function(event){

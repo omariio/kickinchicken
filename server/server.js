@@ -9,8 +9,18 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
-process.env.MAIL_URL="smtp://omariiobleepbloop%40gmail.com:@smtp.gmail.com:465/"; 
-
+if (Meteor.settings){
+  // These values are defined in server/settings.json
+  S3.config = {
+      key: Meteor.settings.AWS.accessKeyId,
+      secret: Meteor.settings.AWS.secretAccessKey,
+      bucket: Meteor.settings.AWS.bucket
+  }
+  process.env.MAIL_URL=Meteor.settings.email.url;
+}
+else{
+  console.warn ("AWS settings missing, did you run with 'meteor --settings settings.json'?");
+}
 
 Meteor.publish(null, function (){ 
   return Meteor.roles.find({});

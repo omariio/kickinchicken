@@ -10,7 +10,7 @@
           <a href="/admin"> <button> Back to admin panel </button></a>
         {{ /if }}
 
-        <h2>Menu:</h2>
+        <h2 class="text-center"> Menu </h2>
         {{ #each items }}
           {{ #if isInRole 'admin' }}
             <a href="/edit/{{_id}}"> Edit Item </a>

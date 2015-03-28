@@ -34,14 +34,7 @@ Template.menu.helpers({
   },
   disableButton: function() {
     var cart = Session.get("cart");
-    var empty = _.every(cart, function(i) {
-      console.log(i.cartQuantity)
-      if (i.cartQuantity == 0) {
-        return true
-      }
-    });
-    console.log("disableButton ran and returned "+ empty);
-    return empty;
+    return cart && cart.length != 0;
   }
 });
 
@@ -89,6 +82,11 @@ Template.menu.events({
 
     if(item.cartQuantity >= 1){
       item.cartQuantity--;
+      if(item.cartQuantity === 0){
+        _.remove(cart, function(n)){
+          return n.quantity === 0;
+        }
+      }
     }
 
     Session.set("cart", cart);

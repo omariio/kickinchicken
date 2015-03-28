@@ -35,6 +35,9 @@ Template.menu.helpers({
   disableButton: function() {
     var cart = Session.get("cart");
     return cart && cart.length != 0;
+  },
+  multPrice: function(quantity, price){
+    return quantity * price;
   }
 });
 
@@ -68,25 +71,14 @@ Template.menu.events({
       return i._id == id;
     });
 
-    if(!item){
-      if(!cart)
-        cart = [];
-      item = Items.findOne({_id: id});
-      cart.push(item);
-    }
+    if(!item)
+      return;
 
-    if(!item.cartQuantity){
-      item.cartQuantity = 0;
-    }
-
-    if(item.cartQuantity >= 1){
-      item.cartQuantity--;
-      if(item.cartQuantity === 0){
-        cart = _.filter(cart, function(n){
-          return n.cartQuantity != 0;
-        });
-        Session.set("cart", cart);
-      }
+    item.cartQuantity--;
+    if(item.cartQuantity <= 0){
+      cart = _.filter(cart, function(n){
+        return n.cartQuantity > 0;
+      });
     }
 
     Session.set("cart", cart);

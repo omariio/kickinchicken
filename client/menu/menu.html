@@ -54,12 +54,16 @@
       </div>
 
       <div id="cart-wrapper" class="small-12 medium-3 columns">
-        <h5>Cart:</h5>
         <div>
           {{#each cartItems}}
-            {{ #if cartQuantity }}
-              <h4>{{cartQuantity}} x {{name}}</h4>
-            {{ /if }}
+            <div class="row">
+              <div class="column small-9 medium-9 large-9">
+                <h4>{{cartQuantity}} x {{name}}</h4>
+              </div>
+              <div class="column small-3 medium-3 large-3">
+                <h4> ${{multPrice cartQuantity price}} </h4>
+              </div>
+            </div>
           {{/each}}
           <h4>
             Total: ${{total}}

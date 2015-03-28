@@ -36,14 +36,12 @@ Meteor.methods({
     if (!user || !user.roles) {
       throw new Meteor.Error(403, "Access denied");
     }
-    Items.insert(item);
-  },
-  editItem: function(item, _id){
-    var user = Meteor.user();
-    if (!user || !user.roles) {
-      throw new Meteor.Error(403, "Access denied");
+
+    //if we're editing an existing item
+    if(item._id){
+      Items.remove({_id:item._id});
+      delete item._id;
     }
-    Items.remove({_id: _id});
     Items.insert(item);
   },
   destroyItem: function(_id) {

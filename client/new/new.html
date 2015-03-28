@@ -5,27 +5,27 @@
 
     <div align="center" class="new-padded">
       <label class="new">
-        <input type="text" id="new-item-name" placeholder="Name"/>
+        <input type="text" id="new-item-name" value="{{item.name}}" placeholder="Name"/>
       </label>
     </div>
-    <div align="center" class="new-padded"> 
+    <div align="center" class="new-padded">
       <label class="new">
-        <textarea id="new-item-description" placeholder="Item Description"></textarea>
+        <textarea id="new-item-description" placeholder="Item Description"> {{item.description}} </textarea>
       </label>
     </div>
-    <div align="center" class="new-padded"> 
+    <div align="center" class="new-padded">
       <label class="new">
-        <input type="text" id="new-item-price" placeholder="Price per unit."/>
+        <input type="text" id="new-item-price" value="{{item.price}}" placeholder="Price per unit, no dollar sign."/>
       </label>
     </div>
     <div align="center" class="new-padded"> Picture
       <label class="new">
-        <input type="file" id="new-item-picture"/>
+        <input type="file" id="new-item-picture" />
       </label>
     </div>
     <div align="center" class="new-padded"> Group 
       <label class="new">
-       <select id="new-item-group">
+       <select value="{{item.group}}" id="new-item-group">
         <option value="all"> all </option>
         </select>
       </label>

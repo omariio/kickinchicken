@@ -11,7 +11,7 @@ Router.route("/new", function () {
 });
 
 Router.route("/edit/:_id", function () {
-  this.render("edit");
+  this.render("new");
 });
 
 Router.route("/admin", function () {

@@ -82,9 +82,10 @@ Template.menu.events({
     if(item.cartQuantity >= 1){
       item.cartQuantity--;
       if(item.cartQuantity === 0){
-        _.remove(cart, function(n){
-          return n.quantity === 0;
+        cart = _.filter(cart, function(n){
+          return n.cartQuantity != 0;
         });
+        Session.set("cart", cart);
       }
     }
 

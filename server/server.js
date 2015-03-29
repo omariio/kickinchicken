@@ -9,7 +9,7 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
-if (Meteor.settings){
+if (Meteor.settings.AWS){
   // These values are defined in server/settings.json
   S3.config = {
       key: Meteor.settings.AWS.accessKeyId,

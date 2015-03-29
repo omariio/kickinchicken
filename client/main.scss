@@ -51,8 +51,24 @@ li {
 	list-style: none;
 }
 
+.bordered {
+  border-style: solid;
+  border-color: black;
+  border-width: 0.3em;
+  border-radius: 5px;
+}
+
+button {
+	background-color: #000;
+	&:hover {
+		background-color: #555;
+	}
+}
+
+
 /* -----------------------------------------------------
  * MAIN STYLES (don't put template styles here, plz! <3)
+ * This is the place for universal styles.
  * ------------------------------------------------------*/
 
 .logo-bar {

@@ -32,7 +32,7 @@ Template.menu.helpers({
     var total = Template.menu.__helpers[" total"]()
     return (total * 1.075).toFixed(2);
   },
-  disableButton: function() {
+  buttonDisabled: function() {
     var cart = Session.get("cart");
     return cart && cart.length != 0;
   },

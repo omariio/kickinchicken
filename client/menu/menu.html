@@ -6,8 +6,10 @@
       <div class="small-12 medium-8 large-9 columns">
 
         {{ #if isInRole 'admin'}}
-          <a href="/new"> <button> Add item to menu </button> </a>
-          <a href="/admin"> <button> Back to admin panel </button></a>
+          <div class="row">
+            <a href="/new"> <button> Add item to menu </button> </a>
+            <a href="/admin"> <button> Back to admin panel </button></a>
+          </div>
         {{ /if }}
 
         {{ #each items }}
@@ -53,7 +55,7 @@
       <div id="cart-spacer-hack" class="small-12 medium-3 columns">
       </div>
 
-      <div id="cart-wrapper" class="small-12 medium-3 columns">
+      <div id="cart-wrapper" class="small-12 medium-3 columns bordered">
         <div>
           {{#each cartItems}}
             <div class="row">
@@ -71,21 +73,21 @@
           <h4>
             With Tax: ${{totalWithTax}}
           </h4>
-            {{ #if disableButton}}
-              <a href="#">
-                <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
-              </a>
-            {{ else }}
-              {{ #if openNow}}
+            {{#if buttonDisabled}}
+              {{#if openNow}}
                 <a href="/checkout">
                   <button id="checkout" type="submit"> Checkout </button>
                 </a>
-              {{ else }}
+              {{else}}
                 <a href="/checkout">
                   <button id="checkout" type="submit"> Pre-Order! </button>
                 </a>
-              {{ /if}}
-            {{ /if}}
+              {{/if}}
+            {{else}}
+              <a href="#">
+                <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+              </a>
+            {{/if}}
         </div>
       </div>
     </div>

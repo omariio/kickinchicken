@@ -33,6 +33,15 @@
             <div class="row">
               Item Visible <input type="checkbox" class="visible-checkbox" id="visible-checkbox-{{_id}}"/>
             </div>
+            <div class="row">
+              <p> Group </p>
+              <select value="{{group}}" id="select-item-group-{{_id}}" class="select-item-group">
+                <option value="none"> none </option>
+                {{#each groups}}
+                  <option value="{{name}}"> {{name}} </option>
+                {{/each}}
+              </select>
+            </div>
           {{ /if }}
           <div class="menu-item-wrapper row bordered">
             <div class="small-2 columns text-center menu-up-down">

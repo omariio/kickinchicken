@@ -30,7 +30,18 @@ Meteor.publish("items", function () {
   return Items.find();
 });
 
+Meteor.publish("groups", function(){
+  return Groups.find();
+});
+
 Meteor.methods({
+  editVisibility: function(visible, id){
+    var _id = id.replace("visible-checkbox-", "");
+    console.log(Items.update(_id, {$set:{visible:visible}}));
+  },
+  newGroup: function(name){
+    Groups.insert({name:name});
+  },
   newItem: function(item){
     var user = Meteor.user();
     if (!user || !user.roles) {
@@ -42,6 +53,7 @@ Meteor.methods({
       Items.remove({_id:item._id});
       delete item._id;
     }
+    item.visible = true;
     Items.insert(item);
   },
   destroyItem: function(_id) {

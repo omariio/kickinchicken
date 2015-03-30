@@ -1,7 +1,7 @@
 
 Template.menu.rendered = function(){
   // if not the admin
-  if(!Meteor.user().roles)
+  if(!Meteor.user() || !Meteor.user().roles)
     return;
 
   Deps.autorun(function(){
@@ -13,8 +13,17 @@ Template.menu.rendered = function(){
 };
 
 Template.menu.helpers({
+  creatingGroup: function(){
+    return !! Session.get("creatingGroup");
+  },
+  groups: function(){
+    return Groups.find().fetch();
+  },
   items: function(){
-    return Items.find().fetch();
+    if(Meteor.user() && Meteor.user().roles)
+      return Items.find().fetch();
+    else
+      return Items.find({visible:true}).fetch();
   },
   quantity: function(_id) {
     var cart = Session.get("cart");
@@ -96,18 +105,26 @@ Template.menu.events({
 
     Session.set("cart", cart);
   },
-
   'click #current_cart': function (event) {
     event.preventDefault();
     $('html, body').animate({
       scrollTop: $("#cart-wrapper").offset().top
     }, 600);
   },
-
+  'click #button-new-group': function(event){
+    Session.set("creatingGroup", true);
+  },
+  'click #button-new-group-submit': function(event){
+    Meteor.call("newGroup", $("#text-group-name").val());
+    Session.set("creatingGroup", false);
+  },
   'click .delete':function(event) {
     Meteor.call('destroyItem', this._id); // is there a safer way to do this?
 
     // Best effort, we don't really care about the result.
     S3.delete(this.imageUrl);
+  },
+  'change .visible-checkbox': function(event){
+    Meteor.call("editVisibility", event.target.checked, event.target.id);
   }
 });

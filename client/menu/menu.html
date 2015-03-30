@@ -12,8 +12,15 @@
 
         {{ #each items }}
           {{ #if isInRole 'admin' }}
-            <a href="/edit/{{_id}}"> Edit Item </a>
-            <a href="#" class="delete"> Delete Item </a>
+            <div class="row">
+              <a href="/edit/{{_id}}"> Edit Item </a>
+            </div>
+            <div class="row">
+              <a href="#" class="delete"> Delete Item </a>
+            </div>
+            <div class="row">
+              Show item <input type="checkbox" class="visible-checkbox" id="visible-checkbox-{{_id}}"/>
+            </div>
           {{ /if }}
           <div class="menu-item-wrapper row bordered">
             <div class="small-2 columns text-center menu-up-down">

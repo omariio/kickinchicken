@@ -1,4 +1,17 @@
 
+Template.menu.rendered = function(){
+  // if not the admin
+  if(!Meteor.user().roles)
+    return;
+
+  Deps.autorun(function(){
+    var items = Items.find().fetch();
+    _.forEach(items, function(n){
+      document.getElementById("visible-checkbox-" + n._id).checked = n.visible;
+    });
+  });
+};
+
 Template.menu.helpers({
   items: function(){
     return Items.find().fetch();

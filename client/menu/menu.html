@@ -72,11 +72,10 @@
             With Tax: ${{totalWithTax}}
           </h4>
             {{ #if disableButton}}
-              <a href="#">
-                <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
-                <button id="clear"> Clear all</button>
-                
+              <a href="/checkout">
+                <button id="checkout" type="submit"> Pre-Order! </button>
               </a>
+              <button id="clear"> Clear all</button>
             {{ else }}
               {{ #if openNow}}
                 <a href="/checkout">
@@ -84,7 +83,7 @@
                 </a>
               {{ else }}
                 <a href="/checkout">
-                  <button id="checkout" type="submit"> Pre-Order! </button>
+                  <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
                 </a>
               {{ /if}}
             {{ /if}}

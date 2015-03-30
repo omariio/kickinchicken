@@ -96,5 +96,8 @@ Template.menu.events({
 
     // Best effort, we don't really care about the result.
     S3.delete(this.imageUrl);
+  },
+  'click #clear':function(event){
+    Session.set("cart", []);
   }
 });

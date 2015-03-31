@@ -1,5 +1,5 @@
-
 Meteor.subscribe("items");
+Meteor.subscribe("announcements");
 
 Meteor.startup(function () {
     // code to run on server at startup

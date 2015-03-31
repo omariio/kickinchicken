@@ -60,8 +60,13 @@ li {
 
 button {
 	background-color: #000;
+	border-radius: 3px;
+	font-size: 1.2em;
 	&:hover {
 		background-color: #555;
+	}
+	&[disabled] {
+		background-color: red;
 	}
 }
 
@@ -163,6 +168,10 @@ button {
 	text-align: center;
 	padding: 5px 15px;
 	border-radius: 5px;
+}
+
+.footer-cater{
+	font-size: 1.5em;	
 }
 
 @media only screen and (max-width: $media-break-wide) {

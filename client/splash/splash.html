@@ -1,24 +1,28 @@
 <template name="splash">
   <div class="splash-wrapper">
-    {{#if openNow}}
-    <!-- This is what you see during open hours -->
-      <h1 class="hungry">the best chicken & waffles delivered to your door</h1>
-      <div class="small-12 columns text-center">
-          <a href="/menu" class="button order-button">Order</a>
-      </div>
-    {{else}}
-    <!-- This is what you see during closed hours -->
-      <h1 class="text-center">We aren't open right now!</h1>
-      <div class="text-center">
-        <a href="/menu" class="button order-button">Pre-Order</a>
-      </div>
-    {{/if}}
-    <div class="announcements small-12 medium-6 columns text-center center">
+    <div class="announcements row text-center center">
+      <div class="small-12 medium-8 medium-offset-2 columns bordered">
         {{#each announcement}}
-          <h2>{{ body }}</h2>
+          <h2 class="text-center">New: {{ body }}</h2>
         {{/each}}
-      {{#if isInRole 'admin'}}
-        <a href="/announcement">Add new announcement</a>
+        {{#if isInRole 'admin'}}
+          <a href="/announcement">Add new announcement</a>
+        {{/if}}
+      </div>
+    </div>
+    <div class="storefront">
+      {{#if openNow}}
+      <!-- This is what you see during open hours -->
+        <h1 class="hungry">the best chicken & waffles delivered to your door</h1>
+        <div class="small-12 columns text-center">
+            <a href="/menu" class="button order-button">Order</a>
+        </div>
+      {{else}}
+      <!-- This is what you see during closed hours -->
+        <h1 class="text-center">We aren't open right now!</h1>
+        <div class="text-center">
+          <a href="/menu" class="button order-button">Pre-Order</a>
+        </div>
       {{/if}}
     </div>
   </div>

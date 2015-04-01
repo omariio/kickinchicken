@@ -76,7 +76,8 @@ Meteor.methods({
     }
     Switches.remove({});
     Switches.insert({state: state, createdAt: new Date()});
-    console.log(Switches.findOne());
+    var state = Switches.findOne().state ? "opened" : "closed"
+    console.log("The store has been " + state + " on " + new Date());
   },
 
   submitOrder: function(order) {

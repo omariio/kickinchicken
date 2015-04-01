@@ -33,6 +33,9 @@ Meteor.publish("items", function () {
 Meteor.publish("groups", function(){
   return Groups.find();
 });
+Meteor.publish("announcements", function () {
+  return Announcements.find();
+});
 
 Meteor.methods({
   deleteGroup: function(groupName){
@@ -89,6 +92,7 @@ Meteor.methods({
     item.position = Items.find().count();
     Items.insert(item);
   },
+
   destroyItem: function(_id) {
     var user = Meteor.user();
     if (!user || !user.roles) {
@@ -96,6 +100,16 @@ Meteor.methods({
     }
     Items.remove({_id:_id});
   },
+
+  newAnnouncement: function(announcement) {
+    var user = Meteor.user();
+    if (!user || !user.roles) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    Announcements.insert(announcement);
+  },
+
   submitOrder: function(order) {
     var text =  "Pre-order Time: " + order.time + "\n" +
                 "Name: " + order.firstname + " " + order.lastname + "\n" +

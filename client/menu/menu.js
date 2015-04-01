@@ -57,8 +57,9 @@ Template.menu.helpers({
     var total = Template.menu.__helpers[" total"]()
     return (total * 1.075).toFixed(2);
   },
-  disableButton: function() {
+  cart: function() {
     var cart = Session.get("cart");
+    console.log(cart)
     return cart && cart.length != 0;
   },
   multPrice: function(quantity, price){
@@ -133,5 +134,8 @@ Template.menu.events({
   },
   'change .select-item-group': function(event){
     Meteor.call("editGroup", event.target.value, this._id);
+  },
+  'click #clear':function(event){
+    Session.set("cart", []);
   }
 });

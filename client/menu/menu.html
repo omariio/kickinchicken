@@ -3,91 +3,96 @@
     <div id="cart-notification" class="small-12 columns center">
       <a href="" id="current_cart"><h4>Your cart's at the bottom!</h4></a>
     </div>
-      <div class="small-12 medium-8 large-9 columns">
 
-        {{ #if isInRole 'admin'}}
+    <div class="small-12 medium-8 large-9 columns">
+
+      {{ #if isInRole 'admin'}}
+        <div class="row">
           <a href="/new"> <button> Add item to menu </button> </a>
           <a href="/admin"> <button> Back to admin panel </button></a>
+        </div>
+      {{ /if }}
+
+      {{ #each items }}
+        {{ #if isInRole 'admin' }}
+          <a href="/edit/{{_id}}"> Edit Item </a>
+          <a href="#" class="delete"> Delete Item </a>
         {{ /if }}
+        <div class="menu-item-wrapper row bordered">
+          <div class="small-2 columns text-center menu-up-down">
 
-        {{ #each items }}
-          {{ #if isInRole 'admin' }}
-            <a href="/edit/{{_id}}"> Edit Item </a>
-            <a href="#" class="delete"> Delete Item </a>
-          {{ /if }}
-          <div class="menu-item-wrapper row bordered">
-            <div class="small-2 columns text-center menu-up-down">
-
-              <div class="">
-                <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up" id="item-{{_id}}"></i>
-              </div>
-              <div id="quantity-style" class="text-center menu-item-quantity">{{quantity _id}}</div>
-              <div>
-                <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down" id="item-{{_id}}"></i>
-              </div>
-
+            <div class="">
+              <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up" id="item-{{_id}}"></i>
             </div>
-            <div class="small-4 medium-3 columns" id="menu-item">
-              <img src="{{imageUrl}}"/>
+            <div id="quantity-style" class="text-center menu-item-quantity">{{quantity _id}}</div>
+            <div>
+              <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down" id="item-{{_id}}"></i>
             </div>
-            <div class="small-6 medium-7 columns">
-              <div class="itemName" id="show">
-                <h2>{{name}}</h2>
-                <div class="row">
-                  <div class="small-6 row" id="price">
-                    <p>{{description}}</p>
-                  </div>
-                  <div class="small-6 row">
-                    <p id="price">
-                    ${{price}}
-                    </p>
-                  </div>
+
+          </div>
+          <div class="small-4 medium-3 columns" id="menu-item">
+            <img src="{{imageUrl}}"/>
+          </div>
+          <div class="small-6 medium-7 columns">
+            <div class="itemName" id="show">
+              <h2>{{name}}</h2>
+              <div class="row">
+                <div class="small-6 row" id="price">
+                  <p>{{description}}</p>
+                </div>
+                <div class="small-6 row">
+                  <p id="price">
+                  ${{price}}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        {{/each}}
-      </div>
+        </div>
+      {{/each}}
+    </div>
 
-      <!-- this is a fix for the overlapping cart panel on the menu -->
-      <div id="cart-spacer-hack" class="small-12 medium-3 columns">
-      </div>
+    <!-- this is a fix for the overlapping cart panel on the menu -->
+    <div id="cart-spacer-hack" class="small-12 medium-4 large-4 columns">
+    </div>
 
-      <div id="cart-wrapper" class="small-12 medium-3 columns">
-        <div>
-          {{#each cartItems}}
-            <div class="row">
-              <div class="column small-9 medium-9 large-9">
-                <h4>{{cartQuantity}} x {{name}}</h4>
-              </div>
-              <div class="column small-3 medium-3 large-3">
-                <h4> ${{multPrice cartQuantity price}} </h4>
-              </div>
+    <div id="cart-wrapper" class="small-12 medium-4 large-3 columns bordered">
+      <div>
+        {{#each cartItems}}
+          <div class="row">
+            <div class="column small-9 large-9">
+              <h4>{{cartQuantity}} x {{name}}</h4>
             </div>
-          {{/each}}
+            <div class="column small-3 large-3">
+              <h4> ${{multPrice cartQuantity price}} </h4>
+            </div>
+          </div>
+        {{/each}}
+        <div id="cart-total">
           <h4>
             Total: ${{total}}
           </h4>
           <h4>
             With Tax: ${{totalWithTax}}
           </h4>
-            {{ #if disableButton}}
-              <a href="/checkout">
-                <button id="checkout" type="submit"> Pre-Order! </button>
-              </a>
-              <button id="clear"> Clear all</button>
-            {{ else }}
-              {{ #if openNow}}
-                <a href="/checkout">
-                  <button id="checkout" type="submit"> Checkout </button>
-                </a>
-              {{ else }}
-                <a href="/checkout">
-                  <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
-                </a>
-              {{ /if}}
-            {{ /if}}
         </div>
+        {{#if cart}}
+          {{#if openNow}}
+            <a href="/checkout">
+              <button id="checkout" type="submit"> Checkout </button>
+            </a>
+          {{else}}
+            <a href="/checkout">
+              <button id="checkout" type="submit"> Pre-Order! </button>
+            </a>
+          {{/if}}
+          <button id="clear"> Clear all</button>
+        {{else}}
+          <a href="#">
+            <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+          </a>
+        {{/if}}
       </div>
     </div>
+  </div>
 </template>

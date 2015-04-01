@@ -31,7 +31,11 @@ Router.route("/submitted", function() {
 });
 
 Router.route("/calendar", function() {
-	this.render("calendar");
+  this.render("calendar");
+});
+
+Router.route("/announcement", function() {
+	this.render("announcement");
 });
 
 Router.configure({

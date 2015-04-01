@@ -1,0 +1,15 @@
+<template name="announcement">
+	{{#if isInRole 'admin'}}
+		<div class="row">
+			<form align="center" class="new-announcement-form">
+		    <input type="text" id ="new-announcement" class="new-announcement small-12 medium-7 columns" placeholder="add an announcement for the front page!"/>
+			  <div align="center">
+			    <button type="submit" id="new-announcement-submit">Submit</button>
+			  </div>
+			  <a href="/admin"> <button> Back to admin panel </button></a>
+			</form>
+		</div>
+	{{else}}
+		<div><h2>You aren't signed in!</h2></div>
+	{{/if}}
+</template>

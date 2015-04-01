@@ -30,6 +30,10 @@ Meteor.publish("items", function () {
   return Items.find();
 });
 
+Meteor.publish("announcements", function () {
+  return Announcements.find();
+});
+
 Meteor.methods({
   newItem: function(item){
     var user = Meteor.user();
@@ -44,6 +48,7 @@ Meteor.methods({
     }
     Items.insert(item);
   },
+
   destroyItem: function(_id) {
     var user = Meteor.user();
     if (!user || !user.roles) {
@@ -51,6 +56,16 @@ Meteor.methods({
     }
     Items.remove({_id:_id});
   },
+
+  newAnnouncement: function(announcement) {
+    var user = Meteor.user();
+    if (!user || !user.roles) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    Announcements.insert(announcement);
+  },
+
   submitOrder: function(order) {
     var text =  "Pre-order Time: " + order.time + "\n" +
                 "Name: " + order.firstname + " " + order.lastname + "\n" +

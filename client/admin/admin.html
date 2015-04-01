@@ -16,7 +16,7 @@
         <h4> Groups Visible</h4>
         {{#each groups}}
           <div class="row">
-            [<a>delete</a>] {{group.name}}
+            [<a class="delete-group">delete</a>] {{group.name}}
             <input type="checkbox" class="checkbox-group-visible" {{isGroupVisible}}/>
             {{status}}
           </div>

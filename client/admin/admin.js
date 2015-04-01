@@ -44,8 +44,10 @@ Template.admin.events({
     Meteor.call("newGroup", $("#text-group-name").val());
     Session.set("creatingGroup", false);
   },
+  'click .delete-group': function(event){
+    Meteor.call("deleteGroup", this.group.name);
+  },
   'change .checkbox-group-visible': function(event){
     Meteor.call("editGroupVisibility", event.target.checked, this.group.name);
   }
-
 });

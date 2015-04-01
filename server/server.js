@@ -35,6 +35,10 @@ Meteor.publish("groups", function(){
 });
 
 Meteor.methods({
+  deleteGroup: function(groupName){
+    Groups.remove({name:groupName});
+    Items.update({group:groupName}, {$set:{group:"none"}}, {multi:true});
+  },
   editGroupVisibility: function(visible, groupName){
     Items.update({group:groupName}, {$set:{visible:visible}}, {multi:true});
   },

@@ -1,4 +1,5 @@
 Meteor.subscribe("items");
+Meteor.subscribe("groups");
 Meteor.subscribe("announcements");
 Meteor.subscribe("switches");
 

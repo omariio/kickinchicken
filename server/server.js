@@ -48,29 +48,6 @@ Meteor.methods({
   editGroup: function(groupName, _id){
     Items.update(_id, {$set:{group:groupName}});
   },
-  editPosition: function(position, _id){
-    var oldPosition = Items.findOne(_id).position;
-    if(position < oldPosition){
-      Items.update({
-        $and:[
-          {position:{$lt:oldPosition}},
-          {position:{$gte:position}}
-        ]
-      }, {$inc:{position:1}}, function(){
-        Items.update(_id, {$set:{position:position}});
-      });
-    }
-    else{
-      Items.update({
-        $and:[
-          {position:{$lte:position}},
-          {position:{$gt:oldPosition}}
-        ]
-      }, {$inc:{position:-1}}, function(){
-        Items.update(_id, {$set:{position:position}});
-      });
-    }
-  },
   editVisibility: function(visible, _id){
     Items.update(_id, {$set:{visible:visible}});
   },

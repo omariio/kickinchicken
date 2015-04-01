@@ -8,6 +8,21 @@
 		    <a href="/menu"> <button>Change Menu </button> </a>
 		    <a href="#"> <button> Close the Store! </button></a>
 		    <a href="/announcement"> <button> Announce something </button></a>
+	      <button id="button-new-group"> New Group </button>
+
+        {{#if creatingGroup}}
+          <input type="text" id="text-group-name" placeholder="Group Name"/>
+          <button id="button-new-group-submit"> Submit </button>
+        {{/if}}
+        <h4> Groups Visible</h4>
+        {{#each groups}}
+          <div class="row">
+            <span> [<a class="delete-group">delete</a>] {{group.name}} </span>
+            <input type="checkbox" class="checkbox-group-visible" {{isGroupVisible}}/>
+            <span> {{status}} </span>
+          </div>
+        {{/each}}
+        <div>Deleting a group will change the group of all orphaned items to "none" </div>
 		  {{/if}}
 		</div>
 	</div>

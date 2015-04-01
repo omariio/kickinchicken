@@ -1,7 +1,32 @@
 
 Template.menu.helpers({
+  isSelectedGroup: function(){
+    if(this.group.name == this.target)
+      return "selected";
+    else
+      return "";
+  },
+  isSelectedPosition: function(){
+    if(this.position == this.target)
+      return "selected";
+    else
+      return "";
+  },
+  isVisible: function(){
+    if(this.visible)
+      return "checked";
+    else
+      return "";
+  },
+  positions: function(){
+    var self = this;
+    return _.map(_.range(Items.find().count()), function(n){return {target:self.position, position:n}});
+  },
   items: function(){
-    return Items.find().fetch();
+    if(Meteor.user() && Meteor.user().roles)
+      return Items.find({}, {sort:{position:1}}).fetch();
+    else
+      return Items.find({visible:true}, {sort:{position:1}}).fetch();
   },
   quantity: function(_id) {
     var cart = Session.get("cart");
@@ -39,6 +64,10 @@ Template.menu.helpers({
   },
   multPrice: function(quantity, price){
     return quantity * price;
+  },
+  groups: function(){
+    var self = this;
+    return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
   }
 });
 
@@ -84,19 +113,27 @@ Template.menu.events({
 
     Session.set("cart", cart);
   },
-
   'click #current_cart': function (event) {
     event.preventDefault();
     $('html, body').animate({
       scrollTop: $("#cart-wrapper").offset().top
     }, 600);
   },
-
   'click .delete':function(event) {
     Meteor.call('destroyItem', this._id); // is there a safer way to do this?
 
     // Best effort, we don't really care about the result.
     S3.delete(this.imageUrl);
+  },
+  'change .visible-checkbox': function(event){
+    Meteor.call("editVisibility", event.target.checked, this._id);
+  },
+  'change .select-item-position': function(event){
+    var numPosition = Number.parseInt(event.target.value);
+    Meteor.call("editPosition", numPosition, this._id);
+  },
+  'change .select-item-group': function(event){
+    Meteor.call("editGroup", event.target.value, this._id);
   },
   'click #clear':function(event){
     Session.set("cart", []);

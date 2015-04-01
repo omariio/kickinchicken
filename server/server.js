@@ -10,7 +10,7 @@ Accounts.onCreateUser(function(options, user) {
 });
 
 if (Meteor.settings.AWS){
-  // These values are defined in server/settings.json
+  // These values are defined in settings.json
   S3.config = {
       key: Meteor.settings.AWS.accessKeyId,
       secret: Meteor.settings.AWS.secretAccessKey,
@@ -30,11 +30,30 @@ Meteor.publish("items", function () {
   return Items.find();
 });
 
+Meteor.publish("groups", function(){
+  return Groups.find();
+});
 Meteor.publish("announcements", function () {
   return Announcements.find();
 });
 
 Meteor.methods({
+  deleteGroup: function(groupName){
+    Groups.remove({name:groupName});
+    Items.update({group:groupName}, {$set:{group:"none"}}, {multi:true});
+  },
+  editGroupVisibility: function(visible, groupName){
+    Items.update({group:groupName}, {$set:{visible:visible}}, {multi:true});
+  },
+  editGroup: function(groupName, _id){
+    Items.update(_id, {$set:{group:groupName}});
+  },
+  editVisibility: function(visible, _id){
+    Items.update(_id, {$set:{visible:visible}});
+  },
+  newGroup: function(name){
+    Groups.insert({name:name});
+  },
   newItem: function(item){
     var user = Meteor.user();
     if (!user || !user.roles) {
@@ -46,6 +65,8 @@ Meteor.methods({
       Items.remove({_id:item._id});
       delete item._id;
     }
+    item.visible = true;
+    item.position = Items.find().count();
     Items.insert(item);
   },
 

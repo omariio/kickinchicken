@@ -5,6 +5,9 @@ Template.new.helpers({
       return undefined;
 
     return Items.findOne({_id:_id});
+  },
+  groups: function(){
+    return Groups.find().fetch();
   }
 });
 

@@ -14,10 +14,6 @@
       {{ /if }}
 
       {{ #each items }}
-        {{ #if isInRole 'admin' }}
-          <a href="/edit/{{_id}}"> Edit Item </a>
-          <a href="#" class="delete"> Delete Item </a>
-        {{ /if }}
         <div class="menu-item-wrapper row bordered">
           <div class="small-2 columns text-center menu-up-down">
 
@@ -49,6 +45,26 @@
             </div>
           </div>
         </div>
+
+        {{ #if isInRole 'admin' }}
+          <div class="row">
+            <div class="columns small-12 medium-4 large-4">
+              <a href="/edit/{{_id}}"> Edit Item </a>
+              <a href="#" class="delete"> Delete Item </a>
+              <div class="row">
+                <label class="visible-label"><input type="checkbox" class="visible-checkbox" {{isVisible}}/> Item Visible </label>
+              </div>
+              <p> Group </p>
+              <select class="select-item-group">
+                <option value="none"> none </option>
+                {{#each groups}}
+                  <option value="{{group.name}}" {{isSelectedGroup}}> {{group.name}} </option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        {{ /if }}
+
       {{/each}}
     </div>
 
@@ -57,42 +73,41 @@
     </div>
 
     <div id="cart-wrapper" class="small-12 medium-4 large-3 columns bordered">
-      <div>
-        {{#each cartItems}}
-          <div class="row">
-            <div class="column small-9 large-9">
-              <h4>{{cartQuantity}} x {{name}}</h4>
-            </div>
-            <div class="column small-3 large-3">
-              <h4> ${{multPrice cartQuantity price}} </h4>
-            </div>
+      {{#each cartItems}}
+        <div class="row">
+          <div class="column small-9 large-9">
+            <h4>{{cartQuantity}} x {{name}}</h4>
           </div>
-        {{/each}}
-        <div id="cart-total">
-          <h4>
-            Total: ${{total}}
-          </h4>
-          <h4>
-            With Tax: ${{totalWithTax}}
-          </h4>
+          <div class="column small-3 large-3">
+            <h4> ${{multPrice cartQuantity price}} </h4>
+          </div>
         </div>
-        {{#if cart}}
-          {{#if openNow}}
-            <a href="/checkout">
-              <button id="checkout" type="submit"> Checkout </button>
-            </a>
-          {{else}}
-            <a href="/checkout">
-              <button id="checkout" type="submit"> Pre-Order! </button>
-            </a>
-          {{/if}}
-          <button id="clear"> Clear all</button>
+      {{/each}}
+      <div id="cart-total">
+        <h4>
+          Total: ${{total}}
+        </h4>
+        <h4>
+          With Tax: ${{totalWithTax}}
+        </h4>
+      </div>
+
+      {{#if cart}}
+        {{#if openNow}}
+          <a href="/checkout">
+            <button id="checkout" type="submit"> Checkout </button>
+          </a>
         {{else}}
-          <a href="#">
-            <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+          <a href="/checkout">
+            <button id="checkout" type="submit"> Pre-Order! </button>
           </a>
         {{/if}}
-      </div>
+        <button id="clear"> Clear all</button>
+      {{else}}
+        <a href="#">
+          <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
+        </a>
+      {{/if}}
     </div>
   </div>
 </template>

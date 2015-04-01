@@ -26,8 +26,11 @@
     <div align="center" class="new-padded"> Group
       <label class="new">
        <select value="{{item.group}}" id="new-item-group">
-        <option value="all"> all </option>
-        </select>
+        <option value="none"> none </option>
+        {{#each groups}}
+          <option value="{{name}}"> {{name}} </option>
+        {{/each}}
+      </select>
       </label>
     </div>
     <div align="center">

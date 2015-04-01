@@ -6,7 +6,11 @@
 		  </div>
 		  {{#if isInRole 'admin'}}
 		    <a href="/menu"> <button>Change Menu </button> </a>
-		    <a href="#"> <button> Close the Store! </button></a>
+		    {{ #if openNow }}
+		    	<a href="#" id="toggleStore"> <button value="{{openNow}}"> close the Store! </button></a>
+				{{ else }}
+		    	<a href="#" id="toggleStore"> <button value="{{openNow}}"> Open the Store! </button></a>
+		    {{ /if }}
 		    <a href="/announcement"> <button> Announce something </button></a>
 		  {{/if}}
 		</div>

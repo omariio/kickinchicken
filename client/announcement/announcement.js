@@ -8,7 +8,6 @@ Template.announcement.events({
     }
 
     Meteor.call("newAnnouncement", announcement);
-
     Router.go('/');
 
     return false

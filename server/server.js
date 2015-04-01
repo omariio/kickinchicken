@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    // code to run on server at startup
+  // runs on startup
 });
 
 Accounts.onCreateUser(function(options, user) {
@@ -22,7 +22,7 @@ else{
   console.warn ("AWS settings missing, did you run with 'meteor --settings settings.json'?");
 }
 
-Meteor.publish(null, function (){ 
+Meteor.publish(null, function (){
   return Meteor.roles.find({});
 });
 
@@ -33,6 +33,10 @@ Meteor.publish("items", function () {
 Meteor.publish("announcements", function () {
   return Announcements.find();
 });
+
+Meteor.publish("switches", function () {
+  return Switches.find();
+})
 
 Meteor.methods({
   newItem: function(item){
@@ -62,8 +66,17 @@ Meteor.methods({
     if (!user || !user.roles) {
       throw new Meteor.Error(403, "Access denied");
     }
-
     Announcements.insert(announcement);
+  },
+
+  toggleStore: function(state) {
+    var user = Meteor.user();
+    if (!user || !user.roles) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+    Switches.remove({});
+    Switches.insert({state: state, createdAt: new Date()});
+    console.log(Switches.findOne());
   },
 
   submitOrder: function(order) {
@@ -74,12 +87,11 @@ Meteor.methods({
                 "Instructions: " + order.instr + "\n" +
                 "Payment Type: " + order.payment + "\n" +
                 "Order: \n";
-    var cartcontents = "";
+    var cartContents = "";
     for (var i = 0; i < order.cart.length; i++ ) {
-      cartcontents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
+      cartContents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
     }
 
-    console.log(text + cartcontents);
     /* Email.send({
       from: "omariiobleepbloop@gmail.com",
       to: "omariiobleepbloop@gmail.com",

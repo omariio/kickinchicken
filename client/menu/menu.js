@@ -12,7 +12,7 @@ Template.menu.helpers({
     else
       return "";
   },
-  isChecked: function(){
+  isVisible: function(){
     if(this.visible)
       return "checked";
     else
@@ -21,13 +21,6 @@ Template.menu.helpers({
   positions: function(){
     var self = this;
     return _.map(_.range(Items.find().count()), function(n){return {target:self.position, position:n}});
-  },
-  creatingGroup: function(){
-    return !! Session.get("creatingGroup");
-  },
-  groups: function(){
-    var self = this;
-    return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
   },
   items: function(){
     if(Meteor.user() && Meteor.user().roles)
@@ -70,6 +63,10 @@ Template.menu.helpers({
   },
   multPrice: function(quantity, price){
     return quantity * price;
+  },
+  groups: function(){
+    var self = this;
+    return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
   }
 });
 
@@ -120,13 +117,6 @@ Template.menu.events({
     $('html, body').animate({
       scrollTop: $("#cart-wrapper").offset().top
     }, 600);
-  },
-  'click #button-new-group': function(event){
-    Session.set("creatingGroup", true);
-  },
-  'click #button-new-group-submit': function(event){
-    Meteor.call("newGroup", $("#text-group-name").val());
-    Session.set("creatingGroup", false);
   },
   'click .delete':function(event) {
     Meteor.call('destroyItem', this._id); // is there a safer way to do this?

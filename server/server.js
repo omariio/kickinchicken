@@ -10,7 +10,7 @@ Accounts.onCreateUser(function(options, user) {
 });
 
 if (Meteor.settings.AWS){
-  // These values are defined in server/settings.json
+  // These values are defined in settings.json
   S3.config = {
       key: Meteor.settings.AWS.accessKeyId,
       secret: Meteor.settings.AWS.secretAccessKey,
@@ -35,6 +35,9 @@ Meteor.publish("groups", function(){
 });
 
 Meteor.methods({
+  editGroupVisibility: function(visible, groupName){
+    Items.update({group:groupName}, {$set:{visible:visible}}, {multi:true});
+  },
   editGroup: function(groupName, _id){
     Items.update(_id, {$set:{group:groupName}});
   },

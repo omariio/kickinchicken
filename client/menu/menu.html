@@ -8,18 +8,6 @@
         {{ #if isInRole 'admin'}}
           <a href="/new"> <button> Add item to menu </button> </a>
           <a href="/admin"> <button> Back to admin panel </button></a>
-          <button id="button-new-group"> New Group </button>
-
-          {{#if creatingGroup}}
-            <input type="text" id="text-group-name" placeholder="Group Name"/>
-            <button id="button-new-group-submit"> Submit </button>
-          {{/if}}
-          <h4> Groups Visible</h4>
-          {{#each groups}}
-            <div class="row">
-              [<a>delete</a>] {{name}} <input type="checkbox"/>
-            </div>
-          {{/each}}
         {{ /if }}
 
         {{ #each items }}
@@ -31,7 +19,7 @@
               <a href="#" class="delete"> Delete Item </a>
             </div>
             <div class="row">
-              Item Visible <input type="checkbox" class="visible-checkbox" {{isChecked}}/>
+              Item Visible <input type="checkbox" class="visible-checkbox" {{isVisible}}/>
             </div>
             <div class="row">
               <p> Group </p>
@@ -112,7 +100,7 @@
                 <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
               </a>
             {{ else }}
-              {{ #if openNow}}
+              {{ #if openNow }}
                 <a href="/checkout">
                   <button id="checkout" type="submit"> Checkout </button>
                 </a>
@@ -120,8 +108,8 @@
                 <a href="/checkout">
                   <button id="checkout" type="submit"> Pre-Order! </button>
                 </a>
-              {{ /if}}
-            {{ /if}}
+              {{ /if }}
+            {{ /if }}
         </div>
       </div>
     </div>

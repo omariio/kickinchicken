@@ -1,29 +1,39 @@
 
-Template.menu.rendered = function(){
-  // if not the admin
-  if(!Meteor.user() || !Meteor.user().roles)
-    return;
-
-  Deps.autorun(function(){
-    var items = Items.find().fetch();
-    _.forEach(items, function(n){
-      document.getElementById("visible-checkbox-" + n._id).checked = n.visible;
-    });
-  });
-};
-
 Template.menu.helpers({
+  isSelectedGroup: function(){
+    if(this.group.name == this.target)
+      return "selected";
+    else
+      return "";
+  },
+  isSelectedPosition: function(){
+    if(this.position == this.target)
+      return "selected";
+    else
+      return "";
+  },
+  isChecked: function(){
+    if(this.visible)
+      return "checked";
+    else
+      return "";
+  },
+  positions: function(){
+    var self = this;
+    return _.map(_.range(Items.find().count()), function(n){return {target:self.position, position:n}});
+  },
   creatingGroup: function(){
     return !! Session.get("creatingGroup");
   },
   groups: function(){
-    return Groups.find().fetch();
+    var self = this;
+    return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
   },
   items: function(){
     if(Meteor.user() && Meteor.user().roles)
-      return Items.find().fetch();
+      return Items.find({}, {sort:{position:1}}).fetch();
     else
-      return Items.find({visible:true}).fetch();
+      return Items.find({visible:true}, {sort:{position:1}}).fetch();
   },
   quantity: function(_id) {
     var cart = Session.get("cart");
@@ -125,6 +135,13 @@ Template.menu.events({
     S3.delete(this.imageUrl);
   },
   'change .visible-checkbox': function(event){
-    Meteor.call("editVisibility", event.target.checked, event.target.id);
+    Meteor.call("editVisibility", event.target.checked, this._id);
+  },
+  'change .select-item-position': function(event){
+    var numPosition = Number.parseInt(event.target.value);
+    Meteor.call("editPosition", numPosition, this._id);
+  },
+  'change .select-item-group': function(event){
+    Meteor.call("editGroup", event.target.value, this._id);
   }
 });

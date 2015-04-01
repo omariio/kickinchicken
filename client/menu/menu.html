@@ -31,14 +31,22 @@
               <a href="#" class="delete"> Delete Item </a>
             </div>
             <div class="row">
-              Item Visible <input type="checkbox" class="visible-checkbox" id="visible-checkbox-{{_id}}"/>
+              Item Visible <input type="checkbox" class="visible-checkbox" {{isChecked}}/>
             </div>
             <div class="row">
               <p> Group </p>
-              <select value="{{group}}" id="select-item-group-{{_id}}" class="select-item-group">
+              <select class="select-item-group">
                 <option value="none"> none </option>
                 {{#each groups}}
-                  <option value="{{name}}"> {{name}} </option>
+                  <option value="{{group.name}}" {{isSelectedGroup}}> {{group.name}} </option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="row">
+              <p> Position </p>
+              <select class="select-item-position">
+                {{#each positions}}
+                  <option value="{{this.position}}" {{isSelectedPosition}}> {{this.position}} </option>
                 {{/each}}
               </select>
             </div>

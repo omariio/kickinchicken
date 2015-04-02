@@ -13,6 +13,7 @@ boilerplate-generator@1.0.2
 callback-hook@1.0.2
 check@1.0.4
 coffeescript@1.0.5
+cwaring:modernizr@3.0.0_1
 ddp@1.0.14
 deps@1.0.6
 ejson@1.0.5

@@ -34,7 +34,7 @@
               <h2>{{name}}</h2>
               <div class="row">
                 <div class="small-6 row" id="price">
-                  <p>{{description}}</p>
+                  <p class="p-description">{{description}}</p>
                 </div>
                 <div class="small-6 row">
                   <p id="price">
@@ -91,20 +91,19 @@
           With Tax: ${{totalWithTax}}
         </h4>
       </div>
-
-      {{#if cart}}
-        {{#if openNow}}
-          <a href="/checkout">
-            <button id="checkout" type="submit"> Checkout </button>
-          </a>
-        {{else}}
-          <a href="/checkout">
-            <button id="checkout" type="submit"> Pre-Order! </button>
-          </a>
-        {{/if}}
-        <button id="clear"> Clear all</button>
+        {{#if cart}}
+          {{#if openNow}}
+            <a href="/checkout">
+              <button class="order" id="checkout" type="submit"> Checkout </button>
+            </a>
+          {{else}}
+            <a href="/checkout">
+              <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+            </a>
+          {{/if}}
+          <button id="clear"> Clear all</button>
       {{else}}
-        <a href="#">
+        <a href="">
           <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>
         </a>
       {{/if}}

@@ -66,9 +66,25 @@ button {
 		background-color: #555;
 	}
 	&[disabled] {
-		background-color: red;
+		background-color: black;
 	}
 }
+
+i.menu-item-up {
+	&:hover{
+	color: green;
+	}
+}
+i.menu-item-down {
+	&:hover{
+	color: green;
+	}
+}
+
+button.order{
+	background-color: green;
+}
+
 
 
 /* -----------------------------------------------------
@@ -118,8 +134,6 @@ button {
 }
 
 .banner-right {
-/*	height: 50%;
-	width: 50%;*/
 	float: right;
 }
 
@@ -171,8 +185,13 @@ button {
 }
 
 .footer-cater{
-	font-size: 1.5em;	
+	font-size: 1.5em;
 }
+
+#login-buttons-password{
+	cursor: pointer;
+}
+
 
 @media only screen and (max-width: $media-break-wide) {
 
@@ -247,7 +266,7 @@ button {
     -webkit-transform: translate(-1em,0);
   }
   100% {
-    -webkit-transform: translate(0.2em,0);
+    -webkit-transform: translate(0.7em,0);
   }
 }
 
@@ -256,7 +275,7 @@ button {
     -webkit-transform: translate(1em,0);
   }
   100% {
-    -webkit-transform: translate(-0.2em,0);
+    -webkit-transform: translate(-0.7em,0);
   }
 }
 

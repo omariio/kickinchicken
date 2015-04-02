@@ -1,5 +1,7 @@
 
-input { width: 200px; border: 1px solid #000; padding: 5px; }
+input { width: 200px; border: 1px groove #000; padding: 5px; }
+span { display: block; margin: 0 0 3px; font-size: 1.2em; font-weight: bold; }
+
 
 /* This is the normal block input  */
 .checkout {
@@ -45,3 +47,4 @@ input { width: 200px; border: 1px solid #000; padding: 5px; }
 .checkout-bottom {
 	margin: 20px 0 0 20px;
 }
+

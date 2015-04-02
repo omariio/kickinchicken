@@ -95,15 +95,30 @@
           With Tax: ${{totalWithTax}}
         </h4>
       </div>
+<<<<<<< HEAD
+
       {{#if cart}}
         <a href="/checkout">
         {{#if openNow}}
-            <button class="order" id="checkout" type="submit"> Checkout </button>
+            <button id="checkout" type="submit"> Checkout </button>
         {{else}}
-            <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+            <button id="checkout" type="submit"> Pre-Order! </button>
         {{/if}}
         </a>
         <button id="clear"> Clear all</button>
+=======
+        {{#if cart}}
+          {{#if openNow}}
+            <a href="/checkout">
+              <button class="order" id="checkout" type="submit"> Checkout </button>
+            </a>
+          {{else}}
+            <a href="/checkout">
+              <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+            </a>
+          {{/if}}
+          <button id="clear"> Clear all</button>
+>>>>>>> master
       {{else}}
         <a href="">
           <button id="checkout" type="submit" disabled="disabled"> Add stuff to cart! </button>

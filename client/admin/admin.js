@@ -56,7 +56,7 @@ Template.admin.events({
   'change .checkbox-group-visible': function(event){
     Meteor.call("editGroupVisibility", event.target.checked, this.group.name);
   },
-  "click #toggleStore": function(event) {
+  'click #toggleStore': function(event) {
     Meteor.call("toggleStore", !event.target.value);
     return false;
   }

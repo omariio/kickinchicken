@@ -34,7 +34,7 @@ $media-break-wide: 750px;
  * GLOBAL STYLES
  * ------------------------------------------------------*/
 
-button, h1, h2, h3, h4, h5, h6, p, a {
+button, h1, h2, h3, h4, h5, h6, p {
 	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;
 }
 
@@ -104,28 +104,51 @@ button.order{
 }
 
 /* -----------------------------------------------------
- * DON'T KNOW WHAT THIS DOES,BUT DON'T WANT TO BREAK THINGS
+ * Animations
  * ------------------------------------------------------*/
 
 
-
-/* Probably also menu? */
-.plusplus {
-	float: right;
-	cursor: pointer;
+.fade{
+  -webkit-animation: fade 3s normal;
 
 }
 
-.panel {
-	background-color: #fff; border-width:2px; border-style:solid;
-	border-radius: 5px;
-  margin: 5px;
+#textLeft{
+  -webkit-animation: movingLeft 3s normal;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  				animation-fill-mode: forwards;
+
 }
 
-
-*{
-	box-sizing: border-box;
+#textRight{
+  -webkit-animation: movingRight 3s normal;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  				animation-fill-mode: forwards;
 }
+
+ @-webkit-keyframes movingLeft {
+  0%   {-webkit-transform: translate(-1em,0);}
+  100% {-webkit-transform: translate(0.2em,0);}
+}
+
+@-webkit-keyframes movingRight {
+  0%   {-webkit-transform: translate(1em,0);}
+  100% {-webkit-transform: translate(-0.2em,0);}
+}
+
+@-webkit-keyframes fade {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+/* -----------------------------------------------------
+ * DON'T KNOW WHAT THE BELOW DOES,BUT DON'T WANT TO BREAK THINGS
+ * ------------------------------------------------------*/
+
+
+// *{
+// 	box-sizing: border-box;
+// }
 
 .banner-left {
 	float: left;
@@ -188,8 +211,9 @@ button.order{
 	font-size: 1.5em;
 }
 
-#login-buttons-password{
+.login-button {
 	cursor: pointer;
+	color: #008CBA;
 }
 
 
@@ -212,81 +236,13 @@ button.order{
   	width: 100%;
   	margin: 30px 0;
   }
-
-
-  // .logo-bar {
-  // 	.header-title {
-  // 		border: red 1;
-  // 		margin: 10% 0;
-  // 		font-size: 400%;
-  // 		width: 33%;
-  // 	}
-  // 	.main-logo {
-  // 		border: blue;
-  // 		width: 60%;
-  // 		height: auto;
-  // 	}
-  // }
 }
+
 
 @media only screen and (max-width: $media-break-phone){
 	.main-header {
   	width: 100%;
-  	margin: 300x 0;
-  }
+  	margin: 300px 0;
 
-}
-
-/* -----------------------------------------------------
- * Animations
- * ------------------------------------------------------*/
-
-
-.fade{
-  -webkit-animation: fade 3s normal;
-
-}
-
-#textLeft{
-  -webkit-animation: movingLeft 3s normal;
-  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
-  animation-fill-mode: forwards;
-
-}
-
-#textRight{
-  -webkit-animation: movingRight 3s normal;
-  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
-  animation-fill-mode: forwards;
-
-}
-
- @-webkit-keyframes movingLeft {
-  0% {
-    -webkit-transform: translate(-1em,0);
-  }
-  100% {
-    -webkit-transform: translate(0.7em,0);
   }
 }
-
-@-webkit-keyframes movingRight {
-  0% {
-    -webkit-transform: translate(1em,0);
-  }
-  100% {
-    -webkit-transform: translate(-0.7em,0);
-  }
-}
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-
-

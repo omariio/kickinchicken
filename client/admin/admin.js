@@ -7,6 +7,7 @@ Template.admin.helpers({
     }
   },
   status: function(){
+    alert("this ran")
     var groupItems = Items.find({group:this.group.name}).fetch();
     var count = 0;
     _.forEach(groupItems, function(n){
@@ -56,7 +57,7 @@ Template.admin.events({
   'change .checkbox-group-visible': function(event){
     Meteor.call("editGroupVisibility", event.target.checked, this.group.name);
   },
-  "click #toggleStore": function(event) {
+  'click #toggleStore': function(event) {
     Meteor.call("toggleStore", !event.target.value);
     return false;
   }

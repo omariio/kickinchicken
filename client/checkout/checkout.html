@@ -3,49 +3,49 @@
 <template name="checkout">
 	<!-- <h1 align="center"> Tell us where to go. </h1> -->
 	<!-- <br> -->
-	<form data-abide id="submit-order" action="/submitted">
+	<form class="checkout-form" data-abide id="submit-order" action="/submitted">
 
 	  {{ #if openNow }}
-	  	<input type="hidden" id="time" form="submit-order" name="time" value="{{currentTime}}">
+	  	<input class="checkout-input" type="hidden" id="time" form="submit-order" name="time" value="{{currentTime}}">
 	  {{ else }}
 			<div class="checkout-padded">
-				<label class="large" for="time"> Pre-order time:
-					<input type="time" id="time" name="time"> 
+				<label class="large" for="time"> Delivery time:
+					<input class="checkout-input" type="time" id="time" name="time">
 					(put 9:00 PM if you want it delivered as soon as we open!)
 				</label>
 			</div>
 		{{ /if }}
 
-		<div class="checkout-padded"> 
+		<div class="checkout-padded">
 			<label class="checkout" for="firstname">
-				<input type="text" id="firstname" placeholder="First Name" required/>
+				<input class="checkout-input" type="text" id="firstname" placeholder="First Name" required/>
 			</label>
 			<label class="checkout" for="lastname">
-				<input type="text" id="lastname" placeholder="Last Name" required/>
+				<input class="checkout-input" type="text" id="lastname" placeholder="Last Name" required/>
 			</label>
 		</div>
 
 			<div class="checkout-padded">
 				<label class="large" for="address">
-					<input type="text" id="address" placeholder="123 Main Street" required/>
+					<input class="checkout-input" type="text" id="address" placeholder="123 Main Street" required/>
 				</label>
 			</div>
 
 			<div class="checkout-padded">
 				<label class="city" for="city">
-					<input type="text" id="city" placeholder="City" required/>
+					<input class="checkout-input" type="text" id="city" placeholder="City" required/>
 				</label>
 				<label class="zip" for="zip">
-					<input type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
+					<input class="checkout-input" type="text" id="zip" placeholder="Zip" required pattern="[0-9]{5}"/>
 				</label>
 				<label class="phone" for="phone">
-					<input type="tel" id="phone" placeholder="Phone Number" required/>
+					<input class="checkout-input" type="tel" id="phone" placeholder="Phone Number" required/>
 				</label>
 			</div>
 
 			<div class="checkout-padded">
 				<label class="large" for="instr">
-					<input type="text" id="instr" placeholder="Special instructions?" />
+					<input class="checkout-input" type="text" id="instr" placeholder="Special instructions?" />
 				</label>
 			</div>
 
@@ -90,6 +90,6 @@
 					<button type="submit" id="submit-order" value="Submit Order">Submit Order</button>
 				</label>
 			</div>
-		</form>
-		<p> <br></p>
+	</form>
+	<p> <br></p>
 </template>

@@ -50,6 +50,7 @@
 
         {{ #if isInRole 'admin' }}
           <div class="row">
+            <div class="small-12 columns">
             <div class="columns small-12 medium-6">
               ^ <a href="/edit/{{_id}}"> Edit Item </a> |
               <a href="#" class="delete"> Delete Item </a>
@@ -66,9 +67,10 @@
                 {{/each}}
               </select>
             </div>
+            </div>
           </div>
         {{ /if }}
-
+        <hr>
       {{/each}}
     </div>
 

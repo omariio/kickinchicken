@@ -211,8 +211,9 @@ button.order{
 	font-size: 1.5em;
 }
 
-#login-buttons-password{
+.login-button {
 	cursor: pointer;
+	color: #008CBA;
 }
 
 
@@ -244,4 +245,4 @@ button.order{
   	margin: 300px 0;
 
   }
- 
+}

@@ -7,7 +7,6 @@ Template.admin.helpers({
     }
   },
   status: function(){
-    alert("this ran")
     var groupItems = Items.find({group:this.group.name}).fetch();
     var count = 0;
     _.forEach(groupItems, function(n){

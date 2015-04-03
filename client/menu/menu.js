@@ -59,7 +59,6 @@ Template.menu.helpers({
   },
   cart: function() {
     var cart = Session.get("cart");
-    console.log(cart)
     return cart && cart.length != 0;
   },
   multPrice: function(quantity, price){

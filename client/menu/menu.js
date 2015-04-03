@@ -68,7 +68,7 @@ Template.menu.helpers({
   groups: function(){
     var self = this;
     return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
-  }
+  },
 });
 
 Template.menu.events({

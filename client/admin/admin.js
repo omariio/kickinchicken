@@ -50,6 +50,9 @@ Template.admin.events({
     Meteor.call("newGroup", $("#text-group-name").val());
     Session.set("creatingGroup", false);
   },
+  'click #button-new-group-cancel': function(event){
+    Session.set("creatingGroup", false);
+  },
   'click .delete-group': function(event){
     Meteor.call("deleteGroup", this.group.name);
   },

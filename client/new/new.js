@@ -14,11 +14,19 @@ Template.new.helpers({
 Template.new.events({
   'click #new-item-submit': function() {
 
+    var quantity = parseInt(document.getElementById("new-item-quantity").value);
+    var position = parseInt(document.getElementById("new-item-position").value);
+
+    if(!quantity || !position)
+      return;
+
     var item = {
       name: document.getElementById("new-item-name").value,
       description: document.getElementById("new-item-description").value,
       price: document.getElementById("new-item-price").value,
-      group: document.getElementById("new-item-group").value
+      group: document.getElementById("new-item-group").value,
+      quantity: quantity,
+      position: position
     }
 
     var files = document.getElementById("new-item-picture").files;
@@ -28,8 +36,8 @@ Template.new.events({
     //if we're editing an already existing item
     if(existingItem){
 
-
       item._id = existingItem._id;
+      item.visible = existingItem.visible;
 
       //if there's a new picture
       if(files[0]){

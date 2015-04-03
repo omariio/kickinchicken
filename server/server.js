@@ -69,8 +69,6 @@ Meteor.methods({
       Items.remove({_id:item._id});
       delete item._id;
     }
-    item.visible = true;
-    item.position = Items.find().count();
     Items.insert(item);
   },
 
@@ -112,6 +110,7 @@ Meteor.methods({
     var cartContents = "";
     for (var i = 0; i < order.cart.length; i++ ) {
       cartContents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
+      Items.update(order.cart[i]._id, {$inc:{quantity: -order.cart[i].cartQuantity}});
     }
 
     /* Email.send({
@@ -120,6 +119,6 @@ Meteor.methods({
       subject: "New Order",
       text: text + cartcontents
     }); */
-  },
+  }
 });
 

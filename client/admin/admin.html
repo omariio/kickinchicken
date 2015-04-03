@@ -19,8 +19,11 @@
 			  </div>
 
         {{#if creatingGroup}}
-          <input type="text" id="text-group-name" placeholder="Group Name"/>
-          <button id="button-new-group-submit"> Submit </button>
+        	<div class="small-12 medium-8 medium-offset-2">
+          		<input type="text" id="text-group-name" placeholder="Group Name"/>
+          		<button id="button-new-group-submit"> Submit </button>
+          		<button id="button-new-group-cancel"> Cancel </button>
+      		</div>
         {{/if}}
         <div class="row">
         	<div class="small-12 medium-8 medium-offset-2">
@@ -29,7 +32,8 @@
 			          <div class="food-group small-12 columns bordered">
 			            <div class="group-title row">Group: {{group.name}}</div>
 			            <span class="row">Show all items <input type="checkbox" class="checkbox-group-visible" {{isGroupVisible}}/>   ({{status}}) </span>
-			            <span class="row">[<a class="delete-group">delete group</a>]</span>
+			            <!--<span class="row">[<a class="delete-group">delete group</a>]</span> -->
+			            <span class="row"> <button class="delete-group"> Delete Group </button> </span>
 			          </div>
 		          </div>
 		        {{/each}}

@@ -14,11 +14,11 @@ Template.admin.helpers({
         count++;
     });
     if(count == 0)
-      return "all items in " + this.group.name + " are hidden.";
+      return "all items in " + this.group.name + " are hidden";
     else if (count == groupItems.length)
-      return "all items in " + this.group.name + " are visible.";
+      return "all items in " + this.group.name + " are visible";
     else
-      return "some items in " + this.group.name + " are visible.";
+      return "some items in " + this.group.name + " are visible";
   },
   isGroupVisible: function(){
     var groupItems = Items.find({group:this.group.name}).fetch();
@@ -39,7 +39,11 @@ Template.admin.helpers({
   groups: function(){
     var self = this;
     return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
-  }
+  },
+  itemsInGroup: function () {
+    var groupItems = Items.find({group:this.group.name}).fetch();
+    return _.map(Items.find({group:this.group.name}).fetch(), function(n) {return {target:self.item, item:n}});
+  },
 });
 
 Template.admin.events({
@@ -48,6 +52,9 @@ Template.admin.events({
   },
   'click #button-new-group-submit': function(event){
     Meteor.call("newGroup", $("#text-group-name").val());
+    Session.set("creatingGroup", false);
+  },
+  'click #button-new-group-cancel': function(event){
     Session.set("creatingGroup", false);
   },
   'click .delete-group': function(event){

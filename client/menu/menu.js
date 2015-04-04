@@ -1,5 +1,8 @@
 
 Template.menu.helpers({
+  lowQuantity: function(){
+    return this.quantity <= 10;
+  },
   isSelectedGroup: function(){
     if(this.group.name == this.target)
       return "selected";
@@ -28,7 +31,7 @@ Template.menu.helpers({
     else
       return Items.find({visible:true}, {sort:{position:1}}).fetch();
   },
-  quantity: function(_id) {
+  quantityCalc: function(_id) {
     var cart = Session.get("cart");
     var q = _.find(cart, function(i){
       return i._id == _id;
@@ -59,7 +62,6 @@ Template.menu.helpers({
   },
   cart: function() {
     var cart = Session.get("cart");
-    console.log(cart)
     return cart && cart.length != 0;
   },
   multPrice: function(quantity, price){
@@ -89,14 +91,13 @@ Template.menu.events({
       if(!cart)
         cart = [];
 
-      item = Items.findOne({_id: id});
+      item = this;
+      item.cartQuantity = 0;
       cart.push(item);
     }
-
-    if(!item.cartQuantity){
-      item.cartQuantity = 0;
-    }
-    item.cartQuantity++;
+    
+    if(item.cartQuantity < this.quantity)
+      item.cartQuantity++;
 
     Session.set("cart", cart);
   },

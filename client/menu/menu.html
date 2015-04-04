@@ -30,7 +30,10 @@
             <div class="">
               <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up" id="item-{{_id}}"></i>
             </div>
-            <div id="quantity-style" class="text-center menu-item-quantity">{{quantity _id}}</div>
+            <div id="quantity-style" class="text-center menu-item-quantity">{{quantityCalc _id}}</div>
+            {{#if lowQuantity}}
+              <span class="quantity-alert">only {{quantity}} left!</span>
+            {{/if}}
             <div>
               <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down" id="item-{{_id}}"></i>
             </div>
@@ -59,22 +62,22 @@
         {{ #if isInRole 'admin' }}
           <div class="row">
             <div class="small-12 columns">
-            <div class="columns small-12 medium-6">
-              ^ <a href="/edit/{{_id}}"> Edit Item </a> |
-              <a href="#" class="delete"> Delete Item </a>
-              <div class="row">
-                <label class="visible-label"><input type="checkbox" class="visible-checkbox" {{isVisible}}/> Item Visible </label>
+              <div class="columns small-12 medium-6">
+                <a href="/edit/{{_id}}"> Edit Item </a> |
+                <a href="#" class="delete"> Delete Item </a>
+                <div class="row">
+                  <label class="visible-label"><input type="checkbox" class="visible-checkbox" {{isVisible}}/> Item Visible </label>
+                </div>
               </div>
-            </div>
-            <div class="columns small-12 medium-4 large-3">
-              <span> Group </span>
-              <select class="select-item-group">
-                <option value="none"> none </option>
-                {{#each groups}}
-                  <option value="{{group.name}}" {{isSelectedGroup}}> {{group.name}} </option>
-                {{/each}}
-              </select>
-            </div>
+              <div class="columns small-12 medium-4 large-3">
+                <span> Group </span>
+                <select class="select-item-group">
+                  <option value="none"> none </option>
+                  {{#each groups}}
+                    <option value="{{group.name}}" {{isSelectedGroup}}> {{group.name}} </option>
+                  {{/each}}
+                </select>
+              </div>
             </div>
           </div>
         {{ /if }}

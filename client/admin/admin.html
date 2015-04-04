@@ -27,17 +27,25 @@
         {{/if}}
         <div class="row">
         	<div class="small-12 medium-8 medium-offset-2">
+        		<div>Deleting a group will change the group of all orphaned items to "none" </div>
 		        {{#each groups}}
 		          <div class="row">
 			          <div class="food-group small-12 columns bordered">
-			            <div class="group-title row">Group: {{group.name}}</div>
-			            <span class="row">Show all items <input type="checkbox" class="checkbox-group-visible" {{isGroupVisible}}/>   ({{status}}) </span>
-			            <!--<span class="row">[<a class="delete-group">delete group</a>]</span> -->
-			            <span class="row"> <button class="delete-group"> Delete Group </button> </span>
+			            <div class="group-title">{{group.name}}</div>
+			            <div class="show-row">Show all items: <input type="checkbox" class="checkbox-group-visible" {{isGroupVisible}}/>   ({{status}}) </div>
+			            <ul>
+				            {{#each itemsInGroup}}
+				            	<li>
+				            		<a href="/edit/{{item._id}}"> {{item.name}} {{#if item.visible}}
+				            		(visible) {{else}} (not visible) {{/if}}
+				            		</a>
+				            	</li>
+				            {{/each}}
+			        	</ul>
+			            <div class="button-row"> <button class="delete-group"> Delete Group </button> </div>
 			          </div>
 		          </div>
 		        {{/each}}
-		        <div>Deleting a group will change the group of all orphaned items to "none" </div>
 		      </div>
 	      </div>
 		  {{/if}}

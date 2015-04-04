@@ -9,10 +9,17 @@
       {{#if isInRole 'admin'}}
         <div class="row">
           <div class="small-12 columns">
+            {{#if items}}
             <a href="/new"> <button> Add item to menu </button> </a>
+            {{/if}}
             <a href="/admin"> <button> Admin panel </button></a>
           </div>
         </div>
+        {{#if noItems}}
+          <div class="menu-item-wrapper row bordered">
+            <a href="/new"> <button id="button-add-first-item"> There aren't any items, yet. Add some items! </button> </a>
+          </div>
+        {{/if}}
       {{/if }}
 
 

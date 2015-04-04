@@ -69,6 +69,12 @@ Template.menu.helpers({
     var self = this;
     return _.map(Groups.find().fetch(), function(n){ return {target:self.group, group:n}});
   },
+  noItems: function() {
+    var i = Items.find({}, {sort:{position:1}}).fetch();
+    if (i.length == 0) {
+      return true;
+    } else {return false;}
+  },
 });
 
 Template.menu.events({

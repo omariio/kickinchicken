@@ -41,6 +41,7 @@ Meteor.publish("switches", function () {
   return Switches.find();
 })
 
+
 Meteor.methods({
   deleteGroup: function(groupName){
     Groups.remove({name:groupName});
@@ -102,7 +103,7 @@ Meteor.methods({
   submitOrder: function(order) {
     var text =  "Pre-order Time: " + order.time + "\n" +
                 "Name: " + order.firstname + " " + order.lastname + "\n" +
-                "Location: " + order.address + " " + order.city + ", " + order.zip + "\n" + 
+                "Location: " + order.address + " " + order.city + ", " + order.zip + "\n" +
                 "Phone: " + order.phone + "\n" +
                 "Instructions: " + order.instr + "\n" +
                 "Payment Type: " + order.payment + "\n" +
@@ -121,4 +122,3 @@ Meteor.methods({
     }); */
   }
 });
-

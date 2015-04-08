@@ -1,4 +1,36 @@
 <template name="calendar">
 	<h1 id="header">Where is the chef cooking today?</h1>
 	<div id="cal"></div>
+		{{#if openEvent}}
+			{{>dialog}}
+		{{/if}}
+</template>
+
+<template name="dialog">
+	<div class="reveal-modal medium" data-reveal area-hidden="true" role="dialog">
+		<div class="content">
+			{{#with event}}
+				<div class="header">
+						<h1>{{title}}</h1>
+						<!-- <h5>{{description}}</h5> -->
+				</div>
+				<div class="footer" style="text-align:center;">
+					<i class="fa fa-calendar"></i>
+					{{location}}
+					<hr>
+					<div style="text-align:center; font-size:2em;">
+						<div class="times">
+							<p class="timesFont"><b>{{formattedTime _start}}</b></p>
+						</div>
+						<div class="times">
+							<img src="angled_chicken_logo.png" width="20%"/>
+						</div>
+						<div class="times">
+							<p class="timesFont"><b>{{formattedTime _end}}</b></p>
+						</div>
+					</div>
+				</div>
+			{{/with}}
+		</div>
+	</div>
 </template>

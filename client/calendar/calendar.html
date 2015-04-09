@@ -11,11 +11,15 @@
 		<div class="content">
 			{{#with event}}
 				<div class="header">
-						<h1>{{title}}</h1>
-						<!-- <h5>{{description}}</h5> -->
+						<div>
+							<i class="fa fa-calendar fa-4x" style="float:left;"></i>
+						</div>
+						<div>
+							<h1 class="cal-title">{{title}}</h1>
+						</div>
+						<!-- <h5 style="text-align:center;">{{description}}</h5> -->
 				</div>
 				<div class="footer" style="text-align:center;">
-					<i class="fa fa-calendar"></i>
 					{{location}}
 					<hr>
 					<div style="text-align:center; font-size:2em;">

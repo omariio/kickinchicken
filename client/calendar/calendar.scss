@@ -1,14 +1,24 @@
 #header{
 	text-align: center;
 }
-.times{
-	display: inline-block;
-}
-.timesFont{
-	font-size:1.2em;
-}
 
 .cal-title{
 	text-align: center;
 	margin-right: 8%;
+}
+
+.timesFont{
+	font-size:1.2em;
+}
+
+.float-left{
+	float: left;
+}
+
+.inline-display{
+	display: inline-block;
+}
+
+.text-center{
+	text-align:center;
 }

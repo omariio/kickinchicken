@@ -1,4 +1,24 @@
+
 Template.new.helpers({
+  comboComponents: function(){
+    return Session.get("combo");
+  },
+  isEditingCombo: function(){
+    return !! Session.get("combo");
+  },
+  isCombo: function(){
+    // initializing the Session variable.  Can't be done in rendered
+    // because the Items collection may not have loaded at render time.
+    Session.set("combo", this.combo);
+
+    if(this.combo)
+      return "checked";
+    else
+      return "";
+  },
+  items: function(){
+    return Items.find();
+  },
   item: function(){
     var _id = Router.current().params._id;
     if(!_id)
@@ -82,5 +102,25 @@ Template.new.events({
         }
       });
     }
+  },
+  "change #new-item-combo": function(event){
+    if(event.target.checked){
+      if(this.combo)
+        Session.set("combo", this.combo);
+      else
+        Session.set("combo", []);
+    }
+    else
+      Session.set("combo", undefined);
+  },
+  "change #new-item-combo-component": function(event){
+    var combo = Session.get("combo");
+    if(!event.target.value || !combo)
+      return;
+
+    combo.push(event.target.value);
+
+    Session.set("combo", combo);
+    event.target.value = undefined;
   }
 })

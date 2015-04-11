@@ -65,6 +65,5 @@ Template.admin.events({
   },
   'click #toggleStore': function(event) {
     Meteor.call("toggleStore", !event.target.value);
-    return false;
   }
 });

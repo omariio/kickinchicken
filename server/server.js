@@ -117,11 +117,16 @@ Meteor.methods({
       Items.update(order.cart[i]._id, {$inc:{quantity: -order.cart[i].cartQuantity}});
     }
 
-    /* Email.send({
-      from: "omariiobleepbloop@gmail.com",
-      to: "omariiobleepbloop@gmail.com",
-      subject: "New Order",
-      text: text + cartcontents
-    }); */
+    _.forEach(Meteor.users.find().fetch(), function(n){
+      if(! n.roles)
+        return;
+
+      Email.send({
+        from: "omariiobleepbloop@gmail.com",
+        to: n.emails[0].address,
+        subject: "New Order",
+        text: text + cartContents
+      });
+    })
   }
 });

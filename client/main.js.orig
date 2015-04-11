@@ -12,9 +12,14 @@ Meteor.startup(function () {
 
 UI.registerHelper("openNow", function() {
 	var storeSwitch = Switches.findOne();
+<<<<<<< HEAD
 	if (storeSwitch)
 		return storeSwitch.state
   return true;
+
+=======
+	return storeSwitch.state
+>>>>>>> 4ebcaf506028dd7ed9127613e7a25868357f557a
 	// 	// returns true if the users local time falls in the hours that the
 	// 	// store is open: 9pm PST to 2AM PST. Time is in minutes
 	// 	var d = new Date;

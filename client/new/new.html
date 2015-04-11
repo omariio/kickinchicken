@@ -1,51 +1,75 @@
 
-
 <template name="new">
   {{#if isInRole 'admin'}}
-
-    <div align="center" class="new-padded">
-      <label class="new">
-        <input type="text" id="new-item-name" value="{{item.name}}" placeholder="Name"/>
-      </label>
-    </div>
-    <div align="center" class="new-padded">
-      <label class="new">
-        <textarea id="new-item-description" placeholder="Item Description"> {{item.description}} </textarea>
-      </label>
-    </div>
-    <div align="center" class="new-padded">
-      <label class="new">
-        <input type="text" id="new-item-price" value="{{item.price}}" placeholder="Price per unit, no dollar sign."/>
-      </label>
-    </div>
-    <div align="center" class="new-padded"> Picture
-      <label class="new">
-        <input type="file" id="new-item-picture" />
-      </label>
-    </div>
-    <div align="center" class="new-padded"> Group
-      <label class="new">
-       <select value="{{item.group}}" id="new-item-group">
-        <option value="none"> none </option>
-        {{#each groups}}
-          <option value="{{name}}"> {{name}} </option>
-        {{/each}}
-      </select>
-      </label>
-    </div>
-    <div align="center" class="new-padded"> Quantity
-      <label class="new">
-        <input type="text" id="new-item-quantity" value="{{item.quantity}}" placeholder="Quantity"/>
-      </label>
-    </div>
-    <div align="center" class="new-padded"> Menu Position
-      <label class="new">
-        <input type="text" id="new-item-position" value="{{item.position}}" placeholder="Menu Position"/>
-      </label>
-    </div>
-    <div align="center">
-      <button id="new-item-submit">Submit</button>
-    </div>
+    {{#with item}}
+      <div align="center" class="new-padded">
+        <label class="new">
+          <input type="text" id="new-item-name" value="{{name}}" placeholder="Name"/>
+        </label>
+      </div>
+      <div align="center" class="new-padded">
+        <label class="new">
+          <textarea id="new-item-description" placeholder="Item Description"> {{description}} </textarea>
+        </label>
+      </div>
+      <div align="center" class="new-padded">
+        <label class="new">
+          <input type="text" id="new-item-price" value="{{price}}" placeholder="Price per unit, no dollar sign."/>
+        </label>
+      </div>
+      <div align="center" class="new-padded"> Picture
+        <label class="new">
+          <input type="file" id="new-item-picture" />
+        </label>
+      </div>
+      <div align="center" class="new-padded"> Group
+        <label class="new">
+         <select value="{{group}}" id="new-item-group">
+          <option value="none"> none </option>
+          {{#each groups}}
+            <option value="{{name}}"> {{name}} </option>
+          {{/each}}
+        </select>
+        </label>
+      </div>
+      <div align="center" class="new-padded"> Combo
+        <label class="new">
+          <input type="checkbox" id="new-item-combo" {{isCombo}}/>
+        </label>
+      </div>
+      {{#if isEditingCombo}}
+        <div align="center" class="new-padded">
+          <p> Combos are made up of items that already exist.  Purchasing a combo will reduce the quantity of all linked items by one.</p>
+          {{#each comboComponents}}
+            <h4> {{this}} </h4>
+          {{/each}}
+          {{#if thereAreComponents}}
+            <button class="button-clear-combo-components"> clear </button>
+          {{/if}}
+          <p> New Component </p>
+          <select id="new-item-combo-component">
+            <option></option>
+            {{#each items}}
+              <option value="{{name}}"> {{name}} </option>
+            {{/each}}
+          </select>
+        </div>
+      {{else}}
+        <div align="center" class="new-padded"> Quantity
+          <label class="new">
+            <input type="text" id="new-item-quantity" value="{{quantity}}" placeholder="Quantity"/>
+          </label>
+        </div>
+      {{/if}}
+      <div align="center" class="new-padded"> Menu Position
+        <label class="new">
+          <input type="text" id="new-item-position" value="{{position}}" placeholder="Menu Position"/>
+        </label>
+      </div>
+      <div align="center">
+        <button id="new-item-submit">Submit</button>
+      </div>
+    {{/with}}
   {{else}}
     You lost, punk?
   {{/if}}

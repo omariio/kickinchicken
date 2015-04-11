@@ -37,7 +37,10 @@ Template.new.helpers({
 Template.new.events({
   'click #new-item-submit': function() {
 
-    var quantityString = document.getElementById("new-item-quantity").value
+    var quantityString = ""
+    if(document.getElementById("new-item-quantity"))
+      quantityString = document.getElementById("new-item-quantity").value
+
     var positionString = document.getElementById("new-item-position").value
 
     if(quantityString.length == 0)
@@ -56,6 +59,7 @@ Template.new.events({
       description: document.getElementById("new-item-description").value,
       price: document.getElementById("new-item-price").value,
       group: document.getElementById("new-item-group").value,
+      combo: Session.get("combo"),
       quantity: quantity,
       position: position
     }

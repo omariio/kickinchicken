@@ -16,7 +16,6 @@ UI.registerHelper("openNow", function() {
 	if (storeSwitch)
 		return storeSwitch.state
   return true;
-
 =======
 	return storeSwitch.state
 >>>>>>> 4ebcaf506028dd7ed9127613e7a25868357f557a

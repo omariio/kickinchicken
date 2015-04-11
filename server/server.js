@@ -94,8 +94,11 @@ Meteor.methods({
     if (!user || !user.roles) {
       throw new Meteor.Error(403, "Access denied");
     }
-    Switches.remove({});
-    Switches.insert({state: state, createdAt: new Date()});
+    if (Switches.findOne()) {
+      Switches.update({_id: Switches.findOne()._id}, {state: state, createdAt: new Date()});
+    } else {
+      Switches.insert({state: state, createdAt: new Date()})
+    }
     var state = Switches.findOne().state ? "opened" : "closed"
     console.log("The store has been " + state + " on " + new Date());
   },

@@ -12,7 +12,8 @@ Meteor.startup(function () {
 
 UI.registerHelper("openNow", function() {
 	var storeSwitch = Switches.findOne();
-	//return storeSwitch.state
+	if (storeSwitch)
+		return storeSwitch.state
   return true;
 
 	// 	// returns true if the users local time falls in the hours that the

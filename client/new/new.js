@@ -34,8 +34,17 @@ Template.new.helpers({
 Template.new.events({
   'click #new-item-submit': function() {
 
-    var quantity = parseInt(document.getElementById("new-item-quantity").value);
-    var position = parseInt(document.getElementById("new-item-position").value);
+    var quantityString = document.getElementById("new-item-quantity").value
+    var positionString = document.getElementById("new-item-position").value
+
+    if(quantityString.length == 0)
+      quantityString = 0;
+    if(positionString.length == 0)
+      positionString = 0;
+
+    var quantity = parseInt(quantityString);
+    var position = parseInt(positionString);
+
     if(isNaN(quantity) || isNaN(position))
       return;
 
@@ -120,5 +129,8 @@ Template.new.events({
 
     Session.set("combo", combo);
     event.target.value = undefined;
+  },
+  "click .button-clear-combo-components": function(event){
+    Session.set("combo", []);
   }
 })

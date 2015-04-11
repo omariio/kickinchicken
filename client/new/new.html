@@ -41,9 +41,9 @@
         <div align="center" class="new-padded">
           <p> Combos are made up of items that already exist.  Purchasing a combo will reduce the quantity of all linked items by one.</p>
           {{#each comboComponents}}
-            <button> delete </button>
-            <p> {{this}} </p>
+            <h4> {{this}} </h4>
           {{/each}}
+          <button class="button-clear-combo-components"> delete </button>
           <p> New Component </p>
           <select id="new-item-combo-component">
             <option></option>

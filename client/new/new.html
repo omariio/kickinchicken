@@ -43,7 +43,9 @@
           {{#each comboComponents}}
             <h4> {{this}} </h4>
           {{/each}}
-          <button class="button-clear-combo-components"> delete </button>
+          {{#if thereAreComponents}}
+            <button class="button-clear-combo-components"> clear </button>
+          {{/if}}
           <p> New Component </p>
           <select id="new-item-combo-component">
             <option></option>

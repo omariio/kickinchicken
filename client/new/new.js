@@ -1,5 +1,8 @@
 
 Template.new.helpers({
+  thereAreComponents: function(){
+    return Session.get("combo").length > 0;
+  },
   comboComponents: function(){
     return Session.get("combo");
   },

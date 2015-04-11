@@ -1,8 +1,31 @@
+
 Template.new.helpers({
+  thereAreComponents: function(){
+    return Session.get("combo").length > 0;
+  },
+  comboComponents: function(){
+    return Session.get("combo");
+  },
+  isEditingCombo: function(){
+    return !! Session.get("combo");
+  },
+  isCombo: function(){
+    // initializing the Session variable.  Can't be done in rendered
+    // because the Items collection may not have loaded at render time.
+    Session.set("combo", this.combo);
+
+    if(this.combo)
+      return "checked";
+    else
+      return "";
+  },
+  items: function(){
+    return Items.find();
+  },
   item: function(){
     var _id = Router.current().params._id;
     if(!_id)
-      return undefined;
+      return {};
 
     return Items.findOne({_id:_id});
   },
@@ -14,10 +37,21 @@ Template.new.helpers({
 Template.new.events({
   'click #new-item-submit': function() {
 
-    var quantity = parseInt(document.getElementById("new-item-quantity").value);
-    var position = parseInt(document.getElementById("new-item-position").value);
+    var quantityString = ""
+    if(document.getElementById("new-item-quantity"))
+      quantityString = document.getElementById("new-item-quantity").value
 
-    if(!quantity || !position)
+    var positionString = document.getElementById("new-item-position").value
+
+    if(quantityString.length == 0)
+      quantityString = 0;
+    if(positionString.length == 0)
+      positionString = 0;
+
+    var quantity = parseInt(quantityString);
+    var position = parseInt(positionString);
+
+    if(isNaN(quantity) || isNaN(position))
       return;
 
     var item = {
@@ -25,6 +59,7 @@ Template.new.events({
       description: document.getElementById("new-item-description").value,
       price: document.getElementById("new-item-price").value,
       group: document.getElementById("new-item-group").value,
+      combo: Session.get("combo"),
       quantity: quantity,
       position: position
     }
@@ -65,7 +100,6 @@ Template.new.events({
     }
     //else, it's a completely new item
     else{
-
       //a picture is required
       if(!files[0])
         return;
@@ -82,5 +116,28 @@ Template.new.events({
         }
       });
     }
+  },
+  "change #new-item-combo": function(event){
+    if(event.target.checked){
+      if(this.combo)
+        Session.set("combo", this.combo);
+      else
+        Session.set("combo", []);
+    }
+    else
+      Session.set("combo", undefined);
+  },
+  "change #new-item-combo-component": function(event){
+    var combo = Session.get("combo");
+    if(!event.target.value || !combo)
+      return;
+
+    combo.push(event.target.value);
+
+    Session.set("combo", combo);
+    event.target.value = undefined;
+  },
+  "click .button-clear-combo-components": function(event){
+    Session.set("combo", []);
   }
 })

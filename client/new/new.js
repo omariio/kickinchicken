@@ -22,7 +22,7 @@ Template.new.helpers({
   item: function(){
     var _id = Router.current().params._id;
     if(!_id)
-      return undefined;
+      return {};
 
     return Items.findOne({_id:_id});
   },
@@ -36,8 +36,7 @@ Template.new.events({
 
     var quantity = parseInt(document.getElementById("new-item-quantity").value);
     var position = parseInt(document.getElementById("new-item-position").value);
-
-    if(!quantity || !position)
+    if(isNaN(quantity) || isNaN(position))
       return;
 
     var item = {
@@ -85,7 +84,6 @@ Template.new.events({
     }
     //else, it's a completely new item
     else{
-
       //a picture is required
       if(!files[0])
         return;

@@ -1,5 +1,11 @@
 
 Template.menu.helpers({
+  fQuantity: function(){
+    if(this.combo)
+      return "combo";
+    else
+      return this.quantity;
+  },
   lowQuantity: function(){
     return this.quantity <= 10;
   },

@@ -28,14 +28,12 @@
           <div class="small-2 columns text-center menu-up-down">
 
             <div class="">
-              <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up" id="item-{{_id}}"></i>
+              <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up"></i>
             </div>
             <div id="quantity-style" class="text-center menu-item-quantity">{{quantityCalc _id}}</div>
-            {{#if lowQuantity}}
-              <span class="quantity-alert">only {{quantity}} left!</span>
-            {{/if}}
+            <span class="red">{{quantityAlert}}</span>
             <div>
-              <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down" id="item-{{_id}}"></i>
+              <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down"></i>
             </div>
 
           </div>
@@ -93,12 +91,21 @@
     <div id="cart-wrapper" class="small-12 medium-4 large-3 columns bordered">
       {{#each cartItems}}
         <div class="row">
-          <div class="column small-9 large-9">
-            <h4>{{cartQuantity}} x {{name}}</h4>
-          </div>
-          <div class="column small-3 large-3">
-            <h4> ${{multPrice cartQuantity price}} </h4>
-          </div>
+          {{#if tooMuch}}
+            <div class="column small-9 large-9">
+              <h4 class="red">{{cartQuantity}} x {{name}}</h4>
+            </div>
+            <div class="column small-3 large-3">
+              <h4 class="red"> ${{multPrice cartQuantity price}} </h4>
+            </div>
+          {{else}}
+            <div class="column small-9 large-9">
+              <h4>{{cartQuantity}} x {{name}}</h4>
+            </div>
+            <div class="column small-3 large-3">
+              <h4> ${{multPrice cartQuantity price}} </h4>
+            </div>
+          {{/if}}
         </div>
       {{/each}}
       <div id="cart-total">

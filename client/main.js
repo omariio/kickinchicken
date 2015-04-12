@@ -4,10 +4,10 @@ Meteor.subscribe("announcements");
 Meteor.subscribe("switches");
 
 Meteor.startup(function () {
-    // code to run on server at startup
-    if(!Session.get("cart")){
-      Session.set("cart", []);
-    }
+  // code to run on server at startup
+  if(!Session.get("cart")){
+    Session.set("cart", []);
+  }
 });
 
 UI.registerHelper("openNow", function() {

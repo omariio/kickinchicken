@@ -11,21 +11,25 @@
 		<div class="content">
 			{{#with event}}
 				<div class="header">
-						<h1>{{title}}</h1>
-						<!-- <h5>{{description}}</h5> -->
+						<div>
+							<i class="fa fa-calendar fa-4x float-left"></i>
+						</div>
+						<div>
+							<h1 class="cal-title">{{title}}</h1>
+						</div>
+						<!-- <h5 style="text-align:center;">{{description}}</h5> -->
 				</div>
-				<div class="footer" style="text-align:center;">
-					<i class="fa fa-calendar"></i>
+				<div class="footer text-center">
 					{{location}}
 					<hr>
-					<div style="text-align:center; font-size:2em;">
-						<div class="times">
+					<div class="text-center">
+						<div class="inline-display">
 							<p class="timesFont"><b>{{formattedTime _start}}</b></p>
 						</div>
-						<div class="times">
+						<div class="inline-display">
 							<img src="angled_chicken_logo.png" width="20%"/>
 						</div>
-						<div class="times">
+						<div class="inline-display">
 							<p class="timesFont"><b>{{formattedTime _end}}</b></p>
 						</div>
 					</div>

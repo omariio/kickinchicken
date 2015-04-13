@@ -8,13 +8,17 @@ Template.admin.helpers({
   },
   status: function(){
     var groupItems = Items.find({group:this.group.name}).fetch();
+    if(groupItems.length == 0)
+      return "there are no items in " + this.group.name;
+
     var count = 0;
     _.forEach(groupItems, function(n){
       if(n.visible)
         count++;
     });
+
     if(count == 0)
-      return "all items in " + this.group.name + " are hidden";
+      return "no items in " + this.group.name + " are visible";
     else if (count == groupItems.length)
       return "all items in " + this.group.name + " are visible";
     else

@@ -64,6 +64,10 @@ Template.new.events({
       position: position
     }
 
+    if(Items.findOne({name:item.name})){
+      return;
+    }
+
     var files = document.getElementById("new-item-picture").files;
 
     var _id = Router.current().params._id;

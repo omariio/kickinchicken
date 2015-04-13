@@ -49,6 +49,10 @@ Template.checkout.events({
       payment:document.getElementById("paytype").value,
       time:document.getElementById("time").value
 		};
+
+    //FIXME, eventually the Meteor.call should return a callback that should
+    //be part of the success criteria, but right now I think the form causes a
+    //redirect before the callback happens.
     if(isEnough())
       Session.set("success", true);
     else

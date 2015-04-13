@@ -119,8 +119,9 @@ Meteor.methods({
           Items.update({name:n}, {$inc:{quantity: -order.cart[i].cartQuantity}});
         });
       }
-      else
+      else{
         Items.update(order.cart[i]._id, {$inc:{quantity: -order.cart[i].cartQuantity}});
+      }
     }
 
     _.forEach(Meteor.users.find().fetch(), function(n){
@@ -133,6 +134,6 @@ Meteor.methods({
         subject: "New Order",
         text: text + cartContents
       });
-    })
+    });
   }
 });

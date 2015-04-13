@@ -52,9 +52,9 @@ Template.checkout.events({
 		Session.set("cart",[]);
 		Meteor.call("submitOrder", order, function (error, result) {
 			if (error) {
-        Session.set("success", "false");
+        Session.set("success", false);
 			} else {
-				Session.set("success", "true");
+				Session.set("success", true);
 			}
 		});
 	}

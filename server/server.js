@@ -113,8 +113,17 @@ Meteor.methods({
                 "Order: \n";
     var cartContents = "";
     for (var i = 0; i < order.cart.length; i++ ) {
-      cartContents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
-      Items.update(order.cart[i]._id, {$inc:{quantity: -order.cart[i].cartQuantity}});
+      if(order.cart[i].cartQuantity > 0){
+        cartContents += order.cart[i].name + " x " + order.cart[i].cartQuantity + " \n ";
+        if(order.cart[i].combo){
+          _.forEach(order.cart[i].combo, function(n){
+            Items.update({name:n}, {$inc:{quantity: -order.cart[i].cartQuantity}});
+          });
+        }
+        else{
+          Items.update(order.cart[i]._id, {$inc:{quantity: -order.cart[i].cartQuantity}});
+        }
+      }
     }
 
     _.forEach(Meteor.users.find().fetch(), function(n){
@@ -127,6 +136,6 @@ Meteor.methods({
         subject: "New Order",
         text: text + cartContents
       });
-    })
+    });
   }
 });

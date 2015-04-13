@@ -49,13 +49,11 @@ Template.checkout.events({
       payment:document.getElementById("paytype").value,
       time:document.getElementById("time").value
 		};
+    if(isEnough())
+      Session.set("success", true);
+    else
+      Session.set("success", false);
 		Session.set("cart",[]);
-		Meteor.call("submitOrder", order, function (error, result) {
-			if (error) {
-        Session.set("success", "false");
-			} else {
-				Session.set("success", "true");
-			}
-		});
+		Meteor.call("submitOrder", order);
 	}
 });

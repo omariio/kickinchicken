@@ -1,7 +1,10 @@
 <template name="submitted">
+  <!-- FIXME: figure out how to do validation better-->
 {{#if success}}
-	<h1 align="center"> Your order will arrive soon. </h1>
+	<h1 align="center"> Your order will be there soon. </h1>
 {{else}}
-	<h1 align="center"> Oops. Something went wrong. Please try again. </h1>
+	<h1 align="center"> Something went wrong with your order.</h1>
+  <h1 align="center"> Sorry about that.  If this happened to me I'd be mad as balls. </h1>
+  <h1 align="center"> Feel free to try again. </h1>
 {{/if}}
 </template>

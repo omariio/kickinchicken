@@ -20,22 +20,19 @@
             <a href="/new"> <button id="button-add-first-item"> There aren't any items, yet. Add some items! </button> </a>
           </div>
         {{/if}}
-      {{/if }}
-
+      {{/if}}
 
       {{ #each items }}
         <div class="menu-item-wrapper row bordered">
           <div class="small-2 columns text-center menu-up-down">
 
             <div class="">
-              <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up" id="item-{{_id}}"></i>
+              <i class="arrow fa fa-3x fa-chevron-circle-up menu-item-up"></i>
             </div>
-            <div id="quantity-style" class="text-center menu-item-quantity">{{quantityCalc _id}}</div>
-            {{#if lowQuantity}}
-              <span class="quantity-alert">only {{quantity}} left!</span>
-            {{/if}}
+            <div id="quantity-style" class="text-center menu-item-quantity {{maybeRed}}">{{quantityCalc _id}}</div>
+            <span class="red">{{quantityAlert}}</span>
             <div>
-              <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down" id="item-{{_id}}"></i>
+              <i class="arrow fa fa-3x fa-chevron-circle-down menu-item-down"></i>
             </div>
 
           </div>
@@ -93,12 +90,21 @@
     <div id="cart-wrapper" class="small-12 medium-4 large-3 columns bordered">
       {{#each cartItems}}
         <div class="row">
-          <div class="column small-9 large-9">
-            <h4>{{cartQuantity}} x {{name}}</h4>
-          </div>
-          <div class="column small-3 large-3">
-            <h4> ${{multPrice cartQuantity price}} </h4>
-          </div>
+          {{#if tooMuch}}
+            <div class="column small-9 large-9">
+              <h4 class="red">{{cartQuantity}} x {{name}}</h4>
+            </div>
+            <div class="column small-3 large-3">
+              <h4 class="red"> ${{multPrice cartQuantity price}} </h4>
+            </div>
+          {{else}}
+            <div class="column small-9 large-9">
+              <h4>{{cartQuantity}} x {{name}}</h4>
+            </div>
+            <div class="column small-3 large-3">
+              <h4> ${{multPrice cartQuantity price}} </h4>
+            </div>
+          {{/if}}
         </div>
       {{/each}}
       <div id="cart-total">
@@ -110,13 +116,17 @@
         </h4>
       </div>
       {{#if cart}}
-        <a href="/checkout">
-        {{#if openNow}}
-            <button class="order" id="checkout" type="submit"> Checkout </button>
+        {{#if isEnough}}
+          <a href="/checkout">
+            {{#if openNow}}
+                <button class="order" id="checkout" type="submit"> Checkout </button>
+            {{else}}
+                <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+            {{/if}}
+          </a>
         {{else}}
-            <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+          <span> You have too many of <span class="red"> some items. </span> </span>
         {{/if}}
-        </a>
         <button id="clear"> Clear all</button>
       {{else}}
         <a href="">

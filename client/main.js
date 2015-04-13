@@ -4,10 +4,10 @@ Meteor.subscribe("announcements");
 Meteor.subscribe("switches");
 
 Meteor.startup(function () {
-    // code to run on server at startup
-    if(!Session.get("cart")){
-      Session.set("cart", []);
-    }
+  // code to run on server at startup
+  if(!Session.get("cart")){
+    Session.set("cart", []);
+  }
 });
 
 UI.registerHelper("openNow", function() {
@@ -24,3 +24,18 @@ UI.registerHelper("openNow", function() {
 
 	// 	return (timeOpen < timeNow || timeNow < timeClosed);
 });
+
+UI.registerHelper("isEnough", function(){
+  return isEnough();
+});
+
+var isEnough = function(){
+  var cart = Session.get("cart");
+  var result = true;
+  _.forEach(cart, function(n){
+    var databaseItem = Items.findOne(n._id);
+    if(n.trueQuantity > databaseItem.quantity)
+      result = false;
+  });
+  return result;
+}

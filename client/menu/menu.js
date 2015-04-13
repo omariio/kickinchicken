@@ -1,13 +1,34 @@
 
 Template.menu.helpers({
+  maybeRed: function(){
+    var cart = Session.get("cart");
+    var self = this;
+    var item = _.find(cart, function(n){
+      return self._id == n._id;
+    });
+    if(!item)
+      return "";
+    var result = tooMuch(item, cart);
+    if(result)
+      return "red"
+    return "";
+  },
+  tooMuch: function(){
+    var cart = Session.get("cart");
+    return tooMuch(this, cart);
+  },
   fQuantity: function(){
     if(this.combo)
       return "combo";
     else
       return this.quantity;
   },
-  lowQuantity: function(){
-    return this.quantity <= 10;
+  quantityAlert: function(){
+    var quantity = dynamicQuantity(this);
+    if(quantity <= 10)
+      return "Only " + quantity + " left!"
+    else
+      return ""
   },
   isSelectedGroup: function(){
     if(this.group.name == this.target)
@@ -49,8 +70,8 @@ Template.menu.helpers({
   },
   cartItems: function(){
     var cart = Session.get("cart");
-    _.filter(cart, function(i){
-      return (i.cartQuantity && i.cartQuantity != 0)
+    cart = _.filter(cart, function(i){
+      return (i.cartQuantity != 0)
     });
     return cart;
   },
@@ -87,41 +108,67 @@ Template.menu.helpers({
 
 Template.menu.events({
   'click .menu-item-up': function(event){
-    var id = event.target.id.replace("item-", "");
     var cart = Session.get("cart");
-    var item = _.find(cart, function(i){
-      return i._id == id;
+    var self = this;
+    var item = _.find(cart, function(n){
+      return n._id == self._id;
     });
-
     if(!item){
-      if(!cart)
-        cart = [];
-
       item = this;
       item.cartQuantity = 0;
+      item.trueQuantity = 0;
       cart.push(item);
     }
-    
-    if(item.cartQuantity < this.quantity)
-      item.cartQuantity++;
+
+    item.cartQuantity++;
+
+    if(item.combo){
+      _.forEach(item.combo, function(n){
+        var comboItem = _.find(cart, function(i){
+          return n == i.name;
+        });
+        if(!comboItem){
+          comboItem = Items.findOne({name:n});
+          comboItem.trueQuantity = 0;
+          comboItem.cartQuantity = 0;
+          cart.push(comboItem)
+        }
+        comboItem.trueQuantity++;
+      });
+    }
+    else{
+      item.trueQuantity++;
+    }
 
     Session.set("cart", cart);
   },
   'click .menu-item-down': function(event){
-    var id = event.target.id.replace("item-", "");
     var cart = Session.get("cart");
-    var item = _.find(cart, function(i){
-      return i._id == id;
+    var self = this;
+    var item = _.find(cart, function(n){
+      return n._id == self._id;
     });
-
-    if(!item)
+    if(!item || item.cartQuantity == 0)
       return;
 
     item.cartQuantity--;
-    if(item.cartQuantity <= 0){
-      cart = _.filter(cart, function(n){
-        return n.cartQuantity > 0;
+
+    if(item.combo){
+      _.forEach(item.combo, function(n){
+        var comboItem = _.find(cart, function(i){
+          return n == i.name;
+        });
+        if(!comboItem){
+          comboItem = Items.findOne({name:n});
+          comboItem.trueQuantity = 0;
+          comboItem.cartQuantity = 0;
+          cart.push(comboItem)
+        }
+        comboItem.trueQuantity--;
       });
+    }
+    else{
+      item.trueQuantity--;
     }
 
     Session.set("cart", cart);
@@ -152,3 +199,50 @@ Template.menu.events({
     Session.set("cart", []);
   }
 });
+
+var tooMuch = function(item, cart){
+  if(item.combo){
+    var result = false;
+    _.forEach(item.combo, function(n){
+      var cartItem = _.find(cart, function(i){
+        return i.name == n;
+      });
+      if(!cartItem){
+        console.log("this shouldn't happen");
+        Session.set("cart", []);
+      }
+      var databaseItem = Items.findOne(cartItem._id);
+      //if database hasn't loaded
+      if(!databaseItem)
+        return
+      if(cartItem.trueQuantity > databaseItem.quantity)
+        result = true;
+    });
+    return result;
+  }
+  else{
+    var databaseItem = Items.findOne(item._id);
+    //if database hasn't loaded
+    if(!databaseItem)
+      return false;
+    return item.trueQuantity > databaseItem.quantity;
+  }
+
+}
+
+var dynamicQuantity = function(item){
+  var result = undefined;
+  if(item.combo){
+    _.forEach(item.combo, function(n){
+      var i = Items.findOne({name:n});
+      if(!result)
+        result = i.quantity;
+
+      result = Math.min(result, i.quantity);
+    });
+  }
+  else
+    result = item.quantity;
+
+  return result;
+}

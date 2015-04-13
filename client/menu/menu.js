@@ -1,33 +1,21 @@
 
 Template.menu.helpers({
+  maybeRed: function(){
+    var cart = Session.get("cart");
+    var self = this;
+    var item = _.find(cart, function(n){
+      return self._id == n._id;
+    });
+    if(!item)
+      return "";
+    var result = tooMuch(item, cart);
+    if(result)
+      return "red"
+    return "";
+  },
   tooMuch: function(){
     var cart = Session.get("cart");
-    if(this.combo){
-      var result = false;
-      _.forEach(this.combo, function(n){
-        var item = _.find(cart, function(i){
-          return i.name == n;
-        });
-        if(!item){
-          console.log("this shouldn't happen");
-          Session.set("cart", []);
-        }
-        var databaseItem = Items.findOne(item._id);
-        //if database hasn't loaded
-        if(!databaseItem)
-          return
-        if(item.trueQuantity > databaseItem.quantity)
-          result = true;
-      });
-      return result;
-    }
-    else{
-      var databaseItem = Items.findOne(this._id);
-      //if database hasn't loaded
-      if(!databaseItem)
-        return false;
-      return this.trueQuantity > databaseItem.quantity;
-    }
+    return tooMuch(this, cart);
   },
   fQuantity: function(){
     if(this.combo)
@@ -155,20 +143,32 @@ Template.menu.events({
     Session.set("cart", cart);
   },
   'click .menu-item-down': function(event){
-    var id = event.target.id.replace("item-", "");
     var cart = Session.get("cart");
-    var item = _.find(cart, function(i){
-      return i._id == id;
+    var self = this;
+    var item = _.find(cart, function(n){
+      return n._id == self._id;
     });
-
-    if(!item)
+    if(!item || item.cartQuantity == 0)
       return;
 
     item.cartQuantity--;
-    if(item.cartQuantity <= 0){
-      cart = _.filter(cart, function(n){
-        return n.cartQuantity > 0;
+
+    if(item.combo){
+      _.forEach(item.combo, function(n){
+        var comboItem = _.find(cart, function(i){
+          return n == i.name;
+        });
+        if(!comboItem){
+          comboItem = Items.findOne({name:n});
+          comboItem.trueQuantity = 0;
+          comboItem.cartQuantity = 0;
+          cart.push(comboItem)
+        }
+        comboItem.trueQuantity--;
       });
+    }
+    else{
+      item.trueQuantity--;
     }
 
     Session.set("cart", cart);
@@ -199,6 +199,36 @@ Template.menu.events({
     Session.set("cart", []);
   }
 });
+
+var tooMuch = function(item, cart){
+  if(item.combo){
+    var result = false;
+    _.forEach(item.combo, function(n){
+      var cartItem = _.find(cart, function(i){
+        return i.name == n;
+      });
+      if(!cartItem){
+        console.log("this shouldn't happen");
+        Session.set("cart", []);
+      }
+      var databaseItem = Items.findOne(cartItem._id);
+      //if database hasn't loaded
+      if(!databaseItem)
+        return
+      if(cartItem.trueQuantity > databaseItem.quantity)
+        result = true;
+    });
+    return result;
+  }
+  else{
+    var databaseItem = Items.findOne(item._id);
+    //if database hasn't loaded
+    if(!databaseItem)
+      return false;
+    return item.trueQuantity > databaseItem.quantity;
+  }
+
+}
 
 var dynamicQuantity = function(item){
   var result = undefined;

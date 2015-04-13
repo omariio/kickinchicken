@@ -1,5 +1,15 @@
 
 Template.menu.helpers({
+  isEnough: function(){
+    var cart = Session.get("cart");
+    var result = true;
+    _.forEach(cart, function(n){
+      var databaseItem = Items.findOne(n._id);
+      if(n.trueQuantity > databaseItem.quantity)
+        result = false;
+    });
+    return result;
+  },
   maybeRed: function(){
     var cart = Session.get("cart");
     var self = this;

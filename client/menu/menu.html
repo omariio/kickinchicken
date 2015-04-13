@@ -117,13 +117,17 @@
         </h4>
       </div>
       {{#if cart}}
-        <a href="/checkout">
-        {{#if openNow}}
-            <button class="order" id="checkout" type="submit"> Checkout </button>
+        {{#if isEnough}}
+          <a href="/checkout">
+            {{#if openNow}}
+                <button class="order" id="checkout" type="submit"> Checkout </button>
+            {{else}}
+                <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+            {{/if}}
+          </a>
         {{else}}
-            <button class="order" id="checkout" type="submit"> Pre-Order! </button>
+          <span> You have too many of <span class="red"> some items. </span> </span>
         {{/if}}
-        </a>
         <button id="clear"> Clear all</button>
       {{else}}
         <a href="">

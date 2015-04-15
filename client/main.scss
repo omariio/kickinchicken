@@ -242,7 +242,35 @@ button.order{
 @media only screen and (max-width: $media-break-phone){
 	.main-header {
   	width: 100%;
-  	margin: 300px 0;
-
+  	margin: 10px 0;
   }
+
+  footer {
+  	display: none;
+  	/*
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 80px; /* choose any height 
+    background-color: #fff;
+    */
+  }
+  h1{
+    font-size: 2.525rem;
+  }
+
+  h2 {
+    font-size: 2.5875rem;
+  }
+
+	.logo-bar{
+		margin: 50px 0 50px 0;
+	}
+	
+	.order-button{
+		margin: 90px 0;
+	}
+	.checkout-form{
+
+	}
 }

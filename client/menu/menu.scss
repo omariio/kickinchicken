@@ -110,10 +110,11 @@
   .menu-item-quantity {
     font-size: 5vw;
   }
-
+  
   #cart-wrapper {
     position: relative;
-    border-color: red;
+    border-color: #000;
+    border-width:3px;
     left: 0;
   }
   #cart-notification {

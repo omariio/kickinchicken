@@ -19,8 +19,8 @@ Template.new.helpers({
     else
       return "";
   },
-  nonCombos: function(){
-    return Items.find({combo:undefined});
+  items: function(){
+    return Items.find();
   },
   item: function(){
     var _id = Router.current().params._id;

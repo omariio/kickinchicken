@@ -18,11 +18,9 @@ $chicken-font: 'LIGHTWEIGHT-SERIF';
  * MEDIA QUERY BREAKPOINTS
  * ------------------------------------------------------*/
 
-$media-break-phone: 375px;
+$media-break-phone: 415px;
 $media-break-medium: 500px;
 $media-break-wide: 750px;
-
-
 
 /* -----------------------------------------------------
  * COLORS
@@ -33,6 +31,10 @@ $media-break-wide: 750px;
 /* -----------------------------------------------------
  * GLOBAL STYLES
  * ------------------------------------------------------*/
+
+body{
+  height: 100%;
+}
 
 button, h1, h2, h3, h4, h5, h6, p {
 	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;
@@ -84,7 +86,6 @@ i.menu-item-down {
 button.order{
 	background-color: green;
 }
-
 
 
 /* -----------------------------------------------------
@@ -217,30 +218,30 @@ button.order{
 }
 
 
-@media only screen and (max-width: $media-break-wide) {
-
-	.fbwrapper{
-		position: relative;
-		margin: 0;
-		border-width: 3px;
-		display: inline-block;
-		padding: 5 15px;
-		border-radius: 5px;
-	}
+@media all and (min-width: $media-break-wide) {
 
 }
 
-@media only screen and (max-width: $media-break-medium) {
-
+@media all and (min-width: $media-break-medium) {
   .main-header {
   	width: 100%;
   	margin: 30px 0;
   }
+  #nav{
+    display:none;
+  }
 }
 
+@media all and (min-width: $media-break-phone){
+  footer{
 
-@media only screen and (max-width: $media-break-phone){
-	
+  }
+	#nav{
+  	display:none;
+  }
+}
+
+@media all and (max-width: $media-break-phone){
 	footer {
   	display: none;
   }
@@ -250,7 +251,6 @@ button.order{
   h2 {
     font-size: 2.5875rem;
   }
-	
 	.main-header {
   	width: 100%;
   	margin: 10px 0;

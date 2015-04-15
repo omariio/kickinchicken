@@ -1,4 +1,3 @@
-
 Template.new.helpers({
   thereAreComponents: function(){
     return Session.get("combo").length > 0;
@@ -19,8 +18,8 @@ Template.new.helpers({
     else
       return "";
   },
-  items: function(){
-    return Items.find();
+  nonCombos: function(){
+    return Items.find({combo:undefined});
   },
   item: function(){
     var _id = Router.current().params._id;

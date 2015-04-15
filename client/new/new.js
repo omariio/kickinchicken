@@ -54,6 +54,8 @@ Template.new.events({
     if(isNaN(quantity) || isNaN(position))
       return;
 
+    console.log("jere")
+
     var item = {
       name: document.getElementById("new-item-name").value,
       description: document.getElementById("new-item-description").value,
@@ -64,9 +66,9 @@ Template.new.events({
       position: position
     }
 
-    if(Items.findOne({name:item.name})){
-      return;
-    }
+    // if(Items.findOne({name:item.name})){
+    //   return;
+    // }
 
     var files = document.getElementById("new-item-picture").files;
 

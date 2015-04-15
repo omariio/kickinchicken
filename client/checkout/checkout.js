@@ -48,7 +48,7 @@ Template.checkout.events({
 			phone:document.getElementById("phone").value,	
       payment:document.getElementById("paytype").value,
       time:document.getElementById("time").value
-		};
+    };
 
     //FIXME, eventually the Meteor.call should return a callback that should
     //be part of the success criteria, but right now I think the form causes a

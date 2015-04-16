@@ -1,4 +1,3 @@
-
 Template.new.helpers({
   thereAreComponents: function(){
     return Session.get("combo").length > 0;

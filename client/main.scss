@@ -18,11 +18,9 @@ $chicken-font: 'LIGHTWEIGHT-SERIF';
  * MEDIA QUERY BREAKPOINTS
  * ------------------------------------------------------*/
 
-$media-break-phone: 375px;
+$media-break-phone: 415px;
 $media-break-medium: 500px;
 $media-break-wide: 750px;
-
-
 
 /* -----------------------------------------------------
  * COLORS
@@ -33,6 +31,10 @@ $media-break-wide: 750px;
 /* -----------------------------------------------------
  * GLOBAL STYLES
  * ------------------------------------------------------*/
+
+body{
+  height: 100%;
+}
 
 button, h1, h2, h3, h4, h5, h6, p {
 	font-family: 'LIGHTWEIGHT-SERIF', 'Georgia', serif;
@@ -84,7 +86,6 @@ i.menu-item-down {
 button.order{
 	background-color: green;
 }
-
 
 
 /* -----------------------------------------------------
@@ -217,32 +218,71 @@ button.order{
 }
 
 
-@media only screen and (max-width: $media-break-wide) {
-
-	.fbwrapper{
-		position: relative;
-		margin: 0;
-		border-width: 3px;
-		display: inline-block;
-		padding: 5 15px;
-		border-radius: 5px;
-	}
-
+@media all and (min-width: $media-break-wide) {
+  h1{
+    font-size:3.5rem;
+  }
 }
 
-@media only screen and (max-width: $media-break-medium) {
-
+@media all and (min-width: $media-break-medium) {
   .main-header {
   	width: 100%;
   	margin: 30px 0;
   }
+  #nav{
+    display:none;
+  }
 }
 
-
-@media only screen and (max-width: $media-break-phone){
-	.main-header {
-  	width: 100%;
-  	margin: 300px 0;
+@media all and (min-width: $media-break-phone){
+  footer{
 
   }
+	#nav{
+  	display:none;
+  }
+}
+
+@media all and (max-width: $media-break-phone){
+	footer {
+  	display: none;
+  }
+  h1{
+    font-size: 3.0rem;
+  }
+  h2 {
+    font-size: 3.9875rem;
+  }
+	.main-header {
+  	width: 100%;
+  	margin: 10px 0;
+  }
+  .logo-bar {
+    margin: 50px 0 50px 0;
+  	.header-title {
+  		font-size: 15vw;
+  	}
+  	.main-logo {
+  		width: 15vw;
+  		height: auto;
+
+  	}
+  }
+  .splash-wrapper {
+    .order-button {
+      width: 80%;
+      border-radius: 10px;
+      // height: auto;
+      // background-color: black;
+      // color: white !important;
+
+      margin: 40px 0 100px 0;
+      // font-size: 10vw;
+      // font-family: 'LIGHTWEIGHT-SERIF';
+    }
+  }
+  #textRight{
+    right: 3%;
+  }
+
 }

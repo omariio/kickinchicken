@@ -1,0 +1,219 @@
+p{
+  font-size:2rem;
+}
+
+.csstransforms .cn-wrapper {
+  font-size:1em;
+  width: 26em;
+  height: 26em;
+  overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  bottom: -13.4em;
+  left: 50%;
+  border-radius: 50%;
+  margin-left: -13em;
+  transform: scale(0.1);
+  transition: all .3s ease;
+}
+
+/* transform when button clicked */
+.csstransforms .opened-nav {
+  border-radius: 75%;
+  transform: scale(1);
+}
+
+/* nav button */
+.cn-button {
+  border:none;
+  background:none;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  padding-bottom: 3em;
+  height: 4.5em;
+  width: 4.5em;
+  background-color: #666;
+  position: fixed;
+  left: 49%;
+  margin-left: -1.75em;
+  bottom: -3.75em;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 11;
+}
+
+/* grey overlay when button active */
+.cn-overlay{
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  opacity:0;
+  transition: all .3s ease;
+  z-index:2;
+  pointer-events:none;
+}
+
+.cn-overlay.on-overlay{
+  pointer-events:auto;
+  opacity:1;
+}
+
+.csstransforms .cn-wrapper li {
+  position: absolute;
+  font-size: 1.5em;
+  width: 10em;
+  height: 10em;
+  transform-origin: 100% 100%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  margin-top: -10.3em;
+  margin-left: -10em;
+  transition: border .3s ease;
+}
+
+.csstransforms .cn-wrapper li a {
+  display: block;
+  font-size: 1.08em;
+  height: 14.5em;
+  width: 14.5em;
+  position: absolute;
+  bottom: -7.25em;
+  right: -7.25em;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  padding-top: 1.8em;
+  text-align: center;
+  transform: skew(-50deg) rotate(-70deg) scale(1);
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.csstransforms .cn-wrapper li a span {
+  font-size: 1.1em;
+  opacity: 0.7;
+}
+/* for a central angle x, the list items must be skewed by 90-x degrees
+in our case x=40deg so skew angle is 50deg
+items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
+
+.csstransforms .cn-wrapper li:first-child {
+  transform: rotate(-10deg) skew(50deg);
+}
+
+.csstransforms .cn-wrapper li:nth-child(2) {
+  transform: rotate(30deg) skew(50deg);
+}
+
+.csstransforms .cn-wrapper li:nth-child(3) {
+  transform: rotate(70deg) skew(50deg)
+}
+
+.csstransforms .cn-wrapper li:nth-child(4) {
+  transform: rotate(110deg) skew(50deg);
+}
+
+.csstransforms .cn-wrapper li:nth-child(5) {
+  transform: rotate(150deg) skew(50deg);
+}
+
+.csstransforms .cn-wrapper li:nth-child(odd) a {
+  background-color: #a11313;
+  background-color: hsla(0, 68%, 63%, 1);
+}
+
+.csstransforms .cn-wrapper li:nth-child(even) a {
+  background-color: #a61414;
+  background-color: hsla(0, 78%, 65%, 1);
+}
+
+/* active style */
+.csstransforms .cn-wrapper li.active a {
+  background-color: #b31515;
+  background-color: hsla(0, 88%, 70%, 1);
+}
+
+.csstransforms .cn-wrapper li:not(.active) a:focus {
+  position: fixed; /* fix the "displacement" bug in webkit browsers when using tab key */
+}
+.no-csstransforms .cn-wrapper{
+  font-size:1em;
+  height:5em;
+  width:25.15em;
+  bottom:0;
+  margin-left: -12.5em;
+  overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  left:50%;
+  border:1px solid #ddd;
+}
+
+.no-csstransforms .cn-button{
+  display:none;
+}
+
+.no-csstransforms .cn-wrapper li{
+  position:static;
+  float:left;
+  font-size:1em;
+  height:5em;
+  width:5em;
+  background-color: #eee;
+  text-align:center;
+  line-height:5em;
+}
+
+.no-csstransforms .cn-wrapper li a{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+  color:inherit;
+  font-size:1.3em;
+  border-right: 1px solid #ddd;
+}
+
+.no-csstransforms .cn-wrapper li a:last-child{
+  border:none;
+}
+
+.no-csstransforms .cn-wrapper li a:hover,
+.no-csstransforms .cn-wrapper li a:active,
+.no-csstransforms .cn-wrapper li a:focus{
+  background-color: white;
+}
+
+.no-csstransforms .cn-wrapper li.active a {
+  background-color: #6F325C;
+  color: #fff;
+}
+
+@media screen and (max-width:480px){
+  .csstransforms .cn-wrapper{
+    font-size:.78em;
+  }
+  .cn-button{
+    font-size:1em;
+  }
+  .csstransforms .cn-wrapper li {
+    font-size:1.52em;
+  }
+}
+
+@media all and (max-width:350px){
+  .no-csstransforms .cn-wrapper{
+    width:15.15px;
+    margin-left: -7.5em;
+  }
+  .no-csstransforms .cn-wrapper li{
+    height:1em;
+    width:1em;
+  }
+}

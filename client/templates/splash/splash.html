@@ -13,14 +13,14 @@
         <div class="text-center">
           <a href="/menu" class="button order-button">Pre-Order</a>
         </div>
-        <div class="announcements row text-center center">
-          <div class="small-12 medium-8 medium-offset-2 columns">
-            {{#if isInRole 'admin'}}
-              <a href="/announcement">Add new announcement</a>
-            {{/if}}
-          </div>
-        </div>
       {{/if}}
+      <div class="announcements row text-center center">
+        <div class="small-12 medium-8 medium-offset-2 columns">
+          {{#if isInRole 'admin'}}
+            <a href="/announcement">Add new announcement</a>
+          {{/if}}
+        </div>
+      </div>
       <h2 class="text-center">T<small>u</small>-F 9pm-2am</h2>
       {{#each announcement}}
         <h2 class="text-center">News: {{ body }}</h2>

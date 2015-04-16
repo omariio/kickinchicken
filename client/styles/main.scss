@@ -1,3 +1,4 @@
+@import "variables";
 /*This contains global styles and styles in the main template*/
 
 /*  GLOBAL VARIABLES */
@@ -7,26 +8,26 @@
  * FONTS
  * ------------------------------------------------------*/
 
-$chicken-font: 'LIGHTWEIGHT-SERIF';
-
-@font-face {
-  font-family: $chicken-font;
-  src: url('LIGHTWEIGHT-SERIF.ttf');
-}
-
-/* -----------------------------------------------------
- * MEDIA QUERY BREAKPOINTS
- * ------------------------------------------------------*/
-
-$media-break-phone: 415px;
-$media-break-medium: 500px;
-$media-break-wide: 750px;
-
-/* -----------------------------------------------------
- * COLORS
- * ------------------------------------------------------*/
-
- $light-grey: #888;
+// $chicken-font: 'LIGHTWEIGHT-SERIF';
+//
+// @font-face {
+//   font-family: $chicken-font;
+//   src: url('LIGHTWEIGHT-SERIF.ttf');
+// }
+//
+// /* -----------------------------------------------------
+//  * MEDIA QUERY BREAKPOINTS
+//  * ------------------------------------------------------*/
+//
+// $media-break-phone: 415px;
+// $media-break-medium: 500px;
+// $media-break-wide: 750px;
+//
+// /* -----------------------------------------------------
+//  * COLORS
+//  * ------------------------------------------------------*/
+//
+//  $light-grey: #888;
 
 /* -----------------------------------------------------
  * GLOBAL STYLES
@@ -215,74 +216,4 @@ button.order{
 .login-button {
 	cursor: pointer;
 	color: #008CBA;
-}
-
-
-@media all and (min-width: $media-break-wide) {
-  h1{
-    font-size:3.5rem;
-  }
-}
-
-@media all and (min-width: $media-break-medium) {
-  .main-header {
-  	width: 100%;
-  	margin: 30px 0;
-  }
-  #nav{
-    display:none;
-  }
-}
-
-@media all and (min-width: $media-break-phone){
-  footer{
-
-  }
-	#nav{
-  	display:none;
-  }
-}
-
-@media all and (max-width: $media-break-phone){
-	footer {
-  	display: none;
-  }
-  h1{
-    font-size: 3.0rem;
-  }
-  h2 {
-    font-size: 3.9875rem;
-  }
-	.main-header {
-  	width: 100%;
-  	margin: 10px 0;
-  }
-  .logo-bar {
-    margin: 50px 0 50px 0;
-  	.header-title {
-  		font-size: 15vw;
-  	}
-  	.main-logo {
-  		width: 15vw;
-  		height: auto;
-
-  	}
-  }
-  .splash-wrapper {
-    .order-button {
-      width: 80%;
-      border-radius: 10px;
-      // height: auto;
-      // background-color: black;
-      // color: white !important;
-
-      margin: 40px 0 100px 0;
-      // font-size: 10vw;
-      // font-family: 'LIGHTWEIGHT-SERIF';
-    }
-  }
-  #textRight{
-    right: 3%;
-  }
-
 }

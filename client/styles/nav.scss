@@ -2,6 +2,10 @@ p{
   font-size:2rem;
 }
 
+#nav{
+  display:none;
+}
+
 .csstransforms .cn-wrapper {
   font-size:1em;
   width: 26em;
@@ -193,27 +197,4 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .no-csstransforms .cn-wrapper li.active a {
   background-color: #6F325C;
   color: #fff;
-}
-
-@media screen and (max-width:480px){
-  .csstransforms .cn-wrapper{
-    font-size:.78em;
-  }
-  .cn-button{
-    font-size:1em;
-  }
-  .csstransforms .cn-wrapper li {
-    font-size:1.52em;
-  }
-}
-
-@media all and (max-width:350px){
-  .no-csstransforms .cn-wrapper{
-    width:15.15px;
-    margin-left: -7.5em;
-  }
-  .no-csstransforms .cn-wrapper li{
-    height:1em;
-    width:1em;
-  }
 }

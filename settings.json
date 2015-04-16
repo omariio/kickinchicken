@@ -1,0 +1,10 @@
+{
+  "AWS":{
+    "accessKeyId":"AKIAJ7TPKUZLTKRWSO3Q",
+    "secretAccessKey":"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",
+    "bucket":"kickinchicken"
+  },
+  "email":{
+    "url":"smtp://omariiobleepbloop%40gmail.com:adsfasdf666@smtp.gmail.com:465/"
+  }
+}

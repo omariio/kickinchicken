@@ -63,8 +63,14 @@ Template.new.events({
       position: position
     }
 
-    if(Items.findOne({name:item.name})){
-      return;
+    if(this){
+      if(Items.findOne({$and:[{name:item.name}, {_id:{$not:this._id}}]})){
+        return;
+      }
+    }
+    else{
+      if(Items.findOne({name:item.name}))
+        return;
     }
 
     var files = document.getElementById("new-item-picture").files;

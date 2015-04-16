@@ -34,6 +34,9 @@ var isEnough = function(){
   var result = true;
   _.forEach(cart, function(n){
     var databaseItem = Items.findOne(n._id);
+    if(!databaseItem)
+      return;
+
     if(n.trueQuantity > databaseItem.quantity)
       result = false;
   });

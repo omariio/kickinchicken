@@ -23,8 +23,8 @@ $chicken-font: 'LIGHTWEIGHT-SERIF';
 $light-grey: #888;
 
 // Here we define the lower and upper bounds for each media size
-$small-low: 0em; /* 0, 640px */
-$small-high: 40em;
+$small-low: 0em;      /* 0      */
+$small-high: 40em;    /* 640px  */
 $medium-low: 40.063em;/* 641px  */
 $medium-high: 64em;   /* 1024px */
 $large-low: 64.063em; /* 1025px */

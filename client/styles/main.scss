@@ -152,24 +152,15 @@ button.order{
 // 	box-sizing: border-box;
 // }
 
-.banner-left {
-	float: left;
-	width:50%;
-	height:50%;
-}
-
-.banner-right {
-	float: right;
-}
 
 
-.main-header {
-	background-color: #fff;
-	margin: 50px;
-	margin-left: 100px;
-	margin-right: 100px;
-	min-height: 75px;
-}
+// .main-header {
+// 	background-color: #fff;
+// 	margin: 50px;
+// 	margin-left: 100px;
+// 	margin-right: 100px;
+// 	min-height: 75px;
+// }
 
 .main-logo {
 	text-align: center;
@@ -190,23 +181,6 @@ button.order{
 			background-color: $light-grey;
 		}
 	}
-}
-
-.main-logo,
-.main-nav,
-.main-nav li {
-	display: inline-block;
-}
-
-
-.main-logo a,
-.main-nav a {
-	display: block;
-	color: white;
-	text-decoration: none;
-	text-align: center;
-	padding: 5px 15px;
-	border-radius: 5px;
 }
 
 .footer-cater{

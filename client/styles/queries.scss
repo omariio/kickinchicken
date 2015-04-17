@@ -1,13 +1,10 @@
 @import "variables";
 
-
 @media #{$small-up} {
+}
 
-  }
 @media #{$small-only} {
-  body{
-    display:none;
-  }
+
   //
   // footer {
   //  	display: none;
@@ -55,16 +52,27 @@
   //  .csstransforms .cn-wrapper li {
   //    font-size:1.52em;
   //  }
-  //  .csstransforms .cn-wrapper li {
-  //    font-size:1.52em;
-  //  }
+
+
+  .csstransforms {
+    .cn-wrapper {
+      font-size:.78em;
+      li {
+        font-size:1.52em;
+      }
+    }
+  }
+  .cn-button {
+    font-size:1em;
+  }
 }
 
 @media #{$medium-up} {
-  body{
-    display: none;
+  h1{
+    font-size:3.5rem;
   }
 }
+
 @media #{$medium-only} { }
 
 @media #{$large-up} { }
@@ -74,22 +82,16 @@
 @media #{$xlarge-only} { }
 
 @media #{$xxlarge-up} { }
-@media #{$xxlarge-only} { }
 
 //
 //
 //
 // @media all and (min-width: $media-break-wide) {
-//  h1{
-//    font-size:3.5rem;
-//  }
+
 // }
 //
 // @media all and (min-width: $media-break-medium) {
-//  .main-header {
-//  // 	width: 100%;
-//  	margin: 30px 0;
-//  }
+
 // }
 //
 // @media all and (max-width: $media-break-phone){
@@ -146,15 +148,15 @@
 //
 // // nav
 // @media screen and (max-width:480px){
-//   .csstransforms .cn-wrapper{
-//     font-size:.78em;
-//   }
-//   .cn-button{
-//     font-size:1em;
-//   }
-//   .csstransforms .cn-wrapper li {
-//     font-size:1.52em;
-//   }
+              // .csstransforms .cn-wrapper{
+              //   font-size:.78em;
+              // }
+              // .cn-button{
+              //   font-size:1em;
+              // }
+              // .csstransforms .cn-wrapper li {
+              //   font-size:1.52em;
+              // }
 // }
 //
 // @media all and (max-width:350px){

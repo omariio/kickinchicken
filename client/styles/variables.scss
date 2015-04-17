@@ -45,11 +45,11 @@ $small-only: "#{$screen} and (max-width: #{$small-high})" !default;
 $medium-up: "#{$screen} and (min-width:#{$medium-low})" !default;
 $medium-only: "#{$screen} and (min-width:#{$medium-low)}) and (max-width:#{$medium-high})" !default;
 // stoped here, just any potential avoid errors
-$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
-$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+$large-up: "#{$screen} and (min-width:#{$large-low})" !default;
+$large-only: "#{$screen} and (min-width:#{$large-low}) and (max-width:#{$large-high})" !default;
 
-$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
-$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+$xlarge-up: "#{$screen} and (min-width:#{$xlarge-low})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{$xlarge-low}) and (max-width:#{$xlarge-high})" !default;
 
-$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
-$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+$xxlarge-up: "#{$screen} and (min-width:#{$xxlarge-range})" !default;
+

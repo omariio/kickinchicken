@@ -22,8 +22,8 @@ email@1.0.5
 ewall:foundation@5.5.1
 fastclick@1.0.2
 follower-livedata@1.0.3
-fortawesome:fontawesome@4.2.0_2
-fourseven:scss@2.0.1_2
+fortawesome:fontawesome@4.3.0
+fourseven:scss@2.1.1
 geojson-utils@1.0.2
 html-tools@1.0.3
 htmljs@1.0.3
@@ -42,7 +42,7 @@ jelena:meteor-sidebar-transitions@1.0.0
 jquery@1.11.3
 json@1.0.2
 launch-screen@1.0.1
-lepozepo:s3@5.1.0
+lepozepo:s3@5.1.1
 livedata@1.0.12
 localstorage@1.0.2
 logging@1.0.6
@@ -72,10 +72,10 @@ sha@1.0.2
 spacebars@1.0.5
 spacebars-compiler@1.0.4
 srp@1.0.2
-stevezhu:lodash@1.0.2
+stevezhu:lodash@3.6.0
 templating@1.0.11
 tracker@1.0.5
-u2622:persistent-session@0.2.2
+u2622:persistent-session@0.3.2
 ui@1.0.5
 underscore@1.0.2
 url@1.0.3

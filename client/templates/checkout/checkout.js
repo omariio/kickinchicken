@@ -53,11 +53,28 @@ Template.checkout.events({
     //FIXME, eventually the Meteor.call should return a callback that should
     //be part of the success criteria, but right now I think the form causes a
     //redirect before the callback happens.
-    if(isEnough())
+    if(isEnough()){
       Session.set("success", true);
-    else
+    }
+    else{
       Session.set("success", false);
+    }
+
 		Session.set("cart",[]);
 		Meteor.call("submitOrder", order);
 	}
 });
+
+var isEnough = function(){
+  var cart = Session.get("cart");
+  var result = true;
+  _.forEach(cart, function(n){
+    var databaseItem = Items.findOne(n._id);
+    if(!databaseItem)
+      return;
+
+    if(n.trueQuantity > databaseItem.quantity)
+      result = false;
+  });
+  return result;
+}

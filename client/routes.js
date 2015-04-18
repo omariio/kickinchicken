@@ -38,6 +38,10 @@ Router.route("/announcement", function() {
 	this.render("announcement");
 });
 
+Router.route("/map", function() {
+  this.render("map");
+});
+
 Router.configure({
   layoutTemplate: 'layout'
 });

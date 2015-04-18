@@ -1,37 +1,4 @@
 @import "variables";
-/*This contains global styles and styles in the main template*/
-
-/*  GLOBAL VARIABLES */
-
-
-/* -----------------------------------------------------
- * FONTS
- * ------------------------------------------------------*/
-
-// $chicken-font: 'LIGHTWEIGHT-SERIF';
-//
-// @font-face {
-//   font-family: $chicken-font;
-//   src: url('LIGHTWEIGHT-SERIF.ttf');
-// }
-//
-// /* -----------------------------------------------------
-//  * MEDIA QUERY BREAKPOINTS
-//  * ------------------------------------------------------*/
-//
-// $media-break-phone: 415px;
-// $media-break-medium: 500px;
-// $media-break-wide: 750px;
-//
-// /* -----------------------------------------------------
-//  * COLORS
-//  * ------------------------------------------------------*/
-//
-//  $light-grey: #888;
-
-/* -----------------------------------------------------
- * GLOBAL STYLES
- * ------------------------------------------------------*/
 
 body{
   height: 100%;
@@ -53,6 +20,11 @@ h1, h2 {
 li {
 	list-style: none;
 }
+
+// small {
+//   font-size: 70%;
+//   color: #000000;
+// }
 
 .bordered {
   border-style: solid;
@@ -109,7 +81,6 @@ button.order{
  * Animations
  * ------------------------------------------------------*/
 
-
 .fade{
   -webkit-animation: fade 3s normal;
 
@@ -147,20 +118,6 @@ button.order{
  * DON'T KNOW WHAT THE BELOW DOES,BUT DON'T WANT TO BREAK THINGS
  * ------------------------------------------------------*/
 
-
-// *{
-// 	box-sizing: border-box;
-// }
-
-
-
-// .main-header {
-// 	background-color: #fff;
-// 	margin: 50px;
-// 	margin-left: 100px;
-// 	margin-right: 100px;
-// 	min-height: 75px;
-// }
 
 .main-logo {
 	text-align: center;

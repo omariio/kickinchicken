@@ -5,10 +5,13 @@
     font-size: 4vw;
   }
 }
-
 @media #{$small-only} {
   footer {
    	display: none;
+   }
+   h2 small{
+     font-size: 70%;
+     color: #000;
    }
    h1{
      font-size: 3.0rem;
@@ -16,30 +19,38 @@
    h2 {
      font-size: 3.9875rem;
    }
+   div#textRight{
+     font-size:16vw;
+     right:6%;
+     font-weight:800;
+   }
+   div#textLeft{
+     font-size:16vw;
+     left:3%;
+     font-weight:800;
+   }
+   #hours{
+     padding-bottom: 30px;
+   }
    #nav{
      display: block;
    }
    .main-header {
-   	width: 100%;
-   	margin: 10px 0;
+     	width: 100%;
+     	margin: 10px 0;
    }
    .logo-bar {
-     margin: 50px 0 50px 0;
-   	.header-title {
-   		font-size: 15vw;
-   	}
+    margin: 50px 0 50px 0;
    	.main-logo {
-   		width: 15vw;
-   		height: auto;
+   		width: 13vw;
+
    	}
    }
-   .splash-wrapper {
-     .order-button {
-       width: 80%;
-       border-radius: 10px;
-       margin: 40px 0 100px 0;
-     }
+
+   a.button.order-button{
+     width:80%;
    }
+
   .csstransforms {
     .cn-wrapper {
       font-size:.78em;
@@ -60,17 +71,34 @@
     border-color: #000;
     border-width:3px;
     left: 0;
-    z-index: 0;
+    z-index: 100;
   }
   #cart-notification {
     display: inline-block;
   }
+   #textRight{
+    //  right: 3%;
+     // fix - this is hacky
+   }
+   .csstransforms .cn-wrapper{
+     font-size:.78em;
+   }
+   .cn-button{
+     font-size:1em;
+   }
+     .csstransforms .cn-wrapper li {
+       font-size:1.52em;
+     }
+   .csstransforms .cn-wrapper li {
+     font-size:1.52em;
+   }
 }
 
 @media #{$medium-up} {
   h1{
     font-size:3.5rem;
   }
+
 }
 
 @media #{$medium-only} { }
@@ -82,3 +110,122 @@
 @media #{$xlarge-only} { }
 
 @media #{$xxlarge-up} { }
+
+// @media #{$xxlarge-up} { }
+// @media #{$xxlarge-only} { }
+//
+//
+//
+// @media all and (min-width: $media-break-wide) {
+//  h1{
+//    font-size:3.5rem;
+//  }
+// }
+//
+// @media all and (min-width: $media-break-medium) {
+//  .main-header {
+//  // 	width: 100%;
+//  	margin: 30px 0;
+//  }
+// }
+//
+// @media all and (max-width: $media-break-phone){
+//   footer {
+//    	display: none;
+//    }
+//    h1{
+//      font-size: 3.0rem;
+//    }
+//    h2 {
+//      font-size: 3.9875rem;
+//    }
+//    #nav{
+//      display:block;
+//    }
+//    .main-header {
+//    	width: 100%;
+//    	margin: 10px 0;
+//    }
+//    .logo-bar {
+//      margin: 50px 0 50px 0;
+//    	.header-title {
+//    		font-size: 15vw;
+//    	}
+//    	.main-logo {
+//    		width: 15vw;
+//    		height: auto;
+//    	}
+//    }
+//    .splash-wrapper {
+//      .order-button {
+//        width: 80%;
+//        border-radius: 10px;
+//        margin: 40px 0 100px 0;
+//      }
+//    }
+//    #textRight{
+//      right: 3%;
+//      // fix - this is hacky
+//    }
+//    .csstransforms .cn-wrapper{
+//      font-size:.78em;
+//    }
+//    .cn-button{
+//      font-size:1em;
+//    }
+//    .csstransforms .cn-wrapper li {
+//      font-size:1.52em;
+//    }
+//    .csstransforms .cn-wrapper li {
+//      font-size:1.52em;
+//    }
+//  }
+//
+// // nav
+// @media screen and (max-width:480px){
+//   .csstransforms .cn-wrapper{
+//     font-size:.78em;
+//   }
+//   .cn-button{
+//     font-size:1em;
+//   }
+//   .csstransforms .cn-wrapper li {
+//     font-size:1.52em;
+//   }
+// }
+//
+// @media all and (max-width:350px){
+//   .no-csstransforms .cn-wrapper{
+//     width:15.15px;
+//     margin-left: -7.5em;
+//   }
+//   .no-csstransforms .cn-wrapper li{
+//     height:1em;
+//     width:1em;
+//   }
+// }
+//
+//
+// // menu
+// @media only screen and (max-width: 40em) {
+//
+//   .menu-item-quantity {
+//     font-size: 5vw;
+//   }
+//
+//   #cart-wrapper {
+//     position: relative;
+//     border-color: #000;
+//     border-width:3px;
+//     left: 0;
+//   }
+//   #cart-notification {
+//     display: inline-block;
+//   }
+// }
+//
+// @media only screen and (min-width: 500) {
+//   .menu-item-quantity {
+//     font-size: 4vw;
+//   }
+// }

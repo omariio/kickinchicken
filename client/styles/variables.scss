@@ -52,4 +52,3 @@ $xlarge-up: "#{$screen} and (min-width:#{$xlarge-low})" !default;
 $xlarge-only: "#{$screen} and (min-width:#{$xlarge-low}) and (max-width:#{$xlarge-high})" !default;
 
 $xxlarge-up: "#{$screen} and (min-width:#{$xxlarge-range})" !default;
-

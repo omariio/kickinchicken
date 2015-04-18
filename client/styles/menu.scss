@@ -1,5 +1,4 @@
-@import "variables";
-
+// @import variables
 .red{
   color: red;
 }
@@ -105,3 +104,26 @@
   width: 100%;
   text-shadow: -1px 1px 2px rgba(0,0,0,0.75);
 }
+//
+// @media only screen and (max-width: 40em) {
+//
+//   .menu-item-quantity {
+//     font-size: 5vw;
+//   }
+//
+//   #cart-wrapper {
+//     position: relative;
+//     border-color: #000;
+//     border-width:3px;
+//     left: 0;
+//   }
+//   #cart-notification {
+//     display: inline-block;
+//   }
+// }
+//
+// @media only screen and (min-width: 500) {
+//   .menu-item-quantity {
+//     font-size: 4vw;
+//   }
+// }

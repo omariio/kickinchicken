@@ -27,11 +27,12 @@ Template.checkout.helpers({
 
   totalItem: function(quantity, price) {
   	return (quantity * price);
-  },
-  currentTime: function() {
-    var d = new Date;
-    return d.toLocalTimeString();
   }
+  // currentTime: function() {
+  //   var d = new Date;
+  //   console.log(d);
+  //   return d.toLocalTimeString();
+  // }
 });
 
 Template.checkout.events({

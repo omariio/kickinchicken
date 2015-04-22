@@ -1,3 +1,4 @@
+  
 Meteor.subscribe("items");
 Meteor.subscribe("groups");
 Meteor.subscribe("announcements");
@@ -42,3 +43,11 @@ var isEnough = function(){
   });
   return result;
 }
+
+// Template.layout.rendered = function(){
+//   $('html').addClass('hidden');
+//   $(document).ready(function(){
+//       $('html').removeClass('hidden');
+//   });
+// }
+

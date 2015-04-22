@@ -1,36 +1,4 @@
-/*This contains global styles and styles in the main template*/
-
-/*  GLOBAL VARIABLES */
-
-
-/* -----------------------------------------------------
- * FONTS
- * ------------------------------------------------------*/
-
-$chicken-font: 'LIGHTWEIGHT-SERIF';
-
-@font-face {
-  font-family: $chicken-font;
-  src: url('LIGHTWEIGHT-SERIF.ttf');
-}
-
-/* -----------------------------------------------------
- * MEDIA QUERY BREAKPOINTS
- * ------------------------------------------------------*/
-
-$media-break-phone: 415px;
-$media-break-medium: 500px;
-$media-break-wide: 750px;
-
-/* -----------------------------------------------------
- * COLORS
- * ------------------------------------------------------*/
-
- $light-grey: #888;
-
-/* -----------------------------------------------------
- * GLOBAL STYLES
- * ------------------------------------------------------*/
+@import "variables";
 
 body{
   height: 100%;
@@ -49,6 +17,11 @@ h1, h2 {
 	margin-right: auto;
 }
 
+h2 small {
+  font-size: 70%;
+  color: #000;
+}
+
 li {
 	list-style: none;
 }
@@ -56,8 +29,15 @@ li {
 .bordered {
   border-style: solid;
   border-color: black;
-  border-width: 0.3em;
+  border-width: 0.2em;
   border-radius: 5px;
+  // border:30px solid transparent;
+  // border-image:url(borderKC5.png) 30 30 round;
+}
+
+.bordered-menu-item{
+  border-style: solid;
+  border-width: 1px;
 }
 
 button {
@@ -77,6 +57,7 @@ i.menu-item-up {
 	color: green;
 	}
 }
+
 i.menu-item-down {
 	&:hover{
 	color: green;
@@ -111,14 +92,12 @@ button.order{
 
 .fade{
   -webkit-animation: fade 3s normal;
-
 }
 
 #textLeft{
   -webkit-animation: movingLeft 3s normal;
   -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
   				animation-fill-mode: forwards;
-
 }
 
 #textRight{
@@ -141,6 +120,7 @@ button.order{
   0%   {opacity: 0;}
   100% {opacity: 1;}
 }
+
 
 /* -----------------------------------------------------
  * DON'T KNOW WHAT THE BELOW DOES,BUT DON'T WANT TO BREAK THINGS
@@ -215,74 +195,4 @@ button.order{
 .login-button {
 	cursor: pointer;
 	color: #008CBA;
-}
-
-
-@media all and (min-width: $media-break-wide) {
-  h1{
-    font-size:3.5rem;
-  }
-}
-
-@media all and (min-width: $media-break-medium) {
-  .main-header {
-  	width: 100%;
-  	margin: 30px 0;
-  }
-  #nav{
-    display:none;
-  }
-}
-
-@media all and (min-width: $media-break-phone){
-  footer{
-
-  }
-	#nav{
-  	display:none;
-  }
-}
-
-@media all and (max-width: $media-break-phone){
-	footer {
-  	display: none;
-  }
-  h1{
-    font-size: 3.0rem;
-  }
-  h2 {
-    font-size: 3.9875rem;
-  }
-	.main-header {
-  	width: 100%;
-  	margin: 10px 0;
-  }
-  .logo-bar {
-    margin: 50px 0 50px 0;
-  	.header-title {
-  		font-size: 15vw;
-  	}
-  	.main-logo {
-  		width: 15vw;
-  		height: auto;
-
-  	}
-  }
-  .splash-wrapper {
-    .order-button {
-      width: 80%;
-      border-radius: 10px;
-      // height: auto;
-      // background-color: black;
-      // color: white !important;
-
-      margin: 40px 0 100px 0;
-      // font-size: 10vw;
-      // font-family: 'LIGHTWEIGHT-SERIF';
-    }
-  }
-  #textRight{
-    right: 3%;
-  }
-
 }

@@ -1,0 +1,48 @@
+$chicken-font: 'LIGHTWEIGHT-SERIF';
+
+/* -----------------------------------------------------
+* FONTS
+* ------------------------------------------------------*/
+
+@font-face {
+  font-family: $chicken-font;
+  src: url('LIGHTWEIGHT-SERIF.ttf');
+}
+
+/* -----------------------------------------------------
+* COLORS
+* ------------------------------------------------------*/
+
+$light-grey: #888;
+$activeColor: #fda216;
+
+// Here we define the lower and upper bounds for each media size
+$small-low: 0em;      /* 0      */
+$small-high: 40em;    /* 640px  */
+$medium-low: 40.063em;/* 641px  */
+$medium-high: 64em;   /* 1024px */
+$large-low: 64.063em; /* 1025px */
+$large-high: 90em;    /* 1440px */
+$xlarge-low: 90.063em;/* 1441px */
+$xlarge-high: 120em;  /* 1920px */
+$xxlarge-range: 120.063em; /* 1921px */
+
+// Media Queries
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{$small-high})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{$medium-low})" !default;
+$medium-only: "#{$screen} and (min-width:#{$medium-low)}) and (max-width:#{$medium-high})" !default;
+// stoped here, just any potential avoid errors
+$large-up: "#{$screen} and (min-width:#{$large-low})" !default;
+$large-only: "#{$screen} and (min-width:#{$large-low}) and (max-width:#{$large-high})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{$xlarge-low})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{$xlarge-low}) and (max-width:#{$xlarge-high})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{$xxlarge-range})" !default;

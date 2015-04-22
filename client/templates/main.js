@@ -43,11 +43,3 @@ var isEnough = function(){
   });
   return result;
 }
-
-// Template.layout.rendered = function(){
-//   $('html').addClass('hidden');
-//   $(document).ready(function(){
-//       $('html').removeClass('hidden');
-//   });
-// }
-

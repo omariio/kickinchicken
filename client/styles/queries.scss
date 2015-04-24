@@ -18,13 +18,13 @@
 
   div#textRight{
     font-size:16vw;
-    right:6%;
+    right:8%;
     font-weight:800;
   }
 
   div#textLeft{
     font-size:16vw;
-    left:3%;
+    // left:3%;
     font-weight:800;
   }
 
@@ -103,6 +103,13 @@
 
 // > 1024 - 1440
 @media #{$large-only} { 
+  img{
+    max-height: 200px;
+  }
+
+  button.order{
+    
+  }
 
 }
 
